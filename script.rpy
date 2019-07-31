@@ -9,6 +9,9 @@ define c = Character("Cult Member One")
 define b = Character("Studded Belt Company")
 define s = Character("Store Manager")
 define x = Character("Policeman One")
+define l = Character("Little Suzie")
+define h = Character("Demmy's Worker")
+define q = Character("Helen")
 
 #NEEDED IMAGES:
 #School
@@ -30,7 +33,7 @@ label start:
 
     menu:
         "backdoor":
-            jump mandDateD3Setup
+            jump endOfMandDates
 
     "It's time to look at your new dorm!"
     #BG = dorm building
@@ -50,6 +53,8 @@ label start:
          #BG = transition
          "You and Marvin walk to class together."
          #BG = classroom
+         m "HIIIISSSSSS"
+         p "{i} What the heck?? {/i}"
          m "Sit next to me."
          jump kingintro
     label ignore:
@@ -160,7 +165,7 @@ label start:
                     jump MandM
 
         label Skittles:
-            m "A gourmet choice!"
+            m " Hiss Hiss! A gourmet choice!"
             m "What color do you choose? This is a vital question, so make sure you think before answering."
             menu:
                 "Red":
@@ -241,7 +246,7 @@ label start:
         "Woah there momma goose ! Is he...Kissing your feet???"
         "Marvin smacks his frog lips."
         #Show MarvinBashful
-        m "Sorry...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
+        m "Sorry....Hiss hisss...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
         "Marvin walks away and you turn into your dorm for the night."
 
         jump mandDateD2
@@ -704,11 +709,224 @@ label start:
         " He pats your shoulder and kisses your foot."
         "You're a little weirded out, but you're too tired to care. You turn into your dorm for the night."
         jump endOfMandDates
-
     label altEndKingDate1:
         "You spend one night in jail."
         x "Alright. Today's your lucky day. You're being released on account of good behaviour."
         "You run out of your cell, and hurry back to your dorm room."
         jump endOfMandDates
+
+    #all approaches for date 1
+    # listOfApproaches = ["emoApproach", "marvinApproach", "kingApproach"]
     label endOfMandDates:
-        return
+        "A week passes..."
+        "One day during lunch..."
+        "You see the three frogs in line near each other at the cafeteria."
+        "Which one do you wave to?"
+        menu:
+            "xX_DarkRaven496283_Xx":
+                jump emoApproach
+            "Marvin":
+                jump marvinApproach
+            "King Samson II":
+                jump kingApproach
+        label emoApproach:
+            e "r-rawr... hey cutie >///> i-if you're not doing anything later...m-ayBee u would wanna hang out with me today? XD"
+            "xX_DarkRaven496283_Xx leaps away, hiding his frog face with his fringe along the way."
+            "Maybe you should meet up with him after class..."
+            jump emoDate2
+            #jump nextApproach
+        label marvinApproach:
+            m "Hey there you little pumpkin. I have a special date planned for us today. Do you wanna go or not? You don't have to...unless...Hiss HIss"
+            "Marvin leaps away leaving you wondering about the date."
+            "Maybe you should meet up with him after class..."
+            jump marvinDate2
+        label kingApproach:
+            k "GOOD AFTERNOON MY HIGHNESS TO BE. ARE YOU BUSY TODAY? IF NOT PLEASE MEET WITH ME WHEN YOU ARE FREE."
+            "King Samson II leaps away, pushing people aside in the process."
+            "Maybe you should meet with him later..."
+            jump kingDate2
+        # jump emoApproach
+        # "Someone else seems to be approaching you..."
+        # jump marvinApproach
+        # "Who do you want to meet up with later?"
+        # menu:
+        #     "xX_DarkRaven496283_Xx":
+        #         jump emoDate2
+        #     "Marvin":
+        #         jump marvinDate2
+    label emoDate2:
+        "You meet up with xX_DarkRaven496283_Xx later."
+        e " w-wow you actually said yeah 0///0 y-you're the only one that ever cares..."
+        "xX_DarkRaven496283_Xx hides his blush behind his fringe."
+        e "a-anyways lets get going... u-uwu... i bought us ticket$ 2 da MBR concert..."
+        e "do you like them? "
+        menu:
+            "YES omg i LOVE MBR.":
+                jump noYouDont
+            "No sorry... who are they?":
+                jump noMBR
+        label noYouDont:
+            "xX_DarkRaven496283_Xx seems unimpressed."
+            e " -__- they're pwetty indie so i didn't think u would kno them...are u sure ur not lying 2 me? lol...no need 2 try and impres me..."
+            "..."
+            jump startEmoDate2
+        label noMBR:
+            "xX_DarkRaven496283_Xx seems offended."
+            e "omgzzz you dun kno who they arrrr??? youre out of the looop ... they r the hottest rawk band out their write nao... XD"
+            "..."
+            jump startEmoDate2
+    label startEmoDate2:
+        "You and xX_DarkRaven496283_Xx arrive at the My Biological Romance concert together."
+        e "rrrrrrrrrraaaaaaaawwwwwwwwrrrrr XD where heer."
+        menu:
+            "Go closer to the stage.":
+                jump moshPit
+            "Stay near the balcony.":
+                jump balcony
+        label moshPit:
+            p "Hey let's go to the mosh pit! It seems like everyone is having fun down there."
+            e " w-weally? owo we are really meant 4 each other uwu"
+            "You and xX_DarkRaven496283_Xx go to the mosh pit, unaware of what is to come."
+            "Y'all start dancing and singing to House of Frogs."
+            "You want to show that you are a hardcore concert goer (though you've never been and include yourself in one of the many moshpit stunts."
+            menu:
+                "Crowd-surf":
+                    jump crowdSurf
+                "Mosh":
+                    jump mosh
+            label crowdSurf:
+                "Two randos throw you into the crowd and you start to crowd surf."
+                "Someone boops your nose and you feel extremely violated."
+                menu:
+                    "Sneeze on the finger.":
+                        jump sneeze
+                    "Bite the finger":
+                        jump bite
+                label sneeze:
+                    "You sneeze on the finger like a madlad."
+                    "...Turns out it's your own finger. You couldn't keep track due to all the hands around you."
+                    "You get back down on your feet and rub the residue on someone's shirt."
+                    "..."
+                    "They seem weirdly grateful..."
+                    "You realize that you can't find xX_DarkRaven496283_Xx so you start to look for him."
+                    "Someone's back is turned to you. He is wearing an MBR shirt and a familiar studded belt from Boiling Topic. It looks like xX_DarkRaven496283_Xx but you're not sure."
+                    menu:
+                        "Say Heyyyy xX_DarkRaven496283_Xx.":
+                            jump heyDude
+                        "Politely ask if they've seen xX_DarkRaven496283_Xx.":
+                            jump askDude
+                    label heyDude:
+                        "The person turns around. Turns out it's not xX_DarkRaven496283_Xx."
+                        "Turns out in his native language, the word 'xX_DarkRaven496283_Xx' is an insult. He looks pissed and storms towards you with his hands clenched."
+                        "You run away and he starts to chase you. You coincidently run into xX_DarkRaven496283_Xx."
+                        e "o-owo? what is wrong baybee??"
+                        e "{i} * sees the dude storming towards you * {/i}"
+                        e "O.O how daer u run after my senpai? she is MINE XD"
+                        e " 私の靴の臭いを止めることができますか？私は先日水たまりに足を踏み入れた"
+                        "Unfortunately, you had no idea that xX_DarkRaven496283_Xx  spoke Japanese, let alone understand what it meant."
+                        "Fortunately for you, it seems to intimidate the dude, who nervously slinks away."
+                        e "*nuzzles* i wil alwayz protecc u."
+                        e "i'll be there for you, even when no one will be there for me ^^."
+                        "You and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
+                        jump endEmoDate2
+                    label askDude:
+                        "You ask the dude if he has seen someone dressed like xX_DarkRaven496283_Xx."
+                        "The dude instead winks at you and asks for your phone number."
+                        menu:
+                            "Give him the number 718-899-6161":
+                                jump astrology
+                            "Give him the number 604-594-9190.":
+                                jump astrology
+                        label astrology:
+                            "You give him the number. Turns out that specific set of numbers is an insult in his culture. He looks pissed and storms towards you with his hands clenched."
+                            "He doesn't really intimidate you though..."
+                            "You punch him and he falls down."
+                            "xX_DarkRaven496283_Xx  comes leaping towards you."
+                            "m-my senpai! that was so cool... :3"
+                            "You and xX_DarkRaven496283_Xx  safely leave the MBR concert You're kinda weirded out, but strangely happy..."
+                            jump endEmoDate2
+        label mosh:
+            "You have no idea what to do, but you see everyone slamming into each other."
+            menu:
+                "Jump up.":
+                    jump up
+                "Duck down.":
+                    jump down
+            label up:
+                "you jump up."
+                "Once you're back on your feet, someone slinks towards you and tells you to choose a drug."
+            #WHERE JEEVIKA LEFT OFF
+
+    label marvinDate2:
+        "You agree to Marvin's date."
+        "He tells you to meet at his house..."
+        "..."
+        "After school you go to Marvin's house for your date."
+        "You ring the doorbell."
+        "Marvin opens the door...He looks upset."
+        m "Hey there momma goose... Come on in."
+        m "I am so sorry! I had a very romantic evening planned at the train station, but one of my tadpoles got sick. I have to tadpole-sit because Helen can't make it."
+        m "Would you like to join me?"
+        "You feel kind of bad..."
+        p "Yes, of course I will."
+        "You make your way into Marvin's living room. A sickly looking tadpole is lying on the couch."
+        m "This is Little Suzie."
+        l "HIIIISSSSS."
+        p "{i}She takes after her father...{/i}"
+        m "I think to cheer Little Suz up, we should play a board game."
+        m "What board game should we play?"
+        menu:
+            "Scrabble":
+                jump scrabble
+            "The Game of Life":
+                jump gameOfLife
+            "Monopoly":
+                jump monopoly
+        label scrabble:
+            l "HISSSSS That one is my favourite!"
+            "You play a couple rounds of scrabble. After about an hour, Little SUzie is looking considerably happier."
+            jump continue
+        label gameOfLife:
+            l "HISSSS That one is my favourite!"
+            "You play a couple rounds of Monopoly. After about an hour, Little Suzie is looking considerably happier."
+            jump continue
+        label monopoly:
+            l "HISSSSS That one is my favourite!"
+            "You play a couple rounds of Monopoly. After about an hour, Little Suzie is looking considerably happier."
+            jump continue
+    label continue:
+        l "I am feeling so much better! hiss hiss can I go outside and play?"
+        m "Sure, kiddo."
+        "Little Suzie crawls out of the house."
+        m "Alright, now thajt Suzie is gone, what would you like to do?"
+        m "..."
+        m "actually..."
+        m "You can help me clean the house. Helen always gets so annoyed when it is dirty."
+        menu:
+            "Yeah! I'd love to help you clean.":
+                jump clean
+            "No thanks...let's do something else.":
+                jump noClean
+        label clean: 
+            m "Woohoo! Thank God you said yes. This house is a complete dump."
+
+    label kingDate2:
+        "jaja"
+
+    #problem with it reading going through all next labels??
+
+    # firstFirstDates = ["marvinDate1", "emoDate1", "kingDate1"]
+    # label endOfMandDates:
+    #     #example of a choice in dating
+    #     "The next day during lunch..."
+    #     "Both uhhh marvin and uhhh emo ask u on date who do u choose"
+    #     menu:
+    #         "marvins p cute":
+    #             jump marvinDate1
+    #         "emo is p nice ig":
+    #             jump emoDate1
+    #     if marvinDate1:
+    #         "upir ficomg ,p,,a"
+    #     else:
+    #         "uour mmma"
+    #     return
