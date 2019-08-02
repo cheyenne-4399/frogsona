@@ -16,6 +16,8 @@ define n = Character("Some Obscure Skunk")
 define d = Character("Local Doctor One")
 define a = Character("Rando One")
 define f = Character("Crazy Fangirl One")
+define w = Character("La Bouteille D'eau Waiter One")
+define t = Character("King Samson II's Servant")
 
 #NEEDED IMAGES:
 #School
@@ -28,16 +30,19 @@ define f = Character("Crazy Fangirl One")
 
 label start:
 
-    # bg change = “scene ____”
-    #sprite show = “show ___”
+    "Welcome to F Cubed."
+
+    # bg change = "scene ____"
+    #sprite show = "show ___"
 
     # BG = school
     "You are a new student at XYZ University."
     p "Wow I am so excited! I hope I will get a boyfriend this year..."
-    #
+    "And so your Flirtatious Frog Fantasy begins..."
+
     # menu:
     #     "backdoor":
-    #         jump endOfMandDates
+    #         jump postAllSecondDates
 
     "It's time to look at your new dorm!"
     #BG = dorm building
@@ -67,11 +72,8 @@ label start:
          #BG = transition
          "Marvin walks away and makes his way to his class…"
          #BG = classroom
-         "Marvin is in the same class as you! There seems to be a limited amount of seats. You reluctantly make your way to the seat next to Marvin"
-
-
+         "Marvin is in the same class as you! There seems to be a limited amount of seats. You reluctantly make your way to the seat next to Marvin."
          jump kingintro
-
     label kingintro:
         u "hEy ! How dare you reside in my space?"
         p "{i} Get a load of this guy...who does he think he is?{/i}"
@@ -111,13 +113,6 @@ label start:
         label d2:
             "The next day"
             jump wallblues
-
-
-                        #PUT RANDOM INTERACTIONS HERE
-
-                        #mandatory hangouts
-                        #whatever day
-
         label wallblues:
             "After class…"
             m "Hey you ;) I need to get some laxatives...wanna come with me to Wallblues?"
@@ -126,18 +121,15 @@ label start:
                     jump laxativesWeird
                 "Yeah sure...I need some too…":
                     jump laxativesToo
-
         label laxativesWeird:
             m "Don’t judge me like that sweetie. You look like you might need some too after today’s breakfast. If you know what I mean ;) "
             p "{i}what a rude bastard…{/i}"
             "You follow Marvin to Wallblues"
             jump CVS
-
         label laxativesToo:
             m "Ew that’s so gross. Why would you tell me that? Did your mother never teach you? A young lady never gives away her laxative status…kids these days"
             "You follow a disgusted Marvin to Wallblues."
             jump CVS
-
         label CVS:
         #BG = stock photo of CVS
         m "Want to go inside?"
@@ -146,7 +138,6 @@ label start:
                 jump inside
             "No thanks, let’s wait here for a bit.":
                 jump outside
-
         label inside:
             "You go inside the store with Marvin and walk towards the gift card aisle."
             m "I was kidding. I don’t actually need laxatives, it was a test of your loyalty to me."
@@ -156,49 +147,39 @@ label start:
                     jump yesCandy
                 "I’d rather browse the medications":
                     jump noCandy
-
-
-        label yesCandy:
-            m "Thanks bby. My ex-wife Helen never let me eat candy. Something about type 2 diabetes?"
-            "You go to the candy aisle."
-            m "Back in my day, the kids ate Skittles and M&M’s. As the datee, you get to choose which candy we eat. My treat!"
-            menu:
-                "Skittles!":
-                    jump Skittles
-                "M&M’s!":
-                    jump MandM
-
-        label Skittles:
-            m " Hiss Hiss! A gourmet choice!"
-            m "What color do you choose? This is a vital question, so make sure you think before answering."
-            menu:
-                "Red":
-                    jump red
-                "Blue":
-                    jump blue
-
-        label red:
-            "Ahhh red skittles, just like the strawberry scent my ex-wife Helen used to spray."
-            "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
-            jump endMarvinDateOne
-
-        label blue:
-            "Ahhh blue skittles, just like the blueberry scent my ex-wife Helen sprayed on the day of our divorce…"
-            "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
-            jump endMarvinDateOne
-
-        label MandM:
-            m "A splendid choice! I promise I won’t eat more than half of the bag"
-            "Marvin ends up eating the entire party-sized bag of M&M’s. You are hungry and annoyed, so you leave."
-            jump endMarvinDateOne
-
-        label noCandy:
-            m "Okay."
-            "You stare at different colored pills for 2 hours. You end up buying Behnardrill, and head outside."
-            jump endMarvinDateOne
-
-
-
+            label yesCandy:
+                m "Thanks bby. My ex-wife Helen never let me eat candy. Something about type 2 diabetes?"
+                "You go to the candy aisle."
+                m "Back in my day, the kids ate Skittles and M&M’s. As the datee, you get to choose which candy we eat. My treat!"
+                menu:
+                    "Skittles!":
+                        jump Skittles
+                    "M&M’s!":
+                        jump MandM
+                label Skittles:
+                    m " Hiss Hiss! A gourmet choice!"
+                    m "What color do you choose? This is a vital question, so make sure you think before answering."
+                    menu:
+                        "Red":
+                            jump red
+                        "Blue":
+                            jump blue
+                    label red:
+                        "Ahhh red skittles, just like the strawberry scent my ex-wife Helen used to spray."
+                        "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
+                        jump endMarvinDateOne
+                    label blue:
+                        "Ahhh blue skittles, just like the blueberry scent my ex-wife Helen sprayed on the day of our divorce…"
+                        "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
+                        jump endMarvinDateOne
+                label MandM:
+                    m "A splendid choice! I promise I won’t eat more than half of the bag"
+                    "Marvin ends up eating the entire party-sized bag of M&M’s. You are hungry and annoyed, so you leave."
+                    jump endMarvinDateOne
+            label noCandy:
+                m "Okay."
+                "You stare at different colored pills for 2 hours. You end up buying Behnardrill, and head outside."
+                jump endMarvinDateOne
         label outside:
             "You stand outside the store for twenty minutes."
             "In an attempt to break the awkward silence, you engage Marvin in a conversation about lemons."
@@ -209,41 +190,34 @@ label start:
                     jump exwife
                 "That’s so interesting. Do you have any kids?":
                     jump kids
-
-        label exwife:
-            m "Yeah. You?"
-            p "No!"
-            p "You leave Marvin outside Wallblues, shocked and disgusted."
-            jump endMarvinDateOne
-
-        label kids:
-            m "I have four. How many do you have?"
-            p "None!"
-            p "You leave Marvin outside Wallblues, shocked and disgusted. You loathe children."
-            jump endMarvinDateOne
-
-
-        label endMarvinDateOne:
-            "Marvin follows you back to your dorm after your outing at Wallblues."
-            m "Thanks for coming with me. I had a really nice time with you…"
-            "He struggles to keep up with you."
-            menu:
-                "Thanks. I had a nice time too.":
-                    jump niceTime
-                "Can you stop following me please?":
-                    jump stopStalker
-
+            label exwife:
+                m "Yeah. You?"
+                p "No!"
+                p "You leave Marvin outside Wallblues, shocked and disgusted."
+                jump endMarvinDateOne
+            label kids:
+                m "I have four. How many do you have?"
+                p "None!"
+                p "You leave Marvin outside Wallblues, shocked and disgusted. You loathe children."
+                jump endMarvinDateOne
+    label endMarvinDateOne:
+        "Marvin follows you back to your dorm after your outing at Wallblues."
+        m "Thanks for coming with me. I had a really nice time with you…"
+        "He struggles to keep up with you."
+        menu:
+            "Thanks. I had a nice time too.":
+                jump niceTime
+            "Can you stop following me please?":
+                jump stopStalker
         label niceTime:
             m "I knew you would like WallBlues! I used to bring my ex-wife there all the time!"
             jump flyScene
-
         label stopStalker:
             p "{i} Why is he still here? I don’t want to have to call the security…{/i}"
             m "But bhabie...I thought you would like WallBlues…"
             "It seems as if he has started crying…"
             jump flyScene
-
-        label flyScene:
+    label flyScene:
         #show marvinSurprised
         m "WOWZERS !"
         "...!!!"
@@ -252,7 +226,6 @@ label start:
         #Show MarvinBashful
         m "Sorry....Hiss hisss...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
         "Marvin walks away and you turn into your dorm for the night."
-
         jump mandDateD2
         label mandDateD2:
             "After class…"
@@ -359,8 +332,6 @@ label start:
                         e "you know what they say... no smile is more beautiful than the one that struggles through the tears...."
                         "xX_DarkRaven496283_Xx runs out of the store crying."
                         jump endEmoDate1
-
-
             label joinCult:
                 c "Wow, really? You're the first person to ever say 'yes.' "
                 c "To join our cult, you must go through an initiation ceremony. Stop by my church for a couple hours to get started."
@@ -700,7 +671,7 @@ label start:
                     label stillBuy:
                         p "I don't care! I'm buying this sink whether you like it or not!"
                         "You pay for the sink, and leave the store with it."
-                        "While walkin ghome, a rabit skunk bites you in the shin. You drop the sink and it breaks. You've had enough for the day and leave it be."
+                        "While walking hhome, a rabid skunk bites you in the shin. You drop the sink and it breaks. You've had enough for the day and leave it be."
                         jump endKingDate1
                     label forget:
                         p "This is nutters! Why is this sink leaking?"
@@ -718,9 +689,6 @@ label start:
         x "Alright. Today's your lucky day. You're being released on account of good behaviour."
         "You run out of your cell, and hurry back to your dorm room."
         jump endOfMandDates
-
-    #all approaches for date 1
-    # listOfApproaches = ["emoApproach", "marvinApproach", "kingApproach"]
     label endOfMandDates:
         "A week passes..."
         "One day during lunch..."
@@ -997,6 +965,21 @@ label start:
                         jump sneeze
                     "Bite the finger":
                         jump bite
+                label bite:
+                    "You bite on the finger."
+                    "Turns out, it's your own finger. You couldn't keep track due to all the hands around you."
+                    "You get back down on your feet and rub the saliva on someone's shirt."
+                    "They seem weirdly grateful..."
+                    "You look for xX_DarkRaven496283_Xx and find him having an epic dance battle with a rando."
+                    p "{i}I can't believe what I'm seeing...{/i}"
+                    "After xX_DarkRaven496283_Xx finishes breakdancing, you both start dancing."
+                    "You lose xX_DarkRaven496283_Xx and start looking for him."
+                    "Someone's back is turned to you. He’s wearing an MBR shirt and a familiar studded belt from Boiling Topic. It looks like xX_DarkRaven496283_Xx but you’re not quite sure."
+                    menu:
+                        "Say ‘Heyyy xX_DarkRaven496283_Xx.'":
+                            jump heyDude
+                        "Politely ask if they have seen xX_DarkRaven496283_Xx.":
+                            jump askDude
                 label sneeze:
                     "You sneeze on the finger like a madlad."
                     "...Turns out it's your own finger. You couldn't keep track due to all the hands around you."
@@ -1017,7 +1000,7 @@ label start:
                         e "o-owo? what is wrong baybee??"
                         e "{i} * sees the dude storming towards you * {/i}"
                         e "O.O how daer u run after my senpai? she is MINE XD"
-                        e " 私の靴の臭いを止めることができますか？私は先日水たまりに足を踏み入れた"
+                        e " Watashi no kutsu no nioi o tomeru koto ga dekimasu ka? Watashi wa senjitsu mizutamari ni ashi o fumiireta"
                         "Unfortunately, you had no idea that xX_DarkRaven496283_Xx  spoke Japanese, let alone understand what it meant."
                         "Fortunately for you, it seems to intimidate the dude, who nervously slinks away."
                         e "*nuzzles* i wil alwayz protecc u."
@@ -1039,7 +1022,7 @@ label start:
                             "xX_DarkRaven496283_Xx  comes leaping towards you."
                             "m-my senpai! that was so cool... :3"
                             "You and xX_DarkRaven496283_Xx  safely leave the MBR concert You're kinda weirded out, but strangely happy..."
-                            jump endEmoDate2
+                        jump endEmoDate2
     label mosh:
         "You have no idea what to do, but you see everyone slamming into each other."
         menu:
@@ -1114,7 +1097,7 @@ label start:
                     k "It's as if we were meant to be!"
                     "Unfortunately xX_DarkRaven496283_Xx  arrives just then."
                     e "O.O how dare you run after my sen pie!!! she is MINE XD"
-                    e "私の靴の臭いを止めることができますか？私は先日水たまりに足を踏み入れた"
+                    e "Watashi no kutsu no nioi o tomeru koto ga dekimasu ka? Watashi wa senjitsu mizutamari ni ashi o fumiireta"
                     "Unfortunately, you had no idea that xX_DarkRaven496283_Xx speaks Japanese, let alone undersood what that meant."
                     "Fortunately it seems to intimidate King Samson II, who nervously hops away."
                     e " *nuzzles* i will always protecc you"
@@ -1339,23 +1322,886 @@ label start:
         "You end up at your dorm. You turn in for the night."
         jump postAllSecondDates
     label postAllSecondDates:
-        "booty"
-
-
-    #problem with it reading going through all next labels??
-
-    # firstFirstDates = ["marvinDate1", "emoDate1", "kingDate1"]
-    # label endOfMandDates:
-    #     #example of a choice in dating
-    #     "The next day during lunch..."
-    #     "Both uhhh marvin and uhhh emo ask u on date who do u choose"
-    #     menu:
-    #         "marvins p cute":
-    #             jump marvinDate1
-    #         "emo is p nice ig":
-    #             jump emoDate1
-    #     if marvinDate1:
-    #         "upir ficomg ,p,,a"
-    #     else:
-    #         "uour mmma"
-    #     return
+        "A few weeks pass..."
+        "It is Februrary now..."
+        "Valentine's day is coming up."
+        "..."
+        "You need to head to class."
+        "..."
+        "In zoology class."
+        "You take your usual seat next to xX_DarkRaven496283_Xx."
+        "He turns to you"
+        e "u-uwu...hey"
+        menu:
+            "Hey xX_DarkRaven496283_Xx.":
+                jump heyDarkRaven
+            "What is it this time.":
+                jump rudeBinch
+        label rudeBinch:
+            e "w-why are u so mean 2 me :("
+            p " {i} Is he going to start crying again...Here we go again..."
+            "You scramble to make xX_DarkRaven496283_Xx feel better, but he cuts you off."
+            e "haha XD i kno u dun weally mean it bee cuz u luv me <3 ^_^."
+            p " {i} ...{/i} "
+            "You hold back from kicking him in the shin."
+            jump continueDarkRavenV
+        label heyDarkRaven:
+            e "w-what a bland answer... >:("
+            "You hold back from kicking him in the shin."
+            jump continueDarkRavenV
+    label continueDarkRavenV:
+        e "a-anyways...uwu...uh..."
+        e " uh... >///<"
+        menu:
+            "Hurry it up bucko.":
+                jump hurryBucko
+            "...yes?":
+                jump dotDotYes
+        label hurryBucko:
+            e "w-why are you so rood :((((("
+            "xX_DarkRaven496283_Xx looks flustered."
+            "You feel like a jerk."
+            jump continueContinueDarkRavenV
+        label dotDotYes:
+            e "u-uh >///< "
+            "You seem to have made him even more nervous."
+            jump continueContinueDarkRavenV
+    label continueContinueDarkRavenV:
+        e "u-uh..."
+        e "u-uwu"
+        e " >///< wait don't look @ meee"
+        p " {i} bruh whoever wrote this part must have really bad dating experience huh...{/i}"
+        " You turn away from xX_DarkRaven496283_Xx at his request."
+        e "a-are yew doo-ing anyting o-on valentines day? O////O"
+        "It seems that xX_DarkRaven496283_Xx wants to spend Valentine's Day with you."
+        "Maybe you should spend the holiday with him..."
+        e "a-anyways.... it's thiz coming fry day so i'll wait 4 u after class u-uwu..."
+        "xX_DarkRaven496283_Xx runs away."
+        "..."
+        "Class didn't even properly start yet..."
+        jump kingAsks
+    label kingAsks:
+        "During the lecture..."
+        "..."
+        " {i} ping! {/i}"
+        "It seems you have recieved a text message."
+        "..."
+        "It's from King Samson the II."
+        k " {i} GREETINGS MY LOVELY PETUNIA. I WOULD LIKE  YOU TO ACCOMPANY ME ON A DATE FOR VALENTINE'S DAY. IF THAT IS OK WITH YOU...."
+        "You look over at him across the room. King Samson II is pretending he does not see you."
+        "What do you text back to him with?"
+        menu:
+            "Sure! :) ":
+                jump sureKing
+            " I actually have a date already..":
+                jump alreadyDate
+        label sureKing:
+            " {i} ping! {/i} "
+            "King Samson II replies quickly with his speedy frog phalanges."
+            k "ALRIGHT. I LOOK FORWARD TO IT. NOT THAT I DOUBTED YOU WOULD SAY YES OR ANYTHING. -KING SAMSON II, PHD"
+            "It seems you've got yourself a date with King Samson II."
+            "..."
+            "You focus your attention back on the lecture."
+            jump marvinAsks
+        label alreadyDate:
+            "You look over at him and see that he looks offended."
+            "He starts to furiously type."
+            " {i} ping! {/i}"
+            k "NONSENSE. I'LL MAKE SURE YOU'RE FREE IF SOMEONE ELSE IS BOTHERING YOU ABOUT A DATE. I LOOK FORWARD TO IT, MY LOVELY LOAF OF WHOLE WHEAT BREAD."
+            "..."
+            "It seems he thinks you two are going on a date no matter what."
+            "You focus your attention back on the lecture."
+            jump marvinAsks
+    label marvinAsks:
+        "After your class, you start to walk home."
+        "You hear Marvin's disgusting frog feet hopping over to you."
+        m "hEY tHErE Momma Goose!"
+        "You walk faster to avoid him."
+        "Marvin starts hopping towards you faster."
+        m "So... *pants* I was wondering *pants* if  you would *pants* want to *pants* go on a dATE * pants* with me on Valentine's day..."
+        "Wow the third offer today...aren't you a special little player."
+        menu:
+            "Walk even faster.":
+                jump walkFaster
+            "Accept his offer.":
+                jump acceptOffer
+        label walkFaster:
+            "You speed walk away and do your best to ignore Marvin like the jerk that you are."
+            "Marvin calls after you in the distance..."
+            m "I assume that's a yes then!"
+            "..."
+            "You head home for the day."
+        label acceptOffer:
+            "There are other frogs that wanted to spend Valentine's day with you already though..."
+            "You actually realize that you don't care, because you're horrible like that."
+            p "I'll go with you Marvin! :)"
+            "You speed walk away after your quick acceptance."
+            "You hear Marvin celebrating in the background."
+            jump endVDayOffers
+    label endVDayOffers:
+        "A few days pass by..."
+        "Today is Valentine's day, AKA July 4th."
+        "You recall the offers from the three frogs for Valentine's day dates..."
+        "Today promises to be an interesting day, almost as if the end of this game is approaching soon."
+        jump startVDayMess
+    label startVDayMess:
+        "During Zoology classs...which seems like the only class you take..."
+        "The three frogs seem to be extremely jittery, but they refuse to talk to you."
+        "..."
+        "It seems they are all nervous about their dates.."
+        "But who will you choose?"
+        "..."
+        "You start to get a little nervous yourself..."
+        jump startStartVDayMess
+    label startStartVDayMess:
+        "Class ends and you make your way out of the classroom."
+        "..."
+        p "{i} uh-oh... {/i}"
+        "All three frogs are waiting for you by the door."
+        k "AHA THERE IS MY BEAUTIFUL EGGPLANT RESIDUE! ARE YOU READY FOR OUR ROMANTIC EVENING OUT THIS VALENTINE'S DAY? "
+        m "..."
+        m "...You have another date planned? What the damn hell?!"
+        e "...w-what is the m-meaning of this :("
+        "xX_DarkRaven496283_Xx starts to cry..."
+        k "Wait...I wasn't the only one...?"
+        "All eyes are turned to you right now..."
+        m "Have you been seeing other frogs the entire time we've been dating..?"
+        menu:
+            "Hanging out a couple of times does not mean dating.":
+                jump notDating
+            "It's not what it looks like!!!":
+                jump cheatingBastard
+        label notDating:
+            "..."
+            k "Yeah, what my lovely royalty-to-be said. It is ME who is obviously in the relationship with them!"
+            m "What do you MEAN?! *mutters* Just like Helen...Always like Helen..."
+            e "i-i i thought we had some ding special :((((("
+            "xX_DarkRaven496283_Xx is crying furiously>.."
+            "..."
+            jump vDayChoice
+        label cheatingBastard:
+            "..."
+            m "I thought you were something special...I even took you to WallBlues..."
+            e " *sniff* >:( y-you can't just go on dates with us and t-then go with another f-frog..."
+            "King Samson II remains silent for the first time in his life. He appears to be really angry..."
+            "..."
+            jump vDayChoice
+    label vDayChoice:
+        "You're in big trouble now..."
+        m "So which one of us do you REALLY love..."
+        e " :( y-yeah which one do u achilly like..."
+        k "BE TRUTHFUL THIS TIME."
+        "..."
+        "You have to choose one of them"
+        menu:
+            "I love King Samson II.":
+                jump loveKing
+            "I love xX_DarkRaven496283_Xx.":
+                jump loveEmo
+            "I love Marvin.":
+                jump loveMarvin
+        label loveKing:
+            k "AHA! I KNEW YOU WOULD CHOOSE ME! *CHUCKLES HEARTILY* "
+            e "i...i guess i just never meant any ding 2 u.... </3"
+            m "theyre all the same i guess...."
+            "..."
+            "You choose King Samson II over everyone else."
+            "..."
+            "It's time for your date with him."
+            "It is Valentine's day after all..."
+            jump startKingVDate
+        label loveMarvin:
+            m "Thank the lord you picked me! Helen will be so pleased you are now part of the family..."
+            e "i...i guess i wasnt gud e-nuff... </3"
+            k "I Was going to make you royalty...."
+            "..."
+            "You choose Marvin over everyone else."
+            "..."
+            "It's time for your date with him."
+            "It's Valentine's day after all..."
+            jump startMarvinVDate
+        label loveEmo:
+            e "y-yay *nuzzles* :3 i new u love me ... you r my every ding... <3"
+            k "Wow...you really are shallow...they always take advantage of the rich royalty..."
+            m "the tadpoles will be so disappointed...."
+            "..."
+            "You choose xX_DarkRaven496283_Xx over everyone else."
+            "..."
+            "It's time for your date with him..."
+            "It's Valentine's day after all..."
+            jump startEmoVDate
+    label startKingVDate:
+        "King Samson II shows up at your dorm room later..."
+        k "MY BLOSSOMING PETUNIA! I HAVE A SURPRISE FOR YOU."
+        p "{i}This better be good...{/i}"
+        "You open the door and he is standing outside. He pushes you into a stolen shopping cart."
+        k "Since you have chosen be to be your beautiful frog husband, I will take you to my kingdom."
+        p "A kingdom?"
+        "..."
+        "After about two hours of riding around in a shopping cart, you arrive at King Samson II's kingdom."
+        "You go inside a sketchy looking building, and walk up five flights of stairs. King Samson II opens the door to his... kingdom?"
+        "When you go peer inside, you realize his kingdom is actually just a regular apartment."
+        menu:
+            "Go inside King Samson II's fake kingdom.":
+                jump fakeKing
+            "Stand outside in the hallway to yell at him.":
+                jump yell
+        label fakeKing:
+            p "{i}I'm kind of curious now... {/i}"
+            jump bite2Eat
+        label yell:
+            "You catfished me! This isn't a castle, it's an unfurnished apartment!"
+            k "HOW DARE YOU. I spent hours yelling at my servants to get my kingdom ready."
+            "You refuse to go inside the musty apartment."
+            "King Samson II looks really hurt."
+            "You almost start to feel bad...almost."
+            k "Where else would you want to go if not my beautiful kingdom???"
+            "You glance at the time..."
+            "It's already the evening...You spent so much time traveling to King Samson II's 'kingdom' in a shopping cart that the time flew by."
+            menu:
+                "I'm tired, I'm hungry, and I need to poop. I'm just gonna go home.":
+                    jump tiredHungryPoop
+                "I'm tired, I'm hungry, and I need to poop. Wanna grab a bite to eat and call it a day?":
+                    jump bite2Eat
+            label bite2Eat:
+                "King Samson II belches really loudly."
+                k "Yeah I'm kind of hungry..."
+                k "Actually! MY SERVENTS HAVE PREPARED A NICE MEAL FOR YOU IN PREPERATION."
+                "He gestures you inside the apartment."
+                p "{i} Ah what the hell... {/i}"
+                "You go inside his apartment."
+                "He leads you past about 6 rows of different sinks."
+                "It looks extremely run down and musty."
+                k "Through this way, m'lady."
+                "He holds a door open for you."
+                "You hesitantly go through; you think he's about to murder you."
+                "..."
+                "...!"
+                "He has an actual damn kingdom!"
+                "Inside his run down walk in closet looking door seems to be a whole other world...?"
+                "There are buildings made of gold, people roaming around and participting in their every day lives..."
+                "...??? There are rows of titanium sinks."
+                k "HERE M'LADY."
+                "He leads you into a palace, where you are greeted by various frog servants."
+                "It feels like a dream..."
+                "You could imagine a future here, especially if you're going to be royalty..."
+                "Bring up becoming royalty?"
+                menu:
+                    "Yes":
+                        jump goldDigger
+                    "No.":
+                        jump nahGoldDigger
+                label nahGoldDigger:
+                    "You realize that you haven't exactly been the nicest to King Samson II."
+                    p " {i}It would be wrong to be nice to him just for his wealth...I'm a jerk but not THAT much of a jerk... {/i}"
+                    "You choose to follow your moral compass and just enjoy your date with King Samson II as it is."
+                    "You enjoy like a pretty nice meal that the developer is not about to write out."
+                    "After your date you are escorted back to your dorm by one of King Samson II's servants."
+                    t "Boss seems to have taken a liking for you..."
+                    p "Yeah ..."
+                    "You can't believe he's an actual KING..."
+                    "School promises to be interesting tomorrow..."
+                    return
+                label goldDigger:
+                    p "So King Samson II...I've been thinking about...our future together a lot..."
+                    "King Samson II seems really surprised. But like happy surprised not like omg wtf surprised."
+                    "Suddenly a servant comes up to him out of nowhere."
+                    t "SIR! AN URGENT MESSAGE!!!"
+                    k "What is it, King Samson II's Servant???"
+                    t "A warning about this person over here..."
+                    k "? WHAT ABOUT MY LOVELY BEAUTIFUL BUTTERNUT SQUASH?"
+                    t "This intruder over here is a level 5 threat. Security calls it a...Gold Digger."
+                    "King Samson II looks at you, horrified."
+                    k "T-THEYRE NOT RIGHT, ARE THEY HONEY??"
+                    k "I THOUGHT YOU REALLY LOVED ME..."
+                    k "BUT NOW THAT I THINK ABOUT IT...YOU'VE BEEN QUITE RUDE UP UNTIL NOW, HAVEN'T YOU?"
+                    "..."
+                    "It seems that you are in trouble with King Samson II's kingdom."
+                    "..."
+                    "You're kicked out and banned from his kingdom..."
+                    "You're forced to walk home..."
+                    "This Valentine's Day was a disaster."
+                    "You start to feel a little guilty."
+                    "..."
+                    "School's gonna be awkward from now on..."
+                    "THE END."
+                    return
+            label tiredHungryPoop:
+                k "PLEASE DO NOT TELL ME ABOUT YOUR BOWEL MOVEMENTS. IT IS VERY UNLADY LIKE AND QUITE HONESTLY JUST DISGUSTING AND UNFITTING FOR ROYALTY."
+                "...King Samson II says, while picking his nose."
+                k "Anyways...  you want to go home I guess you can. I can't force you to stay if you don't want to, that would be disrespectful to you, and I respect you."
+                p "{i} What is he being so nice for?? {/i}"
+                k "I'LL TAKE YOU BACK IN MY CARRIAGE."
+                "...he goes back to yelling."
+                menu:
+                    "Take up his offer to go home in his 'carriage'.":
+                        jump goInCarriage
+                    "You're not about to go in that crusty shopping cart again. Take a LyfBer (joint company made by the taxi services Lift and OohBer.)":
+                        jump takeUber
+                label goInCarriage:
+                    "You agree to King Samson II to at least taking you home."
+                    "You get in the shopping cart and he starts pushing you."
+                    k "EVEN THOUGH YOU INSULTED BY HARD WORK I WANTED YOU TO KNOW..."
+                    k "..."
+                    "King Samson II looks flustered for the first time in his life."
+                    k "UH..."
+                    "He belches loudly."
+                    k "I AM GLAD THAT I COULD SPEND THIS EVENING WITH YOU, EVEN IF ALL I AM DOING IS PUSHING YOU IN A SHOPPING CART."
+                    p "{i} is he being...romantic? {/i}"
+                    menu:
+                        "Tell him that you're glad you're with him too.":
+                            jump gladToo
+                        "Thank him still but with a snarky comment about his kingdom because you're rude.":
+                            jump gladToo
+                    label gladToo:
+                        "..."
+                        "Before you could even actually say anything, King Samson II belches loudly."
+                        k "EXCUSE ME MY WONDERFUL BEAUTIFUL LOVELY ADORABLE ROYALTY...CAN YOU GET OFF? I'M GETTING KIND OF TIRED."
+                        k "YOU KNOW THE WAY HOME FROM HERE RIGHT?"
+                        "..."
+                        "King Samson II makes you get off from the shopping cart and walk the rest of the way home by yourself."
+                        "..."
+                        "You start on a long trek back to your dorm."
+                        "The date with King Samson II was...kind of underwhelming. Almost like the developer has burnt out by the time she started to write the ending to some of the dates."
+                        "Not like that's the case or anything though..."
+                        "THE END."
+                        return
+                label takeUber:
+                    p "Actually I think I'm good with taking a LyBer home."
+                    k "A LYFBER??? YOU KNOW THOSE THINGS CAN BE PRETTY DANGEROUS. I HEARD THE OTHER DAY FROM ONE OF MY SERVANTS THAT THEIR DRIVER TURNED OUT TO BE SUPER TALKATIVE!!! IMAGINE BEING STUCK WITH SUCH AN ANNOYINGLY TALKATIVE PERSON FOR THAT LONG?? HEY BY THE WAY DID YOU SEE THE NEWS THE OTHER DAY?"
+                    "..."
+                    "It continues this way for a while..."
+                    "While King Samson II is talking you secretly call a LyfBer and leave."
+                    "He doesn't even notice."
+                    "In your shared LyfBer you see another passenger."
+                    "..!"
+                    "It's the cult member from outside Boiled Topic that like you know that one time you went to Boiled Topic!"
+                    c "Oh hey! It's you again."
+                    p "Hello..."
+                    "You strike up a conversation with the cult member..."
+                    "You two turn out to really hit it off!"
+                    "..."
+                    "He asks you out on a date."
+                    menu:
+                        "Agree":
+                            jump cultEnding
+                        "Say no, you can't do that to King Samson!":
+                            jump noCultEnding
+                    label cultEnding:
+                        "You agree to a date with the cult member some time next weekend."
+                        "It seems as if your Valentine's Day has turned out to be quite eventful."
+                        "..."
+                        "Kinda weird that you chose to date a cult member instead of a frog though...but whatever."
+                        "THE END."
+                        return
+                    label noCultEnding:
+                        c "Ah, I understand."
+                        "The lyfBer arrives in front of a sketchy building...almost like a cult headquarters."
+                        c "Well have a good day, tortured soul."
+                        "You wave goodbye to the cult member."
+                        "The LyfBer makes its way to your dorm."
+                        "..."
+                        "School's gonna be weird tomorrow."
+                        "THE END."
+                        return
+    label startEmoVDate:
+        "..."
+        "You meet xX_DarkRaven496283_Xx in front of a dark suspicious alleyway."
+        p "...So where are we going?"
+        e "h-huh? oh...we're already here ^_^"
+        p "Our date is in an alleyway??"
+        p " {i} Is he going to kill me... {/i}"
+        menu:
+            "Enter the alleyway.":
+                jump enterAlley
+            "Do not, by any means, enter the alleyway.":
+                jump noAlley
+        label enterAlley:
+            "You hesitantly enter the alleyway with  xX_DarkRaven496283_Xx ."
+            e "prepare to bee amazed >.< "
+            menu:
+                "Take a right.":
+                    jump alleyRight
+                "Take a left.":
+                    jump alleyLeft
+            label alleyRight:
+                "You and  xX_DarkRaven496283_Xx  take a right..."
+                "And keep taking a right..."
+                p "{i} Why is this path taking so long? {/i}"
+                "You and  xX_DarkRaven496283_Xx somehow end up in London..?"
+                p "Woah...I've never been to London! Let's go to the London Bridge!"
+                e "the sky is dark and grey... just the way i like it.... "
+                "You and  xX_DarkRaven496283_Xx go sightseeing, starting with the London Bridge."
+                e "we have one more place to visit... you'll love it u-uwu;"
+                "..."
+                "You arrive at your final destination."
+                "...the cemetery."
+                p "{i} Of course...{/i}"
+                " xX_DarkRaven496283_Xx leads you to a gravestone in the corner, far away from the others."
+                " xX_DarkRaven496283_Xx  replaces the flowers in front of the gravestone with a fresh bouquet of chrysanthemums."
+                p "If I may ask...who is this grave dedicated to?"
+                e "..."
+                e "my serotonine and dopamine levels..."
+                p "Are you being forreal??"
+                e " *hic* ya...sad uwu"
+                menu:
+                    "Did you take biology? That's not how it works.":
+                        jump biology
+                    "Rest in peace??":
+                        jump rip
+                label biology:
+                    e " *sniffle* YOU DON'T UNDERSTAND DX"
+                    e "THE BIOLOGISTS ARE CONSPIRACY"
+                    "You are taken aback."
+                    "...He rarely ever speaks in capslock."
+                    e "when i leave this realm i hope to be buried next to my happiness..."
+                    p "...alright that's enough sad boi hours for now."
+                    "You wait for  xX_DarkRaven496283_Xx to finish and drag him out of the graveyard."
+                    "You find your way back to the alleyway and go back to where you came from. It's somehow still the middle of the night..."
+                    jump almostEnd
+                label rip:
+                    p "Well wherever your serotonin and dopamine is gone, I'm sure they're having a nice time..."
+                    " xX_DarkRaven496283_Xx  continues to cry."
+                    e "thx dat meanz a lotta :,("
+                    "You wait for  xX_DarkRaven496283_Xx  to finish and drag him out of the graveyard."
+                    "You stop by London's WallBlues to grab some tissues for him before heading back out the alleyway."
+                    "It's still somehow the middle of the night when you arrive back..."
+                    jump almostEnd
+            label alleyLeft:
+                "You decide to take a left."
+                "You end up in front of a dark building. Others walk in with work-out clothes from Boiled Topic..."
+                p "Is this...a fitness center for emos?"
+                e "i thought it would be nice to work out away from our sadness and pain..."
+                "You both enter the building and open the fifth door on your right."
+                "It's a zumba class!"
+                "Which unfitting new wave emo song will you work out to?"
+                menu:
+                    "I Write Sins not Tragedies by Panic! at the Disco.":
+                        jump zumba
+                    "Stressed out by Twenty One Pilots.":
+                        jump zumba
+                label zumba:
+                    "You dance to teenage emo music."
+                    "You're having a lot more fun than you thought. You're dancing but sweating super hard at the same time !"
+                    "Suddenly the audio plays a random G note at max volume. The whole class goes silent."
+                    p "...what's happening??"
+                    "The entire class, including  xX_DarkRaven496283_Xx  starts to tear up."
+                    e "w-why? i skipped yezterdays zumba class specifically to avoid this note..."
+                    e "W-WHEN I WAS...A YOUNG BOY...M-MY FATHER....TOOK ME INTO THE CITY..."
+                    "The entire class except for you joins in, crying and singing along..."
+                    "It seems this is some sort of overused emo anthem..."
+                    "You're extremely weirded out, so you drag  xX_DarkRaven496283_Xx  out of the building and head back out the alleyway."
+                    jump almostEnd
+        label noAlley:
+            p "I don't really feel comfortable walking inside a pitch black alleyway...Can we just grab a bite at La Fermue du Roi?"
+            e "...you want to go to a 5 star french restaurant?? on valentines day?? w-what a weirdo omg... >.< XD"
+            e "...sure why not."
+            "You and  xX_DarkRaven496283_Xx travel to La Fermue du Roi. There's no seating available so you go to La Bouteille D'eau instead. It also has 5 Michelle Lin stars."
+            "You get seated. Your server is kind of confused that there's a frog with a fringe sitting across from you  (in case you forgot you're literally dating frogs)."
+            w "Erm madame, is this your pet?"
+            e " we are all pets of the universe....trapped and forgotten once we perish..."
+            w "..."
+            w "Anyways *clears throat* what would you like to order?"
+            menu:
+                "Pasta.":
+                    jump pasta
+                "A burger.":
+                    jump burger
+            label pasta:
+                w "Excellent choice!"
+                e "i cant eat pasta...its lent month."
+                w "Benisse les dieux...YOU ARE A FROG! FROGS CANNOT PARTICIPATE IN LENT."
+                "You're kind of offended that your waiter is speaking so rudely to your frog companion."
+                menu:
+                    "Say 'La Bouteille D'eau? More like la BOOTY.'":
+                        jump offensive
+                    "Throw your 303.15 degrees Kelvin water at the poopy waiter.":
+                        jump offensive
+                label offensive:
+                    w "How dare you??"
+                    "You grab  xX_DarkRaven496283_Xx and run out of the restaurant before the waiter whistles for his dogs to chase you."
+                    jump almostEnd
+            label burger:
+                w "I'm sorry madame, we do not serve burgers. This is French cuisine *kisses fingers and makes a MUAH sound.*"
+                w "In fact...we're out of steamed frogs, and the local frog market is closed..."
+                w "Say...you wouldn't happen to be terribly sad if I borrowed your pet frog for...purposes, would you?"
+                e " *sigh* it's about time i left this world."
+                " xX_DarkRaven496283_Xx sadly leaps to you."
+                e "you've stirred up an emotion in my chest. some call this emotion love. i wanted to thank you for sticking by my side when no one else."
+                "You're shocked that  xX_DarkRaven496283_Xx  would give his life to a French restaurant, only to have people eat his steamed remains."
+                "You suddenly get a flashback to middle school, when your teacher told your class to confront the bully, rather than be a bystander."
+                menu:
+                    "Say ' La Bouteille D'eau? More like La BOOTY.'":
+                        jump offensive
+                    "Throw your 303.15 degrees Kelvin water at the poopy waiter.":
+                        jump offensive
+    label almostEnd:
+        "You and xX_DarkRaven496283_Xx stumble back to the alley."
+        " xX_DarkRaven496283_Xx looks a bit down...but when does he not?"
+        p "Look...you shouldn't care about what others think. Like what the heck, I'm attracted to frogs?"
+        "As Teenager Post #10216 says: 'Whenever you feel sad just remember that there are billions of cells in your body and all there care about is you..'"
+        e "..."
+        e "n-no offwense...but ur kinda cringey >.< XD"
+        e "...anyways..."
+        e "i...i guess..."
+        e "thanks for bweing mai princess of darkness ^_^"
+        e "uwu owo ewe awa iwi XD XD :D :'D"
+        jump endEmoVDate
+    label endEmoVDate:
+        "..."
+        " xX_DarkRaven496283_Xx kind of drops you off at your dorm afterwards..."
+        "He started to get tired after about 10 minutes of walking while nuzzling your shoulder, so you said it was fine to walk yourself home."
+        "Your date with  xX_DarkRaven496283_Xx seems to have been... a sucess???"
+        "School promises to be interesting tomorrow..."
+        "THE END."
+        return
+    label startMarvinVDate:
+        "..."
+        "You leave with Marvin and go to his house."
+        "Marvin opens the door."
+        m "*opens door*"
+        m "HIIIISSSSS! Hello momma goose! Are you ready for a romantic evening at..."
+        "Marvin pauses for dramatic effect. You hold your breath in anticipation."
+        m "...the train station!"
+        menu:
+            "What the heck???":
+                jump loser
+            "Sounds great!":
+                jump trainLover
+        label loser:
+            p "That sounds dreadful! Why would anyone want to go to the train station for a Valentine's day date??"
+            "Marvin seems offended."
+            m "Well {i} I {/i} think it is a good idea. You have to come! It'll be great."
+            "Marvin grows really upset, and you feel pretty guilty. You agree to go to the train station with Marvin."
+            jump trainsGalore
+        label trainLover:
+            m "Really?"
+            p "Yeah! Train stations are my jam."
+            "You walk towards the train station with Marvin."
+    label trainsGalore:
+        "You arrive at the train station."
+        m "Let's sit down."
+        p "Okay."
+        "You sit down on a metal bench."
+        "Twenty minutes pass. You are growing pretty bored sitting here silently. You try to start a conversation about oranges."
+        p "Do you like oranges?"
+        m "I hate them, but my ex-wife Helen loves them."
+        p "{i} This feels familiar...{/i}"
+        p "...Cool."
+        "You sit in awkward silence."
+        "Suddenly, a train arrives at the station. The doors open."
+        "What do you want to do?"
+        menu:
+            "Stay with Marvin at the train station.":
+                jump stayWithMarvin
+            "Hop on the train without Marvin.":
+                jump leaveMarvin
+        label leaveMarvin:
+            "Are you sure?"
+            menu:
+                "Yes":
+                    jump leaveMarvin2
+                "No, I'll stay with Marvin":
+                    jump stayWithMarvin
+        label stayWithMarvin:
+            "The train leaves the station."
+            m "Whew! For a second there I thought you were gonna leave me. Oh look, a quarter! Marvin hops over and picks the quarter off the floor."
+            "You begin to regret your decision."
+            "..."
+            "Marvin is still staring at the quarter."
+            m "Helen never lets me have money. *chuckles* That's why I always collect coins off the street."
+            m "Hey! That's an idea. Let's find loose change on the street!"
+            "Without waiting for a response, Marvin jumps off the bench, and starts crawling on the ground looking for coins."
+            p "{i} Great. {/i}"
+            "You reluctantly join Marvin. On the ground, there's dust and hair and gum and trash (no commas were found on the ground)."
+            m "Hey look! Another quarter!"
+            "Turns out it's not a quarter, ut a chewed up piece of gum. Marvin looks at the gum for a bit and smacks his frog lips. He puts it in his mouth."
+            "You watch, horrified."
+            m "Oh, how rude of me."
+            "Marvin spits out the gum."
+            m "Want some?"
+            p "No thanks..."
+            m "*shrugs* Suit yourself."
+            "He puts the gum back in his mouth."
+            "You continue looking for coins with Marvin. After an hour, you have a total of of two dollars and seventeen cents."
+            m "What a find! I can buy some more gum with this!"
+            "He pockets the change and you sit back down on the bench."
+            "When you turn around, Marvin is gone. He comes back five minutes later carrying a big cardboard box."
+            m "Look at what I just found!"
+            "He dumps the cardboard box onto the bench. Out falls a bunch of dirty newspapers, some old socks, more gum, PVC pipe, and a tube of used chapstick."
+            "Marvin picks up the chapstick, and waves it in your face."
+            m "Isn't this great?"
+            "He seems overly excited. It's a free tube of chapstick, after all."
+            "Marvin stares at the chapstick for a minute, mesmerized."
+            m "Should I eat this? I want to eat it."
+            menu:
+                "Yeah go for it dude.":
+                    jump eat
+                "Are you crazy??? NO!":
+                    jump noEat2
+                "Do whatever you want. You're an adult frog.":
+                    jump eat
+            label eat:
+                m "Okay!"
+                "Marvin shoves the entire tube of chapstick in his mouth and swallows it whole."
+                p "Uhhh..."
+                "One minute passes, and then Marvin falls to the ground, choking and hacking. You think about giving him the heimlick maneuver, but you decide against it after you realize you'd crush his small insignificant frog body."
+                "Marvin finishes his choke-fest, and stands up. His left eye is twitching."
+                p "You good?"
+                m "Yup.  That tasted just like paint! Who knew?"
+                "You sit down on the bench next to Marvin."
+                "..."
+                "An awkward silence fills the air."
+                "In an attempt to fill the silence, Marvin forces out a loud belch."
+                m " *BELCH*"
+                "..."
+                "..."
+                "You're not quite sure out to respond to that."
+                m " So..."
+                m "Uh..."
+                m "How's your toe infection?"
+                menu:
+                    "It's doing better.":
+                        jump toeBetter
+                    "What toe infection??":
+                        jump whatToe
+                label toeBetter:
+                    m "That's good that's good..."
+                    "..."
+                    "This is getting kinda dry..."
+                    jump endMarvinVDay
+                label whatToe:
+                    m "Oh you know the one you told me about the other day?"
+                    m "The one that's making your toe all green??"
+                    p "..."
+                    m "..."
+                    m "...I think I'm thinking about Helen."
+                    p "Haha."
+                    "..."
+                    "This is getting kinda dry.."
+                    jump endMarvinVDay
+            label noEat2:
+                "Marvin ignores you and starts to eat the chapstick. You have to intervene somehow, so you grab the chapstick from him and throw it at an unsuspecting passenger."
+                p "You can't eat someone else's used chapstick! You could die."
+                m "Humph. *muttering* Just like my ex-wife..."
+                "It seems like you're expecting deja vu. You sit down on the bench next Marvin."
+                "Another train comes. When it leaves, Marvin has started blabbering about the many different types of citrus that he hates."
+                m "...and I also hate grapefruit, and limes, and..."
+                "You feel your IQ drop a hundred points. You need to change the conversation topic, and fast."
+                "What do you want to talk about first?"
+                menu:
+                    "Marvin's tadpoles":
+                        jump tadpoles
+                    "His addiction to paint.":
+                        jump druggy
+                    "Zoology 101":
+                        jump whoNeedsEducationAnyways
+                label tadpoles:
+                    p "So, Marvin, how's the Missus? And your tadpoles?"
+                    "Marvin perks up."
+                    m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
+                    "Marvin smiles fondly."
+                    m "She was an architect."
+                    m "Claude is biting everything in sight...I really gotta talk to him about that..."
+                    m "And Maximus Detrimus just won a hissing competition. He's the smart one in the family."
+                    p "...Yeah. That's good. And Helen?"
+                    m "Oh? Helen? She's still kicking."
+                    p "Oh..."
+                    "..."
+                    p "Eat any paint lately?"
+                    m "Actually, I've only had two cans today! I'm trying to cut back. You know how it is."
+                    p "Not really..."
+                    "Marvin continues as if you hadn't spoken."
+                    m "Yeah I ate a blue can and a purple can in one sitting."
+                    "Marvin sighs happily."
+                    m "Good times."
+                    p "Ah...."
+                    p "So how's Zoology 101 going?"
+                    "Marvin almost chokes on his saliva."
+                    m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
+                    "Marvin makes a noise that is half-laughing and half-weeping. He cries/laughs his guts out while you sit there awkwardly."
+                    p " {i} This is feeling like an interview. {/i}"
+                    jump endMarvinVDay
+                label druggy:
+                    p "So Marvin, eat any paint lately?"
+                    m "Actually, I've only had two cans today! I'm trying to cut back. You know how it is."
+                    p "Not really..."
+                    "Marvin continues as if you hadn't spoken."
+                    m "Yeah I ate a blue can and a purple can in one sitting."
+                    "Marvin sighs happily."
+                    m "Good times."
+                    p "Ah...."
+                    p "Right. How are your tadpoles doing?"
+                    "Marvin perks up."
+                    m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
+                    "Marvin smiles fondly."
+                    m "She was an architect."
+                    m "Claude is biting everything in sight...I really gotta talk to him about that..."
+                    m "And Maximus Detrimus just won a hissing competition. He's the smart one in the family."
+                    p "...Yeah. That's good. And Helen?"
+                    m "Oh? Helen? She's still kicking."
+                    p "Oh..."
+                    p "So how's Zoology 101 going?"
+                    "Marvin almost chokes on his saliva."
+                    m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
+                    "Marvin makes a noise that is half-laughing and half-weepin. He cries/laughs his guts out while you sit there awkwardly."
+                    p " {i} This is feeling like an interview. {/i}"
+                    jump endMarvinVDay
+                label whoNeedsEducationAnyway:
+                    p "So how's Zoology 101 going?"
+                    "Marvin almost chokes on his saliva."
+                    m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
+                    "Marvin makes a noise that is half-laughing and half-weepin. He cries/laughs his guts out while you sit there awkwardly."
+                    "You think you should restart the conversation."
+                    p "Marvin perks up."
+                    m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
+                    "Marvin smiles fondly."
+                    m "She was an architect."
+                    m "Claude is biting everything in sight...I really gotta talk to him about that..."
+                    m "And Maximus Detrimus just won a hissing competition. He's the smart one in the family."
+                    p "...Yeah. That's good. And Helen?"
+                    m "Oh? Helen? She's still kicking."
+                    p "Oh..."
+                    p "Eat any paint lately?"
+                    m "Actually, I've only had two cans today! I'm trying to cut back. You know how it is."
+                    p "Not really..."
+                    "Marvin continues as if you hadn't spoken."
+                    m "Yeah I ate a blue can and a purple can in one sitting."
+                    "Marvin sighs happily."
+                    m "Good times."
+                    p "Ah...."
+                    p " {i} This is feeling like an interview. {/i}"
+                    jump endMarvinVDay
+    label leaveMarvin2:
+        "But are you sure?"
+        menu:
+            "Yes, definitely.":
+                jump leaveMarvin3
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin3:
+        "But are you really sure?"
+        menu:
+            "Yes!":
+                jump leaveMarvin4
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin4:
+        "Are you one hundred percent positive?"
+        menu:
+            "Yup":
+                jump leaveMarvin5
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin5:
+        "Are you sure you want to leave Marvin?"
+        menu:
+            "Yeah.":
+                jump leaveMarvin6
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin6:
+        "Are you sure?"
+        menu:
+            "As sure as mud.":
+                jump leaveMarvin7
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin7:
+        "Are you totally sure?"
+        menu:
+            "As sure as gold.":
+                jump leaveMarvin8
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin8:
+        "But like do you really want to ditch him?"
+        menu:
+            "Yes, I really do.":
+                jump leaveMarvin9
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin9:
+        "Yeah but are you super positive???"
+        menu:
+            "bruh yes...":
+                jump leaveMarvin10
+            "No I'll stay with Mr. Marvin":
+                jump stayWithMarvin
+    label leaveMarvin10:
+        "Are you really really sure?"
+        menu:
+            "Yeah!":
+                jump leaveMarvin11
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin11:
+        "C’mon, think about this. Do you actually want to leave Marvin?"
+        menu:
+            "Yes, I really do.":
+                jump leaveMarvin12
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin12:
+        "Are you sure?"
+        menu:
+            "Yes.":
+                jump leaveMarvin13
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin13:
+        "Are you two hundred percent positive?"
+        menu:
+            "Heck yeah I am.":
+                jump leaveMarvin14
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin14:
+        "Are you three hundred percent positive?"
+        menu:
+            "Yes!":
+                jump leaveMarvin15
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin15:
+        "But like are you SURE sure?"
+        menu:
+            "Mhhhmmmmm":
+                jump leaveMarvin16
+            "No, I’ll stay with Marvin.":
+                jump stayWithMarvin
+    label leaveMarvin16:
+        "Congratulations Asshole."
+        "You hop on the train, and it takes off."
+        "You leave a dejected Marvin at the station."
+        jump endMarvinVDayTrain
+    label endMarvinVDayTrain:
+        "..."
+        "You're on the train to god knows where after leaving Marvin."
+        "Hey what is wrong with you?"
+        "Marvin may have a few strange quirks but just leaving him out of nowhere is kinda mean."
+        "Like he may be a frog or whatever but...Marvin was there for you when no one else was."
+        "You are beginning to regret your decision."
+        "It's gonna be awkward at school tomorrow..."
+        "THE END."
+        return
+    label endMarvinVDay:
+        "..."
+        "An awkward conversation with Marvin goes on for a few hours."
+        "You didn't want to be rude and leave him so you put up with it."
+        "..."
+        "It's getting late."
+        p "Hey Marvin don't you think it's getting kinda late?"
+        m "A little bit I mean! Are you not having the time of your life though?"
+        "You're starting to regret your decision..."
+        m "..."
+        m "I'm gonna go now actually... Helen's probably waiting for me."
+        "...??"
+        "Marvin hops onto a train and leaves you alone at the station."
+        "..."
+        p "{i} What a jerk. {/i}"
+        "You get the feeling that Marvin's a little too hung up on Helen."
+        "...The day's almost over. You head back to your dorm alone."
+        "It's gonna be awkward at school tomorrow..."
+        "THE END."
+        return
