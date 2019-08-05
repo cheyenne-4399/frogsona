@@ -19,35 +19,29 @@ define f = Character("Crazy Fangirl One")
 define w = Character("La Bouteille D'eau Waiter One")
 define t = Character("King Samson II's Servant")
 
-#NEEDED IMAGES:
-#School
-#Dorm Building
-#Wallblues1 = inside store
-#Wallblues 2 = outside store
-#Boiled Topic
-#Hum Depot1 = inside store
-#Hum Deport2 = outside store
+#DEFINING IMAGES: SPRITES
+
+#DEFINING IMAGES: BACKGROUNDS
 
 label start:
+
+    #show cheesy hearts pic
 
     "Welcome to F Cubed."
 
     # bg change = "scene ____"
     #sprite show = "show ___"
 
-    # BG = school
+    # BG = university bg
     "You are a new student at XYZ University."
     p "Wow I am so excited! I hope I will get a boyfriend this year..."
     "And so your Flirtatious Frog Fantasy begins..."
 
-    # menu:
-    #     "backdoor":
-    #         jump postAllSecondDates
-
     "It's time to look at your new dorm!"
     #BG = dorm building
     "You make your way into your dorm room's building."
-    show marvin
+
+    #show marvin default
 
     m "Hey neighbour! Are you new here?"
     menu:
@@ -56,18 +50,19 @@ label start:
          "Yes. What is it to you?":
             jump ignore
     label showmearound:
-         #show marvinBashful
+         #show marvin bashful
          m "Ok cutie. I have Zoology 101 next, do you? Not that I looked up your student records or anything…"
          p "Yes, I have that class as well."
          #BG = transition
          "You and Marvin walk to class together."
          #BG = classroom
+         #Sprite = Marvin Hissing
          m "HIIIISSSSSS"
          p "{i} What the heck?? {/i}"
          m "Sit next to me."
          jump kingintro
     label ignore:
-         #show marvinFlustered
+         #show marvin flustered/annoyed
          m "Hmph. *muttering* Just like my ex-wife…"
          #BG = transition
          "Marvin walks away and makes his way to his class…"
@@ -75,17 +70,21 @@ label start:
          "Marvin is in the same class as you! There seems to be a limited amount of seats. You reluctantly make your way to the seat next to Marvin."
          jump kingintro
     label kingintro:
+        #Samson Shadow
         u "hEy ! How dare you reside in my space?"
         p "{i} Get a load of this guy...who does he think he is?{/i}"
         #show kingSamson
-        #show marvin but like on the other side of the screen
+        #Default Marvin on other side
         m "King Samson II! I didn’t know you had Zoology 101 as well!"
         "King Samson II pushes past you..."
+        #king Samson Yelling
         k "Step aside, peasants!"
         "...and takes the empty seat next to Marvin."
+        #no Sprite
         "You look around the rest of the class for any seats to take."
         "...!"
         "There’s one seat left in the back. You walk over and see a hooded figure lurking in the corner."
+        #Hooded Figure/Emo Shadow
         p "You good?"
         u "r-rawr…. >.< ….oh..sorry...didn’t see you there ...hehe"
         "He coughs up a hairball…"
@@ -100,20 +99,28 @@ label start:
             "Fingerless gloves? What is this, 2005?":
                 jump emoInsult
         label swag:
+            #Emo Blushy
             e "xX haha...thanks i guess… *nuzzles* :3"
             "He seems to have taken a liking for you…"
             "This promises to be an interesting first day."
+            #no sprite
+            #transition
             jump d2
         label emoInsult:
+            #emo angry
             e "STOP FLAMING MY PAGE!!! You don't understand...no one does..."
+            #emo cry
             "He starts to cry into the desk…"
             #Show EmoCry
             "This promises to be an interesting first day."
+            #no sprite
+            #Transition
             jump d2
         label d2:
             "The next day"
             jump wallblues
         label wallblues:
+            #Marvin Default
             "After class…"
             m "Hey you ;) I need to get some laxatives...wanna come with me to Wallblues?"
             menu:
@@ -122,16 +129,21 @@ label start:
                 "Yeah sure...I need some too…":
                     jump laxativesToo
         label laxativesWeird:
+            #marvin wink
             m "Don’t judge me like that sweetie. You look like you might need some too after today’s breakfast. If you know what I mean ;) "
             p "{i}what a rude bastard…{/i}"
+            #no sprite, transition
             "You follow Marvin to Wallblues"
             jump CVS
         label laxativesToo:
+            #Marvin grossed out
             m "Ew that’s so gross. Why would you tell me that? Did your mother never teach you? A young lady never gives away her laxative status…kids these days"
             "You follow a disgusted Marvin to Wallblues."
+            #No sprite, transition
             jump CVS
         label CVS:
         #BG = stock photo of CVS
+        #Marvin default
         m "Want to go inside?"
         menu:
             "Yeah! Let’s go.":
@@ -139,8 +151,11 @@ label start:
             "No thanks, let’s wait here for a bit.":
                 jump outside
         label inside:
+            #store interior
             "You go inside the store with Marvin and walk towards the gift card aisle."
+            #Marvin wink
             m "I was kidding. I don’t actually need laxatives, it was a test of your loyalty to me."
+            #Marvin Default
             m "I was actually wondering if you wanted to browse the candy aisle with me."
             menu:
                 "Yeah I love candy!":
@@ -148,8 +163,10 @@ label start:
                 "I’d rather browse the medications":
                     jump noCandy
             label yesCandy:
+                #Marvin Default
                 m "Thanks bby. My ex-wife Helen never let me eat candy. Something about type 2 diabetes?"
                 "You go to the candy aisle."
+                #matter of fact Marvin
                 m "Back in my day, the kids ate Skittles and M&M’s. As the datee, you get to choose which candy we eat. My treat!"
                 menu:
                     "Skittles!":
@@ -157,7 +174,9 @@ label start:
                     "M&M’s!":
                         jump MandM
                 label Skittles:
+                    #Marvin Hissing
                     m " Hiss Hiss! A gourmet choice!"
+                    #Marvin default
                     m "What color do you choose? This is a vital question, so make sure you think before answering."
                     menu:
                         "Red":
@@ -165,25 +184,32 @@ label start:
                         "Blue":
                             jump blue
                     label red:
+                        #Marvin matter of fact
                         "Ahhh red skittles, just like the strawberry scent my ex-wife Helen used to spray."
                         "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
                         jump endMarvinDateOne
                     label blue:
+                        #Marvin Matter of fact
                         "Ahhh blue skittles, just like the blueberry scent my ex-wife Helen sprayed on the day of our divorce…"
                         "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
                         jump endMarvinDateOne
                 label MandM:
+                    #Marvin default
                     m "A splendid choice! I promise I won’t eat more than half of the bag"
+                    #Marvin eating candy
                     "Marvin ends up eating the entire party-sized bag of M&M’s. You are hungry and annoyed, so you leave."
                     jump endMarvinDateOne
             label noCandy:
+                #Marvin Default
                 m "Okay."
                 "You stare at different colored pills for 2 hours. You end up buying Behnardrill, and head outside."
                 jump endMarvinDateOne
         label outside:
+            #CVS background
             "You stand outside the store for twenty minutes."
             "In an attempt to break the awkward silence, you engage Marvin in a conversation about lemons."
             p "Do you like lemons?"
+            #Marvin matter of fact
             m "I don’t, but my ex-wife Helen loves them."
             menu:
                 "Your ex-wife? You were married!?":
@@ -191,17 +217,23 @@ label start:
                 "That’s so interesting. Do you have any kids?":
                     jump kids
             label exwife:
+                #Marvin default
                 m "Yeah. You?"
                 p "No!"
                 p "You leave Marvin outside Wallblues, shocked and disgusted."
+                #transition, no sprite
                 jump endMarvinDateOne
             label kids:
+                #Marvin Matter of fact
                 m "I have four. How many do you have?"
                 p "None!"
                 p "You leave Marvin outside Wallblues, shocked and disgusted. You loathe children."
+                #transition, no sprite
                 jump endMarvinDateOne
     label endMarvinDateOne:
+        #background = dorm hallway
         "Marvin follows you back to your dorm after your outing at Wallblues."
+        #Marvin blushy
         m "Thanks for coming with me. I had a really nice time with you…"
         "He struggles to keep up with you."
         menu:
@@ -210,26 +242,32 @@ label start:
             "Can you stop following me please?":
                 jump stopStalker
         label niceTime:
+            #Marvin Matter of fact
             m "I knew you would like WallBlues! I used to bring my ex-wife there all the time!"
             jump flyScene
         label stopStalker:
             p "{i} Why is he still here? I don’t want to have to call the security…{/i}"
+            #Marvin Flustered
             m "But bhabie...I thought you would like WallBlues…"
+            #Marvin Crying
             "It seems as if he has started crying…"
             jump flyScene
     label flyScene:
-        #show marvinSurprised
+        #Marvin Wowzers
         m "WOWZERS !"
         "...!!!"
         "Woah there momma goose ! Is he...Kissing your feet???"
+        #Marvin Hissing
         "Marvin smacks his frog lips."
         #Show MarvinBashful
         m "Sorry....Hiss hisss...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
+        #Transition, no sprite, bg
         "Marvin walks away and you turn into your dorm for the night."
         jump mandDateD2
         label mandDateD2:
+            #Classroom
             "After class…"
-            #show emo
+            #show emo bashful
             e "hey… you busy by any chance… o-owo"
             menu:
                 "Actually I was planning on studying...wanna come with?":
@@ -237,15 +275,19 @@ label start:
                 "No. Do you need something?":
                     jump noPlans
             label studyFreak:
+                #show emo default
                 e "aww don't be such a prep...come shopping with me at boiled topic!"
                 "xX_DarkRaven49623_Xx drags you to the mall."
                 jump boiledTopic
             label noPlans:
+                #show emo blushy
                 e "that's kinda funky of you my fellow follower of darkness. wanna go to the boiled topic with me? you are qq but your style is off..."
                 p "{i} I am holding back from kicking him in the shin...{/i}"
                 jump boiledTopic
         label boiledTopic:
+            #bg boild topic
             "At Boiled Topic..."
+            #cult member default
             "Outside the store, a member of a local cult asks if you want to join their cult, XYZ."
             menu:
                 "Sure! I'll join.":
@@ -253,23 +295,30 @@ label start:
                 "No thanks.":
                     jump noCult
             label noCult:
+                #emo blushy
                 e "i'm glad you didn't leave me :)"
+                #emo sad
                 e "..."
                 e "...everyone else does..."
+                #no sprite
                 "You go inside the store. Inside, an employee mutters a greeting and continues to write his will on Google Docs."
+                #emo default
                 e "i have a few clothes that i want to try, but i'm afraid that i won't buy any of them due to my constant self-deprecation and low self esteem lol XD. that's why i brought u."
                 e "i'll go change into my first fit."
+                #emo studded belt
                 "xX_DarkRaven496283_Xx comes out of the dressing room in a studded belt, fake tattoo sleeves, super-duper
                 schmooper black skinny jeans, and Doctor Martins."
-                e "he rawred. well..what do u think? "
+                e "rawr XD well..what do u think? "
                 menu:
                     "Wow whatta hottie.":
                         jump hotEmo
                     "Laaaaame.":
                         jump lameEmo
                 label lameEmo:
+                    #emo sad
                     e " *sad uwu* that's what they all say ..."
                     e "i really thought you'd be different. you know what they say..."
+                    #emo crying
                     e "love can sometimes be magic...but magic..."
                     e "is just an illusion"
                     menu:
@@ -278,13 +327,15 @@ label start:
                         "Stop being dramatic...geez.":
                             jump dramatic
                     label makeUp:
-                        "o-owo? a-are you sure?"
+                        #emo bashful
+                        e "o-owo? a-are you sure?"
                         menu:
                             "Yes":
                                 jump yesMakeUp
                             "...no":
                                 jump dramatic
                         label yesMakeUp:
+                            #emo bashful
                             e "but are you sure-sure?"
                             menu:
                                 "YES.":
@@ -292,25 +343,33 @@ label start:
                                 "...no?":
                                     jump dramatic
                             label yesyesMakeUp:
+                                #emo sad
                                 e "...but how sure exactly are you?"
                                 menu:
                                     "Absolutely 100 Percent Sure.":
                                         jump yesyesyesSure
                                     "Well now I am 0 Percent sure you ungrateful twat.":
                                         jump dramatic
+                                        #emo bashful
                                 label yesyesyesSure:
                                     e "oh em gee... ^_^ no one's ever been so faithful 2 me. i thought i would perish forever alone..."
                                     "xX_DarkRaven496283_Xx seems to have started to tear up??"
+                                    #emo crying
                                     "he runs out of the store crying."
                                     jump endEmoDate1
                     label dramatic:
+                        #emo sad
                         e "the fleeting feeling of love lasts only for a moment...but the pain of love lasts a lifetime..."
+                        #emo crying
                         "it seems xX_DarkRaven496283_Xx has started to tear up."
                         "He runs out of the store crying."
                         jump endEmoDate1
                 label hotEmo:
+                    #emo bashful
                     e "owo w-weally? no one's ever said that bee four..."
+                    #emo default
                     e "i'll go wear the second outfit. brb haha XD"
+                    #emo evanescence
                     "xX_DarkRaven496283_Xx comes out wearing an oversized Evanescence shirt."
                     e "um do i look fat in dis shirt? not that i don't any other time... >w<"
                     menu:
@@ -319,21 +378,29 @@ label start:
                         "Of course knot !":
                             jump noFat
                     label yesFat:
+                        #emo sad
                         e "i knew it... i'll just...not get it i guess..."
+                        #emo crying
                         "xX_DarkRaven496283_Xx starts to tear up. He runs out of the store crying."
                         jump endEmoDateOne
                     label noFat:
+                        #emo bashful
                         e "you're too cute :3 let's go buy deez"
                         "You go with xX_DarkRaven496283_Xx to the cash register."
                         "The employee stops writing his will and says that the total is $87.32"
+                        #emo default
                         e " WHAT XD?! i thought i had a discount from being a five year member of this store..."
+                        #emo sad
                         e "i spent all of my money on guy-liner refills already..."
                         "xX_DarkRaven496283_Xx smile shakily."
                         e "you know what they say... no smile is more beautiful than the one that struggles through the tears...."
+                        #emo crying
                         "xX_DarkRaven496283_Xx runs out of the store crying."
                         jump endEmoDate1
             label joinCult:
+                #cult member shocked
                 c "Wow, really? You're the first person to ever say 'yes.' "
+                #cult member default
                 c "To join our cult, you must go through an initiation ceremony. Stop by my church for a couple hours to get started."
                 p "I can't wait !"
                 c "Hey, may I go shopping with you?"
@@ -343,11 +410,14 @@ label start:
                     "I don't think that is a good idea.":
                         jump noCult
                 label shop:
+                    #hot topic
                     "You go inside the store with Cult Member One and xX_DarkRaven496283_Xx."
                     "You browse the store, and xX_DarkRaven496283_Xx instantly finds the studded belt. He goes to the fitting room to try it on."
+                    #cult member default
                     c "I don't see any cult-related items in this store. I think I'll go check out some other stores. Good day to you fellow worshipper."
                     p "Farewell, enlightened one!"
                     "xX_DarkRaven496283_Xx exits the fitting room wearing the studded belt."
+                    #emo studded belt
                     e "so...how do i look?"
                     menu:
                         "Awful. Just awful.":
@@ -355,6 +425,7 @@ label start:
                         "You look fine, but I wish the belt was in a different colour.":
                             jump diffcolour
                     label awful:
+                        #emo sad
                         e "...r-really?"
                         menu:
                             "No, I was just joking. But I do wish the belt was in an another colour.":
@@ -362,19 +433,23 @@ label start:
                             "Yes! You look like someone ran you over with a cement mixer.":
                                 jump insultEmoAgain
                     label insultEmoAgain:
+                        #emo crying
                         "xX_DarkRaven496283_Xx sobs his guts out."
                         e "...i won't buy the belt i guess... *sniffles*"
                         p "Wise decision."
                         "xX_DarkRaven496283_Xx runs out of the store, crying for the second time."
                         jump endEmoDate1
                     label diffcolour:
+                        #emo sad
                         e "b-but i like the colour black..."
+                        #emo crying
                         "xX_DarkRaven496283_Xx seems to have started crying..."
                         "You scramble to fix the situation."
                         p "Don't be ridiculous! Let's go see if the store sells a different colour belt."
                         "You ask the employees, but they say that black is the only colour belt they have."
                         "You're about to give up hope, but you notice a customer service number written on the belt's tag. It says to call if you have any questions."
                         "You call the number."
+                        #studded belt company default
                         b "Hello. This is Crystal from the Studded Belts COmpany. How may I help you?"
                         p "Yes, hi. I was wondering if you sell your oversized studded belt in a colour that isn't black?"
                         b "Yes! We sell this belt in a variety of colours. Which colour would you like?"
@@ -389,23 +464,30 @@ label start:
                             b "Alright, just tell me your home address, name, credit card number, social security number, and I will ship the belt over to your house."
                             "You force xX_DarkRaven496283_Xx to give up his private information."
                             b "Excellent. Would you like to pay extra for one day shipping?"
+                            #emo default
                             e "...no"
                             b "Thank you for calling. Have a nice day. "
+                            #emo sad
                             e "...but i wanted a black belt..."
                             p "Stop complaining!"
+                            #emo crying
                             "xX_DarkRaven496283_Xx starts sobbing and runs out of the mall."
                             jump endEmoDate1
         label endEmoDate1:
+            #transition black
             "Today was an eventful day...You were unable to buy anything, but you feel as if you understand xX_DarkRaven496283_Xx more now."
             jump mandDateD3Setup
     label mandDateD3Setup:
+        #transition black
         "The Next Day..."
         "Yesterday's date with xX_DarkRaven496283_Xx was certainly...something."
         "You should head to class."
         jump D3Class
     label D3Class:
+        #background classroom
         "During class..."
         "King Samson II passes you a note."
+        #king samson default
         k "My fairest lady. My apologies. I should not have taken your seat on the first day. I am sorry...I was having cramps that day. Mayhaps accompany me to a date after class? (check yes or no)"
         menu:
             "Check Yes.":
@@ -416,23 +498,27 @@ label start:
                 jump youAreMean
         label yesNote:
             "You check yes and pass the note back over to King Samson II."
+            #samson smile
             "He gives you slimy smile."
-            #Show silmySamson
             jump mandDateD3
         label noNote:
             "You check no and pass the note back over to King Samson II."
+            #samson shocked
             "He feigns a hurt expression at you...?"
+            #samson crying
             "It appears he has started to cry."
             "You feel guilty...maybe you should go on that date with him."
             jump  mandDateD3
         label youAreMean:
             "You check no and write a little note on the side."
             p "Really? Asking me out by passing a note? Are we in middle school??"
+            #samson crying
             "You pass the note back to King Samson II. He reads it and starts to cry..."
             "...You feel guilty...maybe you should go on that date with him."
             jump mandDateD3
     label mandDateD3:
         "After class you meet up with King Samson II."
+        #samson default
         k "I know you have wanted to date me for a long time now...Be glad you have this opportunity."
         p "{i} I'm one step away from kicking him in the shin...{/i}"
         menu:
@@ -441,16 +527,20 @@ label start:
             "Haha yeah...":
                 jump hahaYeah
         label shinKick:
+            #samson hearty chuckle
             "King Samson II gives you a hearty chuckle."
             k "Don't be like that sweetie!"
             "He drags you outside."
             jump homeDepot
         label hahaYeah:
+            #samson blush
             k "Are you nervous? Don't be..."
             "He drags you outside."
             jump homeDepot
     label homeDepot:
+        #home depot
         "After an awkward walk with King Samson II you arrive in front of...the local hardware store."
+        #samson default
         k "Hum DëpÔté! My personal favourite place to loiter at."
         menu:
             "Go inside Hum DëpÔté":
@@ -458,8 +548,11 @@ label start:
             "Stay outside Hum DëpÔté":
                 jump outsideHum
         label outsideHum:
+            #home depot
             "You stay outside Hum DëpÔté"
+            #samson proclamation
             k "By the gods! Observe this complex contraption before us!"
+            #shopping cart
             p "It's a...shopping cart??"
             k "We must treasure such a tool! Quick, before anyone looks!"
             menu:
@@ -470,9 +563,12 @@ label start:
             label stealCart:
                 "You help King Samson II shoplift the shopping cart."
                 p "We can get in big trouble for this..."
+                #samson proclamation
                 k "Nonsense! Anyone who challenges me to a duel shall feast their eyes upon my fists!"
                 " WEE WOO WEE WOO (police siren noises sorry we don't know how to spell out how it sounds)"
+                #police officer
                 "A wild police officer appears!"
+                #samson proclamation one side
                 k "I CHALLENGE YOU TO A DUEL, GOOD SIR."
                 menu:
                     "Let King Samson II duel against the police officer. He is a grown frog and can do what he wants.":
@@ -481,10 +577,14 @@ label start:
                         jump noDuel
                 label noDuel:
                     p "You don't have to do this! Let's just take the ticket and leave."
+                    #samson proclamation
                     k "But...my honor!"
                     "You drag King Samson II away from the scene."
+                    "He takes a look at the ticket given to him."
+                    #samson shocked
                     k "468 dollars? I lack the wealth to accomplish such a feat..."
                     p "{i} ...isn't he a king? {/i}"
+                    #samson wasted
                     " It appears King Samson II has started to faint from shock."
                     k "Please...leave me here to die. Go before they catch you as well!"
                     p "Oh...okay then."
@@ -492,11 +592,13 @@ label start:
                     "As you leave you notice Samson get up and follow you."
                     jump endKingDate1
                 label yesDuel:
+                    #samson proclamation
                     k "PREPARE TO FIGHT! I WILL VOMIT ON YOUR POSSESSIONS, YOU INSOLENT MUSHROOM!"
                     x "Uh sure..."
                     "Both of the contestants pull out nerf guns."
                     "The police officer and King Samson II take 10 steps out. When it's time to turn and shoot, the police officer fires his nerf gun before Samson."
                     "King collapses."
+                    #samson wasted
                     k "But alas! Your young and mighty king has failed. This is the start to the downfall of our kingdom..."
                     k "Please, leave me here to die. Go before he catches you as well."
                     p "Uh...aight then lmao bruhhh x"
@@ -504,6 +606,7 @@ label start:
                     "As you leave you notice Samson get up and follow you."
                     jump endKingDate1
             label leaveCart:
+                #samson default
                 k "Ah. I admire your refrainment (is that a word lol) from pursuing this holy cart. It brings out your kind and gentle character."
                 k "However, I plan to take you somewhere that requires using transportation, and I lack an automobile."
                 menu:
@@ -513,6 +616,7 @@ label start:
                         jump driveBus
                 label driveCart:
                     "You somehow drive the shopping cart onto the freeway??"
+                    #police default
                     "However, a police officer stops you, as you were driving way under the speed limit."
                     x "I'm sorry, it's rush hour."
                     "You and King Samson II reluctantly push the shopping cart back to where they came from."
@@ -528,7 +632,9 @@ label start:
                             jump outsideVan
                     label insideVan:
                         "You both get into the van like idiots, unaware of what's to come."
+                        #samson proclamation
                         k "To the Shakesperean Museum we go!"
+                        #police officer default
                         x "Not so fast!"
                         x "I saw you eyeing that shopping cart. You're under arrest for suspicioius activiy and hypothetical vandalism."
                         "You and King Samson II reluctantly go to jail."
@@ -541,7 +647,9 @@ label start:
                         "You both decide to call it a day."
                         jump endKingDate1
         label insideHum:
+            #home depot interior
             "You go inside Hum DëpÔté."
+            #samson default
             k "Feast your eyes on the best construction products in the world."
             p "Wow. This is wicked awesome-sauce. I can't wait to shop here."
             "You look around the store."
@@ -552,6 +660,7 @@ label start:
                 "Sinks.":
                     jump sinks
             label paint:
+                #paint aisle
                 "You walk over to the paint aisle."
                 "You see hundreds of cans of paints, arranged by colour."
                 "What colour paint do you want to look at?"
@@ -564,20 +673,25 @@ label start:
                         jump yellow
                 label yellow:
                     p "Let's go look at the yellow paint."
+                    #samson default
                     k "Rally? Yellow paint? I prefer purple."
                     p "How come?"
                     k "Purple paint tastes better..."
                     p " You {i} eat {/i} paint???"
+                    #samson shocked
                     k " Don't be daft! I drink it!"
                     "You are not in the mood to see that today."
                     p "....Okay.... Let's go look at the sinks instead."
                     jump sink
                 label orange:
                     p "Let's go look at the orange paint."
+                    #samson shocked
                     k "Really? Orange paint? What obtuse taste...I prefer the purple."
                     p "How come?"
+                    #samson default
                     k "The purple paint here tastes better."
                     p "You {i} eat {/i} paint???"
+                    #samson bashful
                     "He starts to chuckle nervously."
                     #show samsonBashful
                     k "NO!!!!! That would be weird..."
@@ -585,10 +699,12 @@ label start:
                     jump sink
                 label purple:
                     p "Let's go look at the purple paint."
+                    #samson chuck;e
                     k "Excellent! I love paint."
                     "You hear a popping sound."
                     "You turn around, and see King Samson II has opened a can of purple paint and..."
                     "..!"
+                    #samson paint
                     "He is furiously shoving handfuls of paint into his mouth."
                     p "Are you {i} eating {/i} paint???"
                     k "Yes. Paint has fiber, and everyone knows fiber is filled with nutrients."
@@ -601,14 +717,17 @@ label start:
                         k "Sure!"
                         "You try some purple paint."
                         p "Not bad."
+                        #samson proclamation
                         k "Let's go look at the sinks!"
                         p "Okay!"
                         jump sinks
                     label goToSink2:
+                        #samson mad
                         k "wELL exCuUUuUuUuUUUse me if my tastebuds are more refined."
                         p "Whatever. Let's go look at sinks."
                         jump sinks
             label sinks:
+                #bg sink aisle
                 "You walk over to a row of sinks."
                 "After several minutes, you find a sink that you like."
                 p "This sink is the bees knees! I hope it works."
