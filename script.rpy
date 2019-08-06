@@ -20,9 +20,41 @@ define w = Character("La Bouteille D'eau Waiter One")
 define t = Character("King Samson II's Servant")
 
 #DEFINING IMAGES: SPRITES
-image hallway = "hallway.jpg"
-image transition = "blackTransition.png"
+image alleyway = "alleyway.jpg"
+image apartmentInside = "apartmentInside.jpg"
+image apartmentOutside = "apartmentOutside.jpg"
+image bathAndBody = "bathAndBooty.jpg"
+image blackTransition = "blackTransition.jpg"
+image boiledTopic = "boiledTopic.jpg"
+image boiledTopicInside = "boiledTopicInside.jpg"
+image busStop = "busStop.jpg"
+image cafeteria = "cafeteria.jpg"
+image cemetery = "cemetery.jpg"
+image classroom = "classroom.jpg"
+image concert = "concert.jpg"
+image concertCrowd = "concertCrowd.jpg"
+image concertOutside = "concertOutside.jpg"
+image corporate = "corporate.jpg"
+image crowdSurf = "crowdSurf.jpg"
+image dinerInside = "dinerInside.jpg"
+image dinerOutside = "dinerOutside.jpg"
+image door = "door.jpg"
+image fancyRestaurant = "fancyRestaurant.jpg"
+image fitnessCenter = "fitnessCenter.jpg"
+image forest = "forest.jpg"
+image forestClearing = "forestClearing.jpg"
+image homeDepot = "homeDepot.jpg"
+image homeDepotOut = "homeDepotOut.png"
+image jailHouse = "jailHouse.jpg"
+image kingdom = "kingdom.jpg"
+image kitchen = "kitchen.jpg"
+image livingRoom = "livingRoom.jpg"
+image london = "london.jpg"
+image paintAisle = "paintAisle.jpg"
+image trainStation = "trainStation.jpg"
 image uniCampus = "uniCampus.jpg"
+image wallbluesInterior = "wallbluesInterior.jpg"
+image wallbluesOutside = "wallbluesOutside.jpg"
 
 #DEFINING IMAGES: BACKGROUNDS
 
@@ -38,6 +70,7 @@ label start:
     scene uniCampus
     "You are a new student at XYZ University."
     p "Wow I am so excited! I hope I will get a boyfriend this year..."
+    scene blackTransition
     "And so your Flirtatious Frog Fantasy begins..."
 
     "It's time to look at your new dorm!"
@@ -56,9 +89,9 @@ label start:
          #show marvin bashful
          m "Ok cutie. I have Zoology 101 next, do you? Not that I looked up your student records or anything…"
          p "Yes, I have that class as well."
-         scene transition
+         scene blackTransition
          "You and Marvin walk to class together."
-         #BG = classroom
+         scene classroom
          #Sprite = Marvin Hissing
          m "HIIIISSSSSS"
          p "{i} What the heck?? {/i}"
@@ -67,9 +100,9 @@ label start:
     label ignore:
          #show marvin flustered/annoyed
          m "Hmph. *muttering* Just like my ex-wife…"
-         #BG = transition
+         scene blackTransition
          "Marvin walks away and makes his way to his class…"
-         #BG = classroom
+         scene classroom
          "Marvin is in the same class as you! There seems to be a limited amount of seats. You reluctantly make your way to the seat next to Marvin."
          jump kingintro
     label kingintro:
@@ -107,7 +140,7 @@ label start:
             "He seems to have taken a liking for you…"
             "This promises to be an interesting first day."
             #no sprite
-            #transition
+            scene blackTransition
             jump d2
         label emoInsult:
             #emo angry
@@ -117,13 +150,14 @@ label start:
             #Show EmoCry
             "This promises to be an interesting first day."
             #no sprite
-            #Transition
+            scene blackTransition
             jump d2
         label d2:
             "The next day"
             jump wallblues
         label wallblues:
             #Marvin Default
+            scene classroom
             "After class…"
             m "Hey you ;) I need to get some laxatives...wanna come with me to Wallblues?"
             menu:
@@ -135,17 +169,19 @@ label start:
             #marvin wink
             m "Don’t judge me like that sweetie. You look like you might need some too after today’s breakfast. If you know what I mean ;) "
             p "{i}what a rude bastard…{/i}"
-            #no sprite, transition
+            #no sprite
+            scene blackTransition
             "You follow Marvin to Wallblues"
             jump CVS
         label laxativesToo:
             #Marvin grossed out
             m "Ew that’s so gross. Why would you tell me that? Did your mother never teach you? A young lady never gives away her laxative status…kids these days"
             "You follow a disgusted Marvin to Wallblues."
-            #No sprite, transition
+            #No sprite,
+            scene blackTransition
             jump CVS
         label CVS:
-        #BG = stock photo of CVS
+        scene wallbluesOutside
         #Marvin default
         m "Want to go inside?"
         menu:
@@ -154,7 +190,7 @@ label start:
             "No thanks, let’s wait here for a bit.":
                 jump outside
         label inside:
-            #store interior
+            scene wallbluesInterior
             "You go inside the store with Marvin and walk towards the gift card aisle."
             #Marvin wink
             m "I was kidding. I don’t actually need laxatives, it was a test of your loyalty to me."
@@ -208,7 +244,7 @@ label start:
                 "You stare at different colored pills for 2 hours. You end up buying Behnardrill, and head outside."
                 jump endMarvinDateOne
         label outside:
-            #CVS background
+            scene wallbluesOutside
             "You stand outside the store for twenty minutes."
             "In an attempt to break the awkward silence, you engage Marvin in a conversation about lemons."
             p "Do you like lemons?"
@@ -223,18 +259,20 @@ label start:
                 #Marvin default
                 m "Yeah. You?"
                 p "No!"
+                scene blackTransition
                 p "You leave Marvin outside Wallblues, shocked and disgusted."
-                #transition, no sprite
+                #no sprite
                 jump endMarvinDateOne
             label kids:
                 #Marvin Matter of fact
                 m "I have four. How many do you have?"
                 p "None!"
                 p "You leave Marvin outside Wallblues, shocked and disgusted. You loathe children."
-                #transition, no sprite
+                scene blackTransition
+                # no sprite
                 jump endMarvinDateOne
     label endMarvinDateOne:
-        #background = dorm hallway
+        scene hallway
         "Marvin follows you back to your dorm after your outing at Wallblues."
         #Marvin blushy
         m "Thanks for coming with me. I had a really nice time with you…"
@@ -264,11 +302,12 @@ label start:
         "Marvin smacks his frog lips."
         #Show MarvinBashful
         m "Sorry....Hiss hisss...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
-        #Transition, no sprite, bg
+        # no sprite, bg
+        scene blackTransition
         "Marvin walks away and you turn into your dorm for the night."
         jump mandDateD2
         label mandDateD2:
-            #Classroom
+            scene classroom
             "After class…"
             #show emo bashful
             e "hey… you busy by any chance… o-owo"
@@ -288,7 +327,7 @@ label start:
                 p "{i} I am holding back from kicking him in the shin...{/i}"
                 jump boiledTopic
         label boiledTopic:
-            #bg boild topic
+            scene boiledTopic
             "At Boiled Topic..."
             #cult member default
             "Outside the store, a member of a local cult asks if you want to join their cult, XYZ."
@@ -304,6 +343,7 @@ label start:
                 e "..."
                 e "...everyone else does..."
                 #no sprite
+                scene boiledTopicInside
                 "You go inside the store. Inside, an employee mutters a greeting and continues to write his will on Google Docs."
                 #emo default
                 e "i have a few clothes that i want to try, but i'm afraid that i won't buy any of them due to my constant self-deprecation and low self esteem lol XD. that's why i brought u."
@@ -365,6 +405,7 @@ label start:
                         e "the fleeting feeling of love lasts only for a moment...but the pain of love lasts a lifetime..."
                         #emo crying
                         "it seems xX_DarkRaven496283_Xx has started to tear up."
+                        scene blackTransition
                         "He runs out of the store crying."
                         jump endEmoDate1
                 label hotEmo:
@@ -384,6 +425,7 @@ label start:
                         #emo sad
                         e "i knew it... i'll just...not get it i guess..."
                         #emo crying
+                        scene blackTransition
                         "xX_DarkRaven496283_Xx starts to tear up. He runs out of the store crying."
                         jump endEmoDateOne
                     label noFat:
@@ -398,6 +440,7 @@ label start:
                         "xX_DarkRaven496283_Xx smile shakily."
                         e "you know what they say... no smile is more beautiful than the one that struggles through the tears...."
                         #emo crying
+                        scene blackTransition
                         "xX_DarkRaven496283_Xx runs out of the store crying."
                         jump endEmoDate1
             label joinCult:
@@ -413,7 +456,7 @@ label start:
                     "I don't think that is a good idea.":
                         jump noCult
                 label shop:
-                    #hot topic
+                    scene boiledTopicInside
                     "You go inside the store with Cult Member One and xX_DarkRaven496283_Xx."
                     "You browse the store, and xX_DarkRaven496283_Xx instantly finds the studded belt. He goes to the fitting room to try it on."
                     #cult member default
@@ -440,6 +483,7 @@ label start:
                         "xX_DarkRaven496283_Xx sobs his guts out."
                         e "...i won't buy the belt i guess... *sniffles*"
                         p "Wise decision."
+                        scene blackTransition
                         "xX_DarkRaven496283_Xx runs out of the store, crying for the second time."
                         jump endEmoDate1
                     label diffcolour:
@@ -474,10 +518,11 @@ label start:
                             e "...but i wanted a black belt..."
                             p "Stop complaining!"
                             #emo crying
+                            scene blackTransition
                             "xX_DarkRaven496283_Xx starts sobbing and runs out of the mall."
                             jump endEmoDate1
         label endEmoDate1:
-            #transition black
+            scene blackTransition  
             "Today was an eventful day...You were unable to buy anything, but you feel as if you understand xX_DarkRaven496283_Xx more now."
             jump mandDateD3Setup
     label mandDateD3Setup:
