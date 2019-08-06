@@ -24,7 +24,7 @@ image alleyway = "alleyway.jpg"
 image apartmentInside = "apartmentInside.jpg"
 image apartmentOutside = "apartmentOutside.jpg"
 image bathAndBody = "bathAndBooty.jpg"
-image blackTransition = "blackTransition.jpg"
+image blackTransition = "blackTransition.png"
 image boiledTopic = "boiledTopic.jpg"
 image boiledTopicInside = "boiledTopicInside.jpg"
 image busStop = "busStop.jpg"
@@ -51,6 +51,7 @@ image kitchen = "kitchen.jpg"
 image livingRoom = "livingRoom.jpg"
 image london = "london.jpg"
 image paintAisle = "paintAisle.jpg"
+image sinkAisle = "sinkAisle.jpg"
 image trainStation = "trainStation.jpg"
 image uniCampus = "uniCampus.jpg"
 image wallbluesInterior = "wallbluesInterior.jpg"
@@ -427,7 +428,7 @@ label start:
                         #emo crying
                         scene blackTransition
                         "xX_DarkRaven496283_Xx starts to tear up. He runs out of the store crying."
-                        jump endEmoDateOne
+                        jump endEmoDate1
                     label noFat:
                         #emo bashful
                         e "you're too cute :3 let's go buy deez"
@@ -521,18 +522,18 @@ label start:
                             scene blackTransition
                             "xX_DarkRaven496283_Xx starts sobbing and runs out of the mall."
                             jump endEmoDate1
-        label endEmoDate1:
-            scene blackTransition  
-            "Today was an eventful day...You were unable to buy anything, but you feel as if you understand xX_DarkRaven496283_Xx more now."
-            jump mandDateD3Setup
+    label endEmoDate1:
+        scene blackTransition
+        "Today was an eventful day...You were unable to buy anything, but you feel as if you understand xX_DarkRaven496283_Xx more now."
+        jump mandDateD3Setup
     label mandDateD3Setup:
-        #transition black
+        scene blackTransition
         "The Next Day..."
         "Yesterday's date with xX_DarkRaven496283_Xx was certainly...something."
         "You should head to class."
         jump D3Class
     label D3Class:
-        #background classroom
+        scene classroom
         "During class..."
         "King Samson II passes you a note."
         #king samson default
@@ -586,7 +587,7 @@ label start:
             "He drags you outside."
             jump homeDepot
     label homeDepot:
-        #home depot
+        scene homeDepotOut
         "After an awkward walk with King Samson II you arrive in front of...the local hardware store."
         #samson default
         k "Hum DëpÔté! My personal favourite place to loiter at."
@@ -596,7 +597,7 @@ label start:
             "Stay outside Hum DëpÔté":
                 jump outsideHum
         label outsideHum:
-            #home depot
+            scene homeDepotOut
             "You stay outside Hum DëpÔté"
             #samson proclamation
             k "By the gods! Observe this complex contraption before us!"
@@ -670,7 +671,7 @@ label start:
                     "You and King Samson II reluctantly push the shopping cart back to where they came from."
                     jump endKingDate1
                 label driveBus:
-                    #bus stop
+                    scene busStop
                     "You and King Samson II wait for a public bus."
                     #white van sprite
                     "Instead, a white van with tinted windows stops in front of you."
@@ -697,7 +698,7 @@ label start:
                         "You both decide to call it a day."
                         jump endKingDate1
         label insideHum:
-            #home depot interior
+            scene homeDepot
             "You go inside Hum DëpÔté."
             #samson default
             k "Feast your eyes on the best construction products in the world."
@@ -710,7 +711,7 @@ label start:
                 "Sinks.":
                     jump sinks
             label paint:
-                #paint aisle
+                scene paintAisle
                 "You walk over to the paint aisle."
                 "You see hundreds of cans of paints, arranged by colour."
                 "What colour paint do you want to look at?"
@@ -777,7 +778,7 @@ label start:
                         p "Whatever. Let's go look at sinks."
                         jump sinks
             label sinks:
-                #bg sink aisle
+                scene sinkAisle
                 "You walk over to a row of sinks."
                 "After several minutes, you find a sink that you like."
                 p "This sink is the bees knees! I hope it works."
@@ -840,37 +841,37 @@ label start:
                     label stillBuy:
                         p "I don't care! I'm buying this sink whether you like it or not!"
                         "You pay for the sink, and leave the store with it."
-                        #transition, black
+                        scene blackTransition
                         "While walking hhome, a rabid skunk bites you in the shin. You drop the sink and it breaks. You've had enough for the day and leave it be."
                         jump endKingDate1
                     label forget:
                         p "This is nutters! Why is this sink leaking?"
                         p "I refuse to buy this!"
-                        #transition, black
+                        scene blackTransition
                         "You leave the store, sinkless."
                         jump endKingDate1
     label endKingDate1:
-        #bg dorm hallway
+        scene hallway
         "King Samson II walks you back to your dorm."
         #samson default
         k "Good night my fare carbon based life form."
         " He pats your shoulder and kisses your foot."
-        #transition, black
+        scene blackTransition
         "You're a little weirded out, but you're too tired to care. You turn into your dorm for the night."
         jump endOfMandDates
     label altEndKingDate1:
-        #bg jailhouse
+        scene jailHouse
         "You spend one night in jail."
         #police officer default
         x "Alright. Today's your lucky day. You're being released on account of good behaviour."
         "You run out of your cell, and hurry back to your dorm room."
-        #transition, black
+        scene blackTransition
         jump endOfMandDates
     label endOfMandDates:
-        #transition, black
+        scene blackTransition
         "A week passes..."
         "One day during lunch..."
-        #bg cafteria
+        scene cafeteria
         "You see the three frogs in line near each other at the cafeteria."
         "Which one do you wave to?"
         menu:
@@ -886,21 +887,21 @@ label start:
             #no sprite
             "xX_DarkRaven496283_Xx leaps away, hiding his frog face with his fringe along the way."
             "Maybe you should meet up with him after class..."
-            #transition, black
+            scene blackTransition
             jump emoDate2
         label marvinApproach:
             #marvin, default
             m "Hey there you little pumpkin. I have a special date planned for us today. Do you wanna go or not? You don't have to...unless...Hiss HIss"
             "Marvin leaps away leaving you wondering about the date."
             "Maybe you should meet up with him after class..."
-            #transition, black
+            scene blackTransition
             jump marvinDate2
         label kingApproach:
             #samson default
             k "GOOD AFTERNOON MY HIGHNESS TO BE. ARE YOU BUSY TODAY? IF NOT PLEASE MEET WITH ME WHEN YOU ARE FREE."
             "King Samson II leaps away, pushing people aside in the process."
             "Maybe you should meet with him later..."
-            #transition, black
+            scene blackTransition
             jump kingDate2
     label kingDate2:
         "You agree to meet up with King Samson II."
@@ -920,18 +921,19 @@ label start:
             k "My beautiful toad royalty! I regret to interrupt your internal monologue but the chauffeur is waiting for you!"
             p "{i}....??{/i}"
             "You should get ready for your date..."
-            #transition, black
+            scene blackTransition
             jump startKingDate2
         label stalkerPhone:
             #samson chuckle
             k "Don't be silly honey. You gave it to me! Well kind of. Private investigators can do quite a bit if you pay them enough."
             "It seems King Samson II has done some research on you..."
-            #transition, black
+            scene blackTransition
             "Anyhow, you need to get ready for your date."
             jump startKingDate2
     label startKingDate2:
-        #transition, black
+        scene blackTransition
         "You get ready for your date with King Samson II in the bathroom and make your way outside to your supposed chauffeur."
+        scene uniCampus
         "...It seems he is taking you out in a stolen shopping cart."
         p "{i} Why does this feel stangely familiar...{/i}"
         "King Samson II perks up when he sees you."
@@ -959,14 +961,14 @@ label start:
             #samson blushy
             k "You're kind of cute when you're trying to act insulting. *chuckles heartily some more, throwing some snorts in here and there."
             p "{i} I am holding back from kicking him in the shin {/i}"
-            #transition,black
+            scene blackTransition
             jump startStartKingDate2
     label startStartKingDate2:
         "And so your date with King Samson II begins..."
         #samson default
         k "I have reservations for us at the classiest dining restaurant in town."
         "King Samson II makes you push him int he shopping cart, giving you directions along the way..."
-        #bg demmys
+        scene dinerOutside
         "You arrive in front of your destination: Demmy's Diner."
         menu:
             "You call THIS fine dining??? Demmy's Diner?":
@@ -989,7 +991,7 @@ label start:
             "You suspect he has some issues."
             #samson slimy smile
             k "That's us! This way honey."
-            #transition, black
+            scene blackTransition
             "King Samson II holds the door open for you like the gentlfrog he is, and he leads the way."
             jump demmysStart
         label loveDemmys:
@@ -1004,7 +1006,7 @@ label start:
             h "Table for two, first name King...last name Samson?"
             jump demmysStart
     label demmysStart:
-        #bg diner interior
+        scene dinerInside
         "you are led to a table in the back of the diner."
         "King Samson II immediately starts pasting napkins onto his slimy skin (since he can't tuck a napkin into his shirt like a regular person...cause he's a frog)"
         #samson proclamation
@@ -1072,12 +1074,12 @@ label start:
                 k "Leave without me! I have some complications I must address."
                 jump endKingDate2
     label endKingDate2:
-        #transition, black
+        scene blackTransition
         "You end up walking back to your dorm by yourself."
         p "{i} I hope he's okay...{/i}"
         jump postAllSecondDates
     label emoDate2:
-        #transition, black
+        scene blackTransition
         "You meet up with xX_DarkRaven496283_Xx later."
         #emo blush
         e " w-wow you actually said yeah 0///0 y-you're the only one that ever cares..."
@@ -1104,10 +1106,9 @@ label start:
             "..."
             jump startEmoDate2
     label startEmoDate2:
-        #transiton, black
+        scene blackTransition
         "You and xX_DarkRaven496283_Xx arrive at the My Biological Romance concert together."
-        #background concert
-        #emo XD
+        scene concert
         e "rrrrrrrrrraaaaaaaawwwwwwwwrrrrr XD where heer."
         menu:
             "Go closer to the stage.":
@@ -1117,7 +1118,7 @@ label start:
         label balcony:
             "You and xX_DarkRaven496283_Xx walk towards the balcony."
             "My Biological Romance walks onto the stage."
-            #bg crowd
+            scene concertCrowd
             "The crowd goes wild. The people around you start to scream. People are clapping, and you see seme fans pull their hair out from excitement."
             "You feel this is all getting a little two hectic."
             p "I want to go outside and get some fresh air."
@@ -1128,7 +1129,7 @@ label start:
             p "{i} This guy is such a wimp. but not because he is a guy and crying, because the developers do not condone toxic masculinity and traditional gender roles. it is because he has cried in every interaction with you.{/i}"
             #emo crying
             e "...me thinks i broke me wrist..."
-            #bg outside concert venue
+            scene concertOutside
             "You drag xX_DarkRaven496283_Xx outside, by the wrist, because you're kind of an Basshole."
             p "Much better. It's so much quieter out here."
             "You turn around and see xX_DarkRaven496283_Xx holding his limp wrist. It doesn't even look like he hurt it. Actually you're not even sure that he tripped..."
@@ -1157,14 +1158,14 @@ label start:
                     "No.":
                         jump noChase
                 label chaseSkunk:
-                    #bg forest
+                    scene forest
                     "You begin your manhunt for the skunk."
                     "You check the ground first. You have excellent vision, and notice a trail of wrist pus leading off into the darkness."
                     p "I've found a trail. Let's  follow it."
                     "You follow the trail of wrist pus. It takes you through a forest, and then another forest, and then a third forest. When you leave the woods, you realize you have been walking for three weeks."
                     "Then, suddenly you see the skunk!"
                     p "Over there!"
-                    #bg forest clearing
+                    scene forestClearing
                     "You and xX_DarkRaven496283_Xx run over to the skunk."
                     #emo default
                     e "..give my wrist back :(((((("
@@ -1173,7 +1174,7 @@ label start:
                     e "...plz give me my wrist *starts sobbing*"
                     "The skunk cannot understand him. It is a skunk. Instead, it turns around and runs away."
                     p "Whelp, sucks to suck. I guess we better get you to a hospital."
-                    #bg forests
+                    scene forest
                     "You go back through the three forests, and go inside your local hospital."
                     #doctor default
                     d "Well well well. You're very lucky to be alive right now."
@@ -1184,14 +1185,14 @@ label start:
                     p "We lost it."
                     d "You LOST it? How did - you know what? I don't even want to know."
                     d "In this unique situation, I will install a wooden wrist instead."
-                    #transition, black
+                    scene blackTransition
                     "A couple hours later, xX_DarkRaven496283_Xx  has a new, not-shiny furnished wooden wrist."
                     jump endEmoDate2
         label moshPit:
             p "Hey let's go to the mosh pit! It seems like everyone is having fun down there."
             #emo default
             e " w-weally? owo we are really meant 4 each other uwu"
-            #bg concert crowd
+            scene concertCrowd
             "You and xX_DarkRaven496283_Xx go to the mosh pit, unaware of what is to come."
             "Y'all start dancing and singing to House of Frogs."
             "You want to show that you are a hardcore concert goer (though you've never been and include yourself in one of the many moshpit stunts."
@@ -1201,7 +1202,7 @@ label start:
                 "Mosh":
                     jump mosh
             label crowdSurf:
-                #bg crowd surf pov
+                scene crowdSurf
                 "Two randos throw you into the crowd and you start to crowd surf."
                 "Someone boops your nose and you feel extremely violated."
                 menu:
@@ -1214,7 +1215,7 @@ label start:
                     "Turns out, it's your own finger. You couldn't keep track due to all the hands around you."
                     "You get back down on your feet and rub the saliva on someone's shirt."
                     "They seem weirdly grateful..."
-                    #bg concert
+                    scene concert
                     "You look for xX_DarkRaven496283_Xx and find him having an epic dance battle with a rando."
                     p "{i}I can't believe what I'm seeing...{/i}"
                     "After xX_DarkRaven496283_Xx finishes breakdancing, you both start dancing."
@@ -1232,7 +1233,7 @@ label start:
                     "You get back down on your feet and rub the residue on someone's shirt."
                     "..."
                     "They seem weirdly grateful..."
-                    #bg concert
+                    scene concert
                     "You realize that you can't find xX_DarkRaven496283_Xx so you start to look for him."
                     #guy with mbr shirt
                     "Someone's back is turned to you. He is wearing an MBR shirt and a familiar studded belt from Boiling Topic. It looks like xX_DarkRaven496283_Xx but you're not sure."
@@ -1244,7 +1245,7 @@ label start:
                     label heyDude:
                         "The person turns around. Turns out it's not xX_DarkRaven496283_Xx."
                         "Turns out in his native language, the word 'xX_DarkRaven496283_Xx' is an insult. He looks pissed and storms towards you with his hands clenched."
-                        #bg crowd
+                        scene concertCrowd
                         "You run away and he starts to chase you. You coincidently run into xX_DarkRaven496283_Xx."
                         #emo default
                         e "o-owo? what is wrong baybee??"
@@ -1258,7 +1259,7 @@ label start:
                         #emo blushy
                         e "*nuzzles* i wil alwayz protecc u."
                         e "i'll be there for you, even when no one will be there for me ^^."
-                        #transition, black
+                        scene blackTransition
                         "You and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                         jump endEmoDate2
                     label askDude:
@@ -1273,14 +1274,12 @@ label start:
                         label astrology:
                             "You give him the number. Turns out that specific set of numbers is an insult in his culture. He looks pissed and storms towards you with his hands clenched."
                             "He doesn't really intimidate you though..."
-                            #transition, black
                             "You punch him and he falls down."
                             "xX_DarkRaven496283_Xx  comes leaping towards you."
                             #emo blushy
                             e "m-my senpai! that was so cool... :3"
-                            #transition, black
                             "You and xX_DarkRaven496283_Xx  safely leave the MBR concert You're kinda weirded out, but strangely happy..."
-                            #transition, black
+                            scene blackTransition
                         jump endEmoDate2
     label mosh:
         "You have no idea what to do, but you see everyone slamming into each other."
@@ -1311,14 +1310,14 @@ label start:
                     "Throw the 'shrooms' to the north-east.":
                         jump throwShrooms
                 label chopped:
-                    #bg food netowork
+                    scene corporate
                     "You go to the Food Network official building and request permission to become a contestant on Season 15 Episode 4 of Chopped."
                     "Unfortunately, the offical Food Network people declined. You dejectedly walk back the MBR concert."
-                    #bg concert
+                    scene concert
                     #emo eyes closed
                     "You find xX_DarkRaven496283_Xx  in the corner humming to 'The apparition of You' and snapping his disgusting webbed fingers."
                     "You are compelled to join."
-                    #transition, black
+                    scene blackTransition
                     "An hour later, you and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                     jump endEmoDate2
                 label throwShrooms:
@@ -1326,7 +1325,7 @@ label start:
                     #emo eyes closed
                     "That's where xX_DarkRaven496283_Xx  is standing, who is now humming to 'The Apparition of You' and snapping those webbed fingers, covered in mushrooms."
                     "You're compelled to join."
-                    #transition, black
+                    scene blackTransition
                     "An hour later, you and xX_DarkRaven496283_Xx safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                     jump endEmoDate2
             label perfume:
@@ -1344,7 +1343,7 @@ label start:
                     "Leave.":
                         jump leaveConcert
                 label bathAndBody:
-                    #bg bath and body works
+                    scene bathAndBooty
                     "You go to the nearest Bath and Booty Works with xX_DarkRaven496283_Xx."
                     p "Which scent do you want me to wear?"
                     #emo blushy
@@ -1353,15 +1352,15 @@ label start:
                     #emo blushy
                     e "o-owo? what is dis feeling im feeling? O.O"
                     e "it seems 2 bee....luv..."
-                    #bg concert
+                    scene concert
                     "You and the edgelord go back to the My Biological Romance concert."
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "An hour later you and xX_DarkRaven496283_Xx  safely leave the MBR Concert."
                     "You're kind of weirded out, but also strangely happy..."
                     jump endEmoDate2
                 label leaveConcert:
-                    #bg outside of venue
+                    scene concertOutside
                     "You step out of the concert area to get rid of the scent."
                     #king samson, default
                     "While outside, you see King Samson II checking out pumpkins in front of K-Fart."
@@ -1382,7 +1381,7 @@ label start:
                     e " *nuzzles* i will always protecc you"
                     e "i will be there 4 u ... even when no one will be there for me ... ^_^"
                     "..."
-                    #trasition, black
+                    scene blackTransition
                     "You and xX_DarkRaven496283_Xx safely leave the MBR concert. You're kind of weirded out, but also strangely happy...."
                     jump endEmoDate2
         label down:
@@ -1416,7 +1415,7 @@ label start:
                 e "i-im sowwy for ruining ur convo. i always ruin everything..."
                 p "bruh you good?"
                 "..."
-                #transition, black
+                scene blackTransition
                 "You and xX_DarkRaven496283_Xx  start dancing."
                 "An hour later, you and xX_DarkRaven496283_Xx  safely leave the MBR concert. You are kind of weirded out, but also strangely happy..."
                 jump endEmoDate2
@@ -1441,7 +1440,7 @@ label start:
                     e "i-im sowwy for ruining your convo...i always ruin everything..."
                     p "Bruh you good??"
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "You and  xX_DarkRaven496283_Xx  start dancing."
                     "An hour later you and  xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kinda weirded out, but also strangely happy..."
                     jump endEmoDate2
@@ -1456,16 +1455,19 @@ label start:
                     e "i-im sowwy for ruining your convo...i always ruin everything..."
                     p "Bruh you good??"
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "You and  xX_DarkRaven496283_Xx  start dancing."
                     "An hour later you and  xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kinda weirded out, but also strangely happy..."
                     jump endEmoDate2
+    label endEmoDate2:
+        "You go back to your dorm after your date."
+        jump postAllSecondDates
     label marvinDate2:
         "You agree to Marvin's date."
         "He tells you to meet at his house..."
-        #transition, black
+        scene blackTransition
         "..."
-        #bg door
+        scene door
         "After school you go to Marvin's house for your date."
         "You ring the doorbell."
         "Marvin opens the door...He looks upset."
@@ -1477,7 +1479,7 @@ label start:
         m "Would you like to join me?"
         "You feel kind of bad..."
         p "Yes, of course I will."
-        #bg living room
+        scene livingRoom
         "You make your way into Marvin's living room. A sickly looking tadpole is lying on the couch."
         #marvin default
         m "This is Little Suzie."
@@ -1497,19 +1499,19 @@ label start:
         label scrabble:
             #suzie default
             l "HISSSSS That one is my favourite!"
-            #transition, black
+            scene blackTransition
             "You play a couple rounds of Scrabble. After about an hour, Little SUzie is looking considerably happier."
             jump continue
         label gameOfLife:
             #suzie default
             l "HISSSS That one is my favourite!"
-            #transition, black
+            scene blackTransition
             "You play a couple rounds of Game of Life. After about an hour, Little Suzie is looking considerably happier."
             jump continue
         label monopoly:
             #suzie default
             l "HISSSSS That one is my favourite!"
-            #transition, black
+            scene blackTransition
             "You play a couple rounds of Monopoly. After about an hour, Little Suzie is looking considerably happier."
             jump continue
     label continue:
@@ -1539,11 +1541,11 @@ label start:
                 "Dust.":
                     jump dust
             label shelves:
-                #bg kitchen
+                scene kitchen
                 "You go to the kitchen and open the first shelf."
                 "Inside, there is a half eaten sandwich, an old sock, and a bag of cheerios. What a mess!"
                 p "This is gonna take some time."
-                #transition, black
+                scene blackTransition
                 "Three hours later and you've finished cleaing the shelves. They are organized by product, alphabetically."
                 "You are pretty proud of yourself, but you want to do even more to help Marvin..for some reason."
                 "When you look around Marvin's house, you notice every visible surface is covered in a thick layer of dust."
@@ -1551,14 +1553,14 @@ label start:
                 "An hour later, Marvin's house is dust-free, but you want to do some more housework."
                 jump vacuum
             label dust:
-                #bg living room
+                scene livingRoom
                 "You look around Marvin's house. You notice every visible surface is covered in a thick layer of dust."
                 "You grab a fluffy, pink duster and get to work."
                 "An hour later, Marvin's house is dust-free, but you want to do some more housework."
                 "You go to the kitchen and open the first shelf."
                 "Inside, there is a half eaten sandwich, an old sock, and a bag of cheerios. What a mess!"
                 p "This is gonna take some time."
-                #transition, black
+                scene blackTransition
                 "Three hours later, and you've finished cleaning the shelves. They are organized by product, alphabetically."
                 "You are pretty proud of yourself, but you want to do even more to help Marvin."
                 jump vacuum
@@ -1576,7 +1578,7 @@ label start:
             q "And you are...his date?"
             p "Yeah."
             q "Excellent. Now, I'll just mosey down to the kitchen and make some dinner."
-            #transition, black
+            scene blackTransition
             "..."
             "Half an hour later, Helen brings out two steaming plates of lemons. Not like sliced or anything. Just legit like whole lemons, steaming from their lemon pores."
             menu:
@@ -1601,7 +1603,7 @@ label start:
                 #marvin wink
                 m "*chewing noisily* Beats me. Probably not."
                 p "okaay. This has been...fun... but I think I'm going to go now. Tell the tadpoles I said hello."
-                #transiton, black
+                scene blackTransition
                 "You leave Marvin's house."
                 jump endMarvinDateTwo
             label ick:
@@ -1623,7 +1625,7 @@ label start:
                     m "Fine!"
                     "Marvin pours paint onto the onion and starts to furiously chow it down."
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "You stand there awkwardly for five minutes before leaving his house."
                     jump endMarvinDateTwo
                 label yummy:
@@ -1631,7 +1633,7 @@ label start:
                     p "Thanks."
                     #marvin asleep
                     "You turn around, and discover that Marvin has fallen asleep {i} again {/i} at the kitchen table."
-                    #transiton, black
+                    scene blackTransition
                     "You stand there awkwardly for five minutes, and then leave Marvin's house."
                     jump endMarvinDateTwo
     label vacuum:
@@ -1656,22 +1658,22 @@ label start:
             #marvin hiss
             m "Did I? Darn Double D's! Here, I'll make it up to you! We can have a nice outing with Helen and the kids. Tonight. What do you say?"
             p "I don't want to have dinner with your ex-wife! I'm out of here. I'm bouncing."
-            #transition, black
+            scene blackTransition
             "You bounce out of Marvin's house."
             jump endMarvinDateTwo
     label endMarvinDateTwo:
-        #bg dorm hallway
+        scene hallway
         "You end up at your dorm. You turn in for the night."
         jump postAllSecondDates
     label postAllSecondDates:
-        #transition, black
+        scene blackTransition
         "A few weeks pass..."
         "It is Februrary now..."
         "Valentine's day is coming up."
         "..."
         "You need to head to class."
         "..."
-        #bg classroom
+        scene classroom
         "In zoology class."
         "You take your usual seat next to xX_DarkRaven496283_Xx."
         "He turns to you"
@@ -1790,7 +1792,7 @@ label start:
             #marvin blushy
             m "I assume that's a yes then!"
             "..."
-            #transition, black
+            scene blackTransition
             "You head home for the day."
         label acceptOffer:
             "There are other frogs that wanted to spend Valentine's day with you already though..."
@@ -1800,14 +1802,14 @@ label start:
             "You hear Marvin celebrating in the background."
             jump endVDayOffers
     label endVDayOffers:
-        #transition, black
+        scene blackTransition
         "A few days pass by..."
         "Today is Valentine's day, AKA July 4th."
         "You recall the offers from the three frogs for Valentine's day dates..."
         "Today promises to be an interesting day, almost as if the end of this game is approaching soon."
         jump startVDayMess
     label startVDayMess:
-        #bg classroom
+        scene classroom
         "During Zoology classs...which seems like the only class you take..."
         "The three frogs seem to be extremely jittery, but they refuse to talk to you."
         "..."
@@ -1819,7 +1821,7 @@ label start:
     label startStartVDayMess:
         "Class ends and you make your way out of the classroom."
         "..."
-        #bg university
+        scene uniCampus
         p "{i} uh-oh... {/i}"
         "All three frogs are waiting for you by the door."
         #samson proclamation
@@ -1889,7 +1891,7 @@ label start:
             "..."
             "You choose King Samson II over everyone else."
             "..."
-            #transition, black
+            scene blackTransition
             "It's time for your date with him."
             "It is Valentine's day after all..."
             jump startKingVDate
@@ -1901,7 +1903,7 @@ label start:
             #samson angry
             k "I Was going to make you royalty...."
             "..."
-            #transition, black
+            scene blackTransition
             "You choose Marvin over everyone else."
             "..."
             "It's time for your date with him."
@@ -1915,7 +1917,7 @@ label start:
             #marvin sad
             m "the tadpoles will be so disappointed...."
             "..."
-            #transition, black
+            scene blackTransition
             "You choose xX_DarkRaven496283_Xx over everyone else."
             "..."
             "It's time for your date with him..."
@@ -1931,7 +1933,7 @@ label start:
         k "Since you have chosen be to be your beautiful frog husband, I will take you to my kingdom."
         p "A kingdom?"
         "..."
-        #transition, black
+        scene blackTransition
         "After about two hours of riding around in a shopping cart, you arrive at King Samson II's kingdom."
         "You go inside a sketchy looking building, and walk up five flights of stairs. King Samson II opens the door to his... kingdom?"
         "When you go peer inside, you realize his kingdom is actually just a regular apartment."
@@ -1968,18 +1970,18 @@ label start:
                 "He gestures you inside the apartment."
                 p "{i} Ah what the hell... {/i}"
                 "You go inside his apartment."
-                #bg inside sketchy apartnment
+                scene apartmentInside
                 "He leads you past about 6 rows of different sinks."
                 "It looks extremely run down and musty."
                 #samson default
                 k "Through this way, m'lady."
                 "He holds a door open for you."
-                #transition, black
+                scene transitionBlack
                 "You hesitantly go through; you think he's about to murder you."
                 "..."
                 "...!"
                 "He has an actual damn kingdom!"
-                #backgroudn kingdom
+                scene kingdom
                 "Inside his run down walk in closet looking door seems to be a whole other world...?"
                 "There are buildings made of gold, people roaming around and participting in their every day lives..."
                 "...??? There are rows of titanium sinks."
@@ -1999,7 +2001,7 @@ label start:
                     p " {i}It would be wrong to be nice to him just for his wealth...I'm a jerk but not THAT much of a jerk... {/i}"
                     "You choose to follow your moral compass and just enjoy your date with King Samson II as it is."
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "You enjoy like a pretty nice meal that the developer is not about to write out."
                     "After your date you are escorted back to your dorm by one of King Samson II's servants."
                     #servant default
@@ -2029,7 +2031,7 @@ label start:
                     "..."
                     "It seems that you are in trouble with King Samson II's kingdom."
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "You're kicked out and banned from his kingdom..."
                     "You're forced to walk home..."
                     "This Valentine's Day was a disaster."
@@ -2053,7 +2055,7 @@ label start:
                     "You're not about to go in that crusty shopping cart again. Take a LyfBer (joint company made by the taxi services Lift and OohBer.)":
                         jump takeUber
                 label goInCarriage:
-                    #transition, black
+                    scene blackTransition
                     "You agree to King Samson II to at least taking you home."
                     "You get in the shopping cart and he starts pushing you."
                     #samson proclamation
@@ -2079,7 +2081,7 @@ label start:
                         k "EXCUSE ME MY WONDERFUL BEAUTIFUL LOVELY ADORABLE ROYALTY...CAN YOU GET OFF? I'M GETTING KIND OF TIRED."
                         k "YOU KNOW THE WAY HOME FROM HERE RIGHT?"
                         "..."
-                        #transition, black
+                        scene blackTransition
                         "King Samson II makes you get off from the shopping cart and walk the rest of the way home by yourself."
                         "..."
                         "You start on a long trek back to your dorm."
@@ -2094,7 +2096,7 @@ label start:
                     "..."
                     "It continues this way for a while..."
                     "..."
-                    #transition, black
+                    scene blackTransition
                     "While King Samson II is talking you secretly call a LyfBer and leave."
                     "He doesn't even notice."
                     "In your shared LyfBer you see another passenger."
@@ -2132,7 +2134,7 @@ label start:
                         return
     label startEmoVDate:
         "..."
-        #bg alleyway
+        scene alleyway
         "You meet xX_DarkRaven496283_Xx in front of a dark suspicious alleyway."
         p "...So where are we going?"
         #emo default
@@ -2157,7 +2159,7 @@ label start:
                 "You and  xX_DarkRaven496283_Xx  take a right..."
                 "And keep taking a right..."
                 p "{i} Why is this path taking so long? {/i}"
-                #bg london
+                scene london
                 "You and  xX_DarkRaven496283_Xx somehow end up in London..?"
                 p "Woah...I've never been to London! Let's go to the London Bridge!"
                 #emo eyes closed
@@ -2165,10 +2167,10 @@ label start:
                 "You and  xX_DarkRaven496283_Xx go sightseeing, starting with the London Bridge."
                 #emo default
                 e "we have one more place to visit... you'll love it u-uwu;"
-                #transition, black
+                scene blackTransition
                 "..."
                 "You arrive at your final destination."
-                #bg cemetery
+                scene cemetery
                 "...the cemetery."
                 p "{i} Of course...{/i}"
                 " xX_DarkRaven496283_Xx leads you to a gravestone in the corner, far away from the others."
@@ -2194,9 +2196,9 @@ label start:
                     #emo eyes closed
                     e "when i leave this realm i hope to be buried next to my happiness..."
                     p "...alright that's enough sad boi hours for now."
-                    #transition, black
+                    scene blackTransition
                     "You wait for  xX_DarkRaven496283_Xx to finish and drag him out of the graveyard."
-                    #bg alleyway
+                    scene alleyway
                     "You find your way back to the alleyway and go back to where you came from. It's somehow still the middle of the night..."
                     jump almostEnd
                 label rip:
@@ -2204,7 +2206,7 @@ label start:
                     " xX_DarkRaven496283_Xx  continues to cry."
                     #emo crying
                     e "thx dat meanz a lotta :,("
-                    #transition, black
+                    scene blackTransition
                     "..."
                     "You wait for  xX_DarkRaven496283_Xx  to finish and drag him out of the graveyard."
                     "You stop by London's WallBlues to grab some tissues for him before heading back out the alleyway."
@@ -2212,7 +2214,7 @@ label start:
                     jump almostEnd
             label alleyLeft:
                 "You decide to take a left."
-                #bg fitness center
+                scene fitnessCenter
                 "You end up in front of a dark building. Others walk in with work-out clothes from Boiled Topic..."
                 p "Is this...a fitness center for emos?"
                 #emo default
@@ -2237,7 +2239,7 @@ label start:
                     e "W-WHEN I WAS...A YOUNG BOY...M-MY FATHER....TOOK ME INTO THE CITY..."
                     "The entire class except for you joins in, crying and singing along..."
                     "It seems this is some sort of overused emo anthem..."
-                    #transition, black
+                    scene blackTransition
                     "You're extremely weirded out, so you drag  xX_DarkRaven496283_Xx  out of the building and head back out the alleyway."
                     jump almostEnd
         label noAlley:
@@ -2245,7 +2247,7 @@ label start:
             #emo default
             e "...you want to go to a 5 star french restaurant?? on valentines day?? w-what a weirdo omg... >.< XD"
             e "...sure why not."
-            #bg restaruant
+            scene fancyRestaurant
             "You and  xX_DarkRaven496283_Xx travel to La Fermue du Roi. There's no seating available so you go to La Bouteille D'eau instead. It also has 5 Michelle Lin stars."
             "You get seated. Your server is kind of confused that there's a frog with a fringe sitting across from you  (in case you forgot you're literally dating frogs)."
             #food workerd default
@@ -2296,7 +2298,7 @@ label start:
                     "Throw your 303.15 degrees Kelvin water at the poopy waiter.":
                         jump offensive
     label almostEnd:
-        #bg alley
+        scene alleyway
         "You and xX_DarkRaven496283_Xx stumble back to the alley."
         " xX_DarkRaven496283_Xx looks a bit down...but when does he not?"
         p "Look...you shouldn't care about what others think. Like what the heck, I'm attracted to frogs?"
@@ -2312,7 +2314,7 @@ label start:
         jump endEmoVDate
     label endEmoVDate:
         "..."
-        #transition, black
+        scene blackTransition
         " xX_DarkRaven496283_Xx kind of drops you off at your dorm afterwards..."
         "He started to get tired after about 10 minutes of walking while nuzzling your shoulder, so you said it was fine to walk yourself home."
         "Your date with  xX_DarkRaven496283_Xx seems to have been... a sucess???"
@@ -2321,7 +2323,7 @@ label start:
         return
     label startMarvinVDate:
         "..."
-        #bg door
+        scene door
         "You leave with Marvin and go to his house."
         "Marvin opens the door."
         m "*opens door*"
@@ -2340,17 +2342,17 @@ label start:
             "Marvin seems offended."
             #marvin sad
             m "Well {i} I {/i} think it is a good idea. You have to come! It'll be great."
-            #transition, black
+            scene blackTransition
             "Marvin grows really upset, and you feel pretty guilty. You agree to go to the train station with Marvin."
             jump trainsGalore
         label trainLover:
             #marvin default
             m "Really?"
             p "Yeah! Train stations are my jam."
-            #transiton, black
+            scene blackTransition
             "You walk towards the train station with Marvin."
     label trainsGalore:
-        #bg train station
+        scene trainStation
         "You arrive at the train station."
         #marvin default
         m "Let's sit down."
@@ -2674,7 +2676,7 @@ label start:
             "No, I’ll stay with Marvin.":
                 jump stayWithMarvin
     label leaveMarvin16:
-        #transition, black
+        scene blackTransition
         "Congratulations Asshole."
         "You hop on the train, and it takes off."
         "You leave a dejected Marvin at the station."
@@ -2707,7 +2709,7 @@ label start:
         "..."
         p "{i} What a jerk. {/i}"
         "You get the feeling that Marvin's a little too hung up on Helen."
-        #transition, black
+        scene blackTransition
         "...The day's almost over. You head back to your dorm alone."
         "It's gonna be awkward at school tomorrow..."
         "THE END."
