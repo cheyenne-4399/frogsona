@@ -19,7 +19,7 @@ define f = Character("Crazy Fangirl One")
 define w = Character("La Bouteille D'eau Waiter One")
 define t = Character("King Samson II's Servant")
 
-#DEFINING IMAGES: SPRITES
+#DEFINING IMAGES: BACKGROUNDS
 image alleyway = "alleyway.jpg"
 image apartmentInside = "apartmentInside.jpg"
 image apartmentOutside = "apartmentOutside.jpg"
@@ -57,7 +57,31 @@ image uniCampus = "uniCampus.jpg"
 image wallbluesInterior = "wallbluesInterior.jpg"
 image wallbluesOutside = "wallbluesOutside.jpg"
 
-#DEFINING IMAGES: BACKGROUNDS
+#DEFINING IMAGES: SPRITES
+image helen = "helen.png"
+image kingAngry = "kingAngry.png"
+image kingBelch = "kingBelch.png"
+image kingBlush = "kingBlush.png"
+image kingChuckle = "kingChuckle.png"
+image kingCry = "kingCry.png"
+image kingDefault = "kingDefault.png"
+image kingProc = "kingProc.png"
+image kingShocked = "kingShocked.png"
+image kingSlimy = "kingSlimy.png"
+image kingShadow = "kingShadow.png"
+image mbrGuy = "mbrGuy.png"
+image mCry = "marvinCry.png"
+image mBlush = "marvinBlush.png"
+image mDefault = "marvinDefault.png"
+image mGross = "marvinGrossedOut.png"
+image mHiss = "marvinHiss.png"
+image mMOF = "marvinMOF.png"
+image mSad = "marvinSad.png"
+image mWink = "marvinWink.png"
+image mWow = "marvinWowzers.png"
+image suzieDefault = "suzieDefault.png"
+image suzieHiss = "suzieHiss.png"
+
 
 label start:
 
@@ -69,6 +93,7 @@ label start:
     #sprite show = "show ___"
 
     scene uniCampus
+    show suzieHiss
     "You are a new student at XYZ University."
     p "Wow I am so excited! I hope I will get a boyfriend this year..."
     scene blackTransition
@@ -77,7 +102,6 @@ label start:
     "It's time to look at your new dorm!"
     scene hallway
     "You make your way into your dorm room's building."
-
     #show marvin default
 
     m "Hey neighbour! Are you new here?"
