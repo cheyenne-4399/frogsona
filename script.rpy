@@ -93,16 +93,16 @@ label start:
     #sprite show = "show ___"
 
     scene uniCampus
-    show suzieHiss
+
     "You are a new student at XYZ University."
     p "Wow I am so excited! I hope I will get a boyfriend this year..."
     scene blackTransition
-    "And so your Flirtatious Frog Fantasy begins..."
+    "And so your Flirtatious Froggy Fantasy begins..."
 
     "It's time to look at your new dorm!"
     scene hallway
     "You make your way into your dorm room's building."
-    #show marvin default
+    show mDefault
 
     m "Hey neighbour! Are you new here?"
     menu:
@@ -111,37 +111,43 @@ label start:
          "Yes. What is it to you?":
             jump ignore
     label showmearound:
-         #show marvin bashful
+         show mBlush
          m "Ok cutie. I have Zoology 101 next, do you? Not that I looked up your student records or anything…"
          p "Yes, I have that class as well."
+         hide mBlush
          scene blackTransition
          "You and Marvin walk to class together."
          scene classroom
-         #Sprite = Marvin Hissing
+         show mHiss
          m "HIIIISSSSSS"
          p "{i} What the heck?? {/i}"
+         hide mHiss
+         show mDefault
          m "Sit next to me."
+         hide mDefault
          jump kingintro
     label ignore:
-         #show marvin flustered/annoyed
+         show mSad
          m "Hmph. *muttering* Just like my ex-wife…"
          scene blackTransition
+         hide mSad
          "Marvin walks away and makes his way to his class…"
          scene classroom
          "Marvin is in the same class as you! There seems to be a limited amount of seats. You reluctantly make your way to the seat next to Marvin."
          jump kingintro
     label kingintro:
-        #Samson Shadow
+        show kingShadow
         u "hEy ! How dare you reside in my space?"
+        hide kingShadow
         p "{i} Get a load of this guy...who does he think he is?{/i}"
-        #show kingSamson
-        #Default Marvin on other side
+        show mDefault
         m "King Samson II! I didn’t know you had Zoology 101 as well!"
+        hide mDefault
         "King Samson II pushes past you..."
-        #king Samson Yelling
+        show kingShocked
         k "Step aside, peasants!"
         "...and takes the empty seat next to Marvin."
-        #no Sprite
+        hide kingShocked
         "You look around the rest of the class for any seats to take."
         "...!"
         "There’s one seat left in the back. You walk over and see a hooded figure lurking in the corner."
@@ -181,34 +187,36 @@ label start:
             "The next day"
             jump wallblues
         label wallblues:
-            #Marvin Default
             scene classroom
             "After class…"
+            show mDefault
             m "Hey you ;) I need to get some laxatives...wanna come with me to Wallblues?"
+            hide mDefault
             menu:
                 "Laxatives??? That’s gross why would you tell me that…":
                     jump laxativesWeird
                 "Yeah sure...I need some too…":
                     jump laxativesToo
         label laxativesWeird:
-            #marvin wink
+            show mWink
             m "Don’t judge me like that sweetie. You look like you might need some too after today’s breakfast. If you know what I mean ;) "
             p "{i}what a rude bastard…{/i}"
-            #no sprite
+            hide mWink
             scene blackTransition
             "You follow Marvin to Wallblues"
             jump CVS
         label laxativesToo:
-            #Marvin grossed out
+            show mGross
             m "Ew that’s so gross. Why would you tell me that? Did your mother never teach you? A young lady never gives away her laxative status…kids these days"
             "You follow a disgusted Marvin to Wallblues."
-            #No sprite,
+            hide mGross
             scene blackTransition
             jump CVS
         label CVS:
         scene wallbluesOutside
-        #Marvin default
+        show mDefault
         m "Want to go inside?"
+        hide mDefault
         menu:
             "Yeah! Let’s go.":
                 jump inside
@@ -217,55 +225,65 @@ label start:
         label inside:
             scene wallbluesInterior
             "You go inside the store with Marvin and walk towards the gift card aisle."
-            #Marvin wink
+            show mWink
             m "I was kidding. I don’t actually need laxatives, it was a test of your loyalty to me."
-            #Marvin Default
+            hide mWink
+            show mDefault
             m "I was actually wondering if you wanted to browse the candy aisle with me."
+            hide mDefault
             menu:
                 "Yeah I love candy!":
                     jump yesCandy
                 "I’d rather browse the medications":
                     jump noCandy
             label yesCandy:
-                #Marvin Default
+                show mDefault
                 m "Thanks bby. My ex-wife Helen never let me eat candy. Something about type 2 diabetes?"
+                hide mDefault
                 "You go to the candy aisle."
-                #matter of fact Marvin
+                show mMOF
                 m "Back in my day, the kids ate Skittles and M&M’s. As the datee, you get to choose which candy we eat. My treat!"
+                hide mMOF
                 menu:
                     "Skittles!":
                         jump Skittles
                     "M&M’s!":
                         jump MandM
                 label Skittles:
-                    #Marvin Hissing
+                    show mHiss
                     m " Hiss Hiss! A gourmet choice!"
-                    #Marvin default
+                    hide mHiss
+                    show mDefault
                     m "What color do you choose? This is a vital question, so make sure you think before answering."
+                    hide mDefault
                     menu:
                         "Red":
                             jump red
                         "Blue":
                             jump blue
                     label red:
-                        #Marvin matter of fact
+                        show mMOF
                         "Ahhh red skittles, just like the strawberry scent my ex-wife Helen used to spray."
+                        hide mMOF
                         "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
                         jump endMarvinDateOne
                     label blue:
-                        #Marvin Matter of fact
+                        show mMOF
                         "Ahhh blue skittles, just like the blueberry scent my ex-wife Helen sprayed on the day of our divorce…"
+                        hide mMOF
                         "You get sick of Marvin babbling about his ex-wife Helen’s perfume and leave."
                         jump endMarvinDateOne
                 label MandM:
-                    #Marvin default
+                    show mDefault
                     m "A splendid choice! I promise I won’t eat more than half of the bag"
-                    #Marvin eating candy
+                    hide mDefault
+                    "..."
                     "Marvin ends up eating the entire party-sized bag of M&M’s. You are hungry and annoyed, so you leave."
                     jump endMarvinDateOne
             label noCandy:
-                #Marvin Default
+                show mDefault
                 m "Okay."
+                hide mDefault
                 "You stare at different colored pills for 2 hours. You end up buying Behnardrill, and head outside."
                 jump endMarvinDateOne
         label outside:
@@ -273,34 +291,36 @@ label start:
             "You stand outside the store for twenty minutes."
             "In an attempt to break the awkward silence, you engage Marvin in a conversation about lemons."
             p "Do you like lemons?"
-            #Marvin matter of fact
+            show mMOF
             m "I don’t, but my ex-wife Helen loves them."
+            hide mMOF
             menu:
                 "Your ex-wife? You were married!?":
                     jump exwife
                 "That’s so interesting. Do you have any kids?":
                     jump kids
             label exwife:
-                #Marvin default
+                show mDefault
                 m "Yeah. You?"
+                hide mDefault
                 p "No!"
                 scene blackTransition
                 p "You leave Marvin outside Wallblues, shocked and disgusted."
-                #no sprite
                 jump endMarvinDateOne
             label kids:
-                #Marvin Matter of fact
+                show mMOF
                 m "I have four. How many do you have?"
+                hide mMOF
                 p "None!"
                 p "You leave Marvin outside Wallblues, shocked and disgusted. You loathe children."
                 scene blackTransition
-                # no sprite
                 jump endMarvinDateOne
     label endMarvinDateOne:
         scene hallway
         "Marvin follows you back to your dorm after your outing at Wallblues."
-        #Marvin blushy
+        show mBlush
         m "Thanks for coming with me. I had a really nice time with you…"
+        hide mBlush
         "He struggles to keep up with you."
         menu:
             "Thanks. I had a nice time too.":
@@ -308,26 +328,31 @@ label start:
             "Can you stop following me please?":
                 jump stopStalker
         label niceTime:
-            #Marvin Matter of fact
+            show mMOF
             m "I knew you would like WallBlues! I used to bring my ex-wife there all the time!"
+            hide mMOF
             jump flyScene
         label stopStalker:
             p "{i} Why is he still here? I don’t want to have to call the security…{/i}"
-            #Marvin Flustered
+            show mSad
             m "But bhabie...I thought you would like WallBlues…"
-            #Marvin Crying
+            hide mSad
+            show mCry
             "It seems as if he has started crying…"
+            hide mCry
             jump flyScene
     label flyScene:
-        #Marvin Wowzers
+        show mWow
         m "WOWZERS !"
         "...!!!"
         "Woah there momma goose ! Is he...Kissing your feet???"
-        #Marvin Hissing
+        hide mWow
+        show mHiss
         "Marvin smacks his frog lips."
-        #Show MarvinBashful
+        hide mHiss
+        show mBlush
         m "Sorry....Hiss hisss...there was a fly by your feet. I couldn’t help myself...Anyways, have a good night :) See you tomorrow momma goose."
-        # no sprite, bg
+        hide mBlush
         scene blackTransition
         "Marvin walks away and you turn into your dorm for the night."
         jump mandDateD2
@@ -355,7 +380,7 @@ label start:
             scene boiledTopic
             "At Boiled Topic..."
             #cult member default
-            "Outside the store, a member of a local cult asks if you want to join their cult, XYZ."
+            "Outside the store, a member of a local cult asks if you want to join their cult, ZYX."
             menu:
                 "Sure! I'll join.":
                     jump joinCult
@@ -560,8 +585,9 @@ label start:
         scene classroom
         "During class..."
         "King Samson II passes you a note."
-        #king samson default
+        show kingDefault
         k "My fairest lady. My apologies. I should not have taken your seat on the first day. I am sorry...I was having cramps that day. Mayhaps accompany me to a date after class? (check yes or no)"
+        hide kingDefault
         menu:
             "Check Yes.":
                 jump yesNote
@@ -571,28 +597,33 @@ label start:
                 jump youAreMean
         label yesNote:
             "You check yes and pass the note back over to King Samson II."
-            #samson smile
+            show kingSlimy
             "He gives you slimy smile."
+            hide kingSlimy
             jump mandDateD3
         label noNote:
             "You check no and pass the note back over to King Samson II."
-            #samson shocked
+            show kingShocked
             "He feigns a hurt expression at you...?"
-            #samson crying
+            hide kingShocked
+            show kingCry
             "It appears he has started to cry."
             "You feel guilty...maybe you should go on that date with him."
+            hide kingCry
             jump  mandDateD3
         label youAreMean:
             "You check no and write a little note on the side."
             p "Really? Asking me out by passing a note? Are we in middle school??"
-            #samson crying
+            show kingCry
             "You pass the note back to King Samson II. He reads it and starts to cry..."
             "...You feel guilty...maybe you should go on that date with him."
+            hide kingCry
             jump mandDateD3
     label mandDateD3:
         "After class you meet up with King Samson II."
-        #samson default
+        show kingDefault
         k "I know you have wanted to date me for a long time now...Be glad you have this opportunity."
+        hide kingDefault
         p "{i} I'm one step away from kicking him in the shin...{/i}"
         menu:
             "I'm one step away from kicking you in the shin.":
@@ -600,21 +631,24 @@ label start:
             "Haha yeah...":
                 jump hahaYeah
         label shinKick:
-            #samson hearty chuckle
+            show kingChuckle
             "King Samson II gives you a hearty chuckle."
             k "Don't be like that sweetie!"
+            hide kingChuckle
             "He drags you outside."
             jump homeDepot
         label hahaYeah:
-            #samson blush
+            show kingBlush
             k "Are you nervous? Don't be..."
+            hide kingBlush
             "He drags you outside."
             jump homeDepot
     label homeDepot:
         scene homeDepotOut
         "After an awkward walk with King Samson II you arrive in front of...the local hardware store."
-        #samson default
+        show kingDefault
         k "Hum DëpÔté! My personal favourite place to loiter at."
+        hide kingDefault
         menu:
             "Go inside Hum DëpÔté":
                 jump insideHum
@@ -623,11 +657,12 @@ label start:
         label outsideHum:
             scene homeDepotOut
             "You stay outside Hum DëpÔté"
-            #samson proclamation
+            show kingProc
             k "By the gods! Observe this complex contraption before us!"
             #shopping cart
             p "It's a...shopping cart??"
             k "We must treasure such a tool! Quick, before anyone looks!"
+            hide kingProc
             menu:
                 "Steal the shopping cart.":
                     jump stealCart
@@ -636,13 +671,15 @@ label start:
             label stealCart:
                 "You help King Samson II shoplift the shopping cart."
                 p "We can get in big trouble for this..."
-                #samson proclamation
+                show kingProc
                 k "Nonsense! Anyone who challenges me to a duel shall feast their eyes upon my fists!"
+                hide kingProc
                 " WEE WOO WEE WOO (police siren noises sorry we don't know how to spell out how it sounds)"
                 #police officer
                 "A wild police officer appears!"
-                #samson proclamation one side
+                show kingProc
                 k "I CHALLENGE YOU TO A DUEL, GOOD SIR."
+                hide kingProc
                 menu:
                     "Let King Samson II duel against the police officer. He is a grown frog and can do what he wants.":
                         jump yesDuel
@@ -650,38 +687,45 @@ label start:
                         jump noDuel
                 label noDuel:
                     p "You don't have to do this! Let's just take the ticket and leave."
-                    #samson proclamation
+                    show kingProc
                     k "But...my honor!"
+                    hide kingProc
                     "You drag King Samson II away from the scene."
                     "He takes a look at the ticket given to him."
-                    #samson shocked
+                    show kingShocked
                     k "468 dollars? I lack the wealth to accomplish such a feat..."
+                    hide kingShocked
                     p "{i} ...isn't he a king? {/i}"
-                    #samson wasted
+                    "..."
                     " It appears King Samson II has started to faint from shock."
+                    show kingDefault
                     k "Please...leave me here to die. Go before they catch you as well!"
+                    hide kingDefault
                     p "Oh...okay then."
                     "You leave...you guess."
                     "As you leave you notice Samson get up and follow you."
                     jump endKingDate1
                 label yesDuel:
-                    #samson proclamation
+                    show kingProc
                     k "PREPARE TO FIGHT! I WILL VOMIT ON YOUR POSSESSIONS, YOU INSOLENT MUSHROOM!"
+                    hide kingProc
                     x "Uh sure..."
                     "Both of the contestants pull out nerf guns."
                     "The police officer and King Samson II take 10 steps out. When it's time to turn and shoot, the police officer fires his nerf gun before Samson."
                     "King collapses."
-                    #samson wasted
+                    show kingDefault
                     k "But alas! Your young and mighty king has failed. This is the start to the downfall of our kingdom..."
                     k "Please, leave me here to die. Go before he catches you as well."
+                    hide kingDefault
                     p "Uh...aight then lmao bruhhh x"
                     "You leave...you guess."
                     "As you leave you notice Samson get up and follow you."
                     jump endKingDate1
             label leaveCart:
-                #samson default
+                show kingProc
                 k "Ah. I admire your refrainment (is that a word lol) from pursuing this holy cart. It brings out your kind and gentle character."
                 k "However, I plan to take you somewhere that requires using transportation, and I lack an automobile."
+                hide kingProc
                 menu:
                     "Drive shopping cart onto the freeway.":
                         jump driveCart
@@ -707,8 +751,9 @@ label start:
                             jump outsideVan
                     label insideVan:
                         "You both get into the van like idiots, unaware of what's to come."
-                        #samson proclamation
+                        show kingProc
                         k "To the Shakesperean Museum we go!"
+                        hide kingProc
                         #police officer default
                         x "Not so fast!"
                         x "I saw you eyeing that shopping cart. You're under arrest for suspicioius activiy and hypothetical vandalism."
@@ -724,8 +769,9 @@ label start:
         label insideHum:
             scene homeDepot
             "You go inside Hum DëpÔté."
-            #samson default
+            show kingDefault
             k "Feast your eyes on the best construction products in the world."
+            hide kingDefault
             p "Wow. This is wicked awesome-sauce. I can't wait to shop here."
             "You look around the store."
             "What would you like to buy?"
@@ -748,57 +794,67 @@ label start:
                         jump yellow
                 label yellow:
                     p "Let's go look at the yellow paint."
-                    #samson default
+                    show kingDefault
                     k "Rally? Yellow paint? I prefer purple."
                     p "How come?"
                     k "Purple paint tastes better..."
+                    hide kingDefault
                     p " You {i} eat {/i} paint???"
-                    #samson shocked
+                    show kingShocked
                     k " Don't be daft! I drink it!"
+                    hide kingShocked
                     "You are not in the mood to see that today."
                     p "....Okay.... Let's go look at the sinks instead."
                     jump sink
                 label orange:
                     p "Let's go look at the orange paint."
-                    #samson shocked
+                    show kingShocked
                     k "Really? Orange paint? What obtuse taste...I prefer the purple."
+                    hide kingShocked
                     p "How come?"
-                    #samson default
+                    show kingDefault
                     k "The purple paint here tastes better."
+                    hide kingDefault
                     p "You {i} eat {/i} paint???"
-                    #samson bashful
+                    show kingBlush
                     "He starts to chuckle nervously."
-                    #show samsonBashful
                     k "NO!!!!! That would be weird..."
+                    hide kingBlush
                     p "Okaaaaaaay....Let's go look at the sinks."
                     jump sink
                 label purple:
                     p "Let's go look at the purple paint."
-                    #samson chuck;e
+                    show kingChuckle
                     k "Excellent! I love paint."
+                    hide kingChuckle
                     "You hear a popping sound."
                     "You turn around, and see King Samson II has opened a can of purple paint and..."
                     "..!"
-                    #samson paint
                     "He is furiously shoving handfuls of paint into his mouth."
                     p "Are you {i} eating {/i} paint???"
+                    show kingProc
                     k "Yes. Paint has fiber, and everyone knows fiber is filled with nutrients."
+                    hide kingProc
                     menu:
                         "Can I try some?":
                             jump goToSink
                         "Ew. Weirdo.":
                             jump goToSink2
                     label goToSink:
+                        show kingSlimy
                         k "Sure!"
+                        hide kingSlimy
                         "You try some purple paint."
                         p "Not bad."
-                        #samson proclamation
+                        show kingProc
                         k "Let's go look at the sinks!"
+                        hide kingProc
                         p "Okay!"
                         jump sinks
                     label goToSink2:
-                        #samson mad
+                        show kingAngry
                         k "wELL exCuUUuUuUuUUUse me if my tastebuds are more refined."
+                        hide kingAngry
                         p "Whatever. Let's go look at sinks."
                         jump sinks
             label sinks:
@@ -808,7 +864,9 @@ label start:
                 p "This sink is the bees knees! I hope it works."
                 "You ask the store manager to learn more about this fabulous product."
                 s "Well, this sink is the finest on the market. It's stainless steel and has a pull down faucet."
+                show kingShocked
                 k "Stainless steel? How horrendous! In my kingdom, all my sinks are made of titanium. Stainless steel is for peasants."
+                hide kingShocked
                 s "I assure you, this sink is very practical for both peasants and kings. It costs seven hundred dollars."
                 p "{i} Seven hundred dollars?/ {/i}"
                 menu:
@@ -820,14 +878,20 @@ label start:
                     p "I'm sorry..I don't think I have enough money to buy it! Unless..."
                     "You turn to King Samson."
                     p "...you buy it for me!"
+                    show kingDefault
                     k "Oh. *nervous laughter* That is so comical. I must have left my wallet at home."
+                    hide kingDefault
                     "The manager leaves."
                     "Suddenly, you get a brilliant idea...to steal the sink."
+                    show kingDefault
                     k "What are you doing?"
                     p "I am stealing the sink."
+                    hide kingDefault
                     "You grab the sink and rip it off the counter."
                     "Alams start ringing. Beep Beep Beep..."
+                    show kingShocked
                     k "Crap on a cracker! Let's run!!!"
+                    hide kingShocked
                     p "Aight bruh."
                     "King Samson II starts leaping towards the exit. You trail behind him, dragging the sink."
                     "BeEp! BeeEEP! beePP! Beep!"
@@ -835,13 +899,16 @@ label start:
                     p "Oh no!"
                     "The cops arrive on scene and surround both you and King Samson."
                     x "Is there a problem here?"
+                    show kingProc
                     k "Yes! This person here is stealing the sink!!!"
                     p "Hey!"
                     k "Yup! I was a witness to this horrific crime. I saw them run away with this sink."
                     "King Samson turns to you."
                     k "Shame on you! Some people..."
-                    #show KingShakeHead
+                    hide kingProc
+                    show kingSlimy
                     k "This would never happen in my kingdom."
+                    hide kingSlimy
                     x "Alright. We have all the evidence we need. Let's go."
                     p "{i} I knew I should've memorized my rights in government class..."
                     "Policeman One takes you to jail."
@@ -850,12 +917,15 @@ label start:
                     s "Wonderful! Head over to the cashier and we'll help you from there."
                     p "Great!"
                     "You pick up the sink with one arm and put it into a shopping cart. You make your way towards the cashier."
+                    show kingDefault
                     k "Humph...I disapprove of your purchase. I bet this sink won't last a day. It probably leaks..."
+                    hide kingDefault
                     p "Don't be ridiculous. Why would anyone sell a leaking sink."
                     "Miraculously, you notice that the sink has started leaking!"
                     k "I told you so."
-                    # show KingSigh
+                    show kingDefault
                     "King Samson II sighs wistfully."
+                    hide kingDefault
                     k "It's so hard being right all the time."
                     menu:
                         "You still want to buy the sink.":
@@ -877,9 +947,10 @@ label start:
     label endKingDate1:
         scene hallway
         "King Samson II walks you back to your dorm."
-        #samson default
+        show kingBlush
         k "Good night my fare carbon based life form."
         " He pats your shoulder and kisses your foot."
+        hide kingBlush
         scene blackTransition
         "You're a little weirded out, but you're too tired to care. You turn into your dorm for the night."
         jump endOfMandDates
@@ -914,15 +985,17 @@ label start:
             scene blackTransition
             jump emoDate2
         label marvinApproach:
-            #marvin, default
+            show mDefault
             m "Hey there you little pumpkin. I have a special date planned for us today. Do you wanna go or not? You don't have to...unless...Hiss HIss"
+            hide mDefault
             "Marvin leaps away leaving you wondering about the date."
             "Maybe you should meet up with him after class..."
             scene blackTransition
             jump marvinDate2
         label kingApproach:
-            #samson default
+            show kingDefault
             k "GOOD AFTERNOON MY HIGHNESS TO BE. ARE YOU BUSY TODAY? IF NOT PLEASE MEET WITH ME WHEN YOU ARE FREE."
+            hide kingDefault
             "King Samson II leaps away, pushing people aside in the process."
             "Maybe you should meet with him later..."
             scene blackTransition
@@ -930,26 +1003,30 @@ label start:
     label kingDate2:
         "You agree to meet up with King Samson II."
         "Instead of seeing him after class though, you receive a text message."
-        #samson Default
+        show kingDefault
         k "Greetings Big Momma 47. I have arranged for a date for the two of us today. Your carriage is waiting near the school entrance to escort you."
+        hide kingDefault
         menu:
             "Big Momma 47???":
                 jump bigMomma
             "How did you get this number???":
                 jump stalkerPhone
         label bigMomma:
-            #samson chuckle
+            show kingChuckle
             k "Oh I apologize my beautiful toad princess. Would you like me to refer to you as something else?"
+            hide kingChuckle
             p "{i} I just don't want him to refer to me at all at this point...{/i}"
-            #samson default
+            show kingDefault
             k "My beautiful toad royalty! I regret to interrupt your internal monologue but the chauffeur is waiting for you!"
+            hide kingDefault
             p "{i}....??{/i}"
             "You should get ready for your date..."
             scene blackTransition
             jump startKingDate2
         label stalkerPhone:
-            #samson chuckle
+            show kingChuckle
             k "Don't be silly honey. You gave it to me! Well kind of. Private investigators can do quite a bit if you pay them enough."
+            hide kingChuckle
             "It seems King Samson II has done some research on you..."
             scene blackTransition
             "Anyhow, you need to get ready for your date."
@@ -961,10 +1038,10 @@ label start:
         "...It seems he is taking you out in a stolen shopping cart."
         p "{i} Why does this feel stangely familiar...{/i}"
         "King Samson II perks up when he sees you."
-        #samson slimy
+        show kingSlimy
         "He slicks back his frog head with his own frog saliva."
-        #samson default
         k "Good day to you...Have you eaten yet?"
+        hide kingSlimy
         "How do you respond?"
         menu:
             "Say 'No I haven't.'":
@@ -973,24 +1050,28 @@ label start:
                 jump youreAnAsshole
         label noEat:
             p "No I have not."
-            #samson blushy
+            show kingBlush
             k "Good, you have conserved your appetite in anticipation of our date. How considerate of you...I may consider you for a marriage candidate."
+            hide kingBlush
             p "{i}....{/i}"
             jump startStartKingDate2
         label youreAnAsshole:
             p "...I haven't but after seeing you slick back your own head with saliva I have no appetite."
-            #samson chuckle
+            show kingChuckle
             "King Samson II feigns hurt before chuckling heartily."
             k " *chuckles heartily* "
-            #samson blushy
+            hide kingChuckle
+            show kingBlush
             k "You're kind of cute when you're trying to act insulting. *chuckles heartily some more, throwing some snorts in here and there."
+            hide kingBlush
             p "{i} I am holding back from kicking him in the shin {/i}"
             scene blackTransition
             jump startStartKingDate2
     label startStartKingDate2:
         "And so your date with King Samson II begins..."
-        #samson default
+        show kingDefault
         k "I have reservations for us at the classiest dining restaurant in town."
+        hide kingDefault
         "King Samson II makes you push him int he shopping cart, giving you directions along the way..."
         scene dinerOutside
         "You arrive in front of your destination: Demmy's Diner."
@@ -1001,31 +1082,36 @@ label start:
                 jump loveDemmys
         label pickyFineDining:
             "You complain about King Samson II's restaurant choice."
-            #samson shocked
-            k "You have a broken palette. Demmy's Diner has the finest chimichangas in the world. It is very disappointing that you are so ungreateful."
+            show kingShocked
+            k "You have a broken palette. Demmy's Diner has the finest chimichangas in the world. It is very disappointing that you are so ungrateful."
+            hide kingShocked
             "King Samson II's face has started to turn red. He begins to resemble an angry toad. Just the slightest big."
-            #samson mad
+            show kingAngry
             k " You know, I feel like you are not putting enough effort into this relationship...It feels quite one sided, don't you think?"
             "He seems really angry with you..."
+            hide kingAngry
             "You ignore him."
             #hostess default
             h "Table for two, first name King...last name Samson?"
             "King Samson's mood instantly changes."
             "..."
             "You suspect he has some issues."
-            #samson slimy smile
+            show kingSlimy
             k "That's us! This way honey."
+            hide kingSlimy
             scene blackTransition
             "King Samson II holds the door open for you like the gentlfrog he is, and he leads the way."
             jump demmysStart
         label loveDemmys:
             "You express your lifelong dream of dining at Demmy's diner to King Samson II."
-            #samson default
+            show kingDefault
             k "Wow, you really are a piece of work, huh? You've never eaten here before???"
+            hide kingDefault
             p "{i} Wow, what a jerk... {/i}"
             "King Samson II takes no notice of your insulted feelings, and starts blabbering about chimichangas."
-            #samson proclamation
+            show kingProc
             k "Their chimichangas are the best!"
+            hide kingProc
             #hostess default
             h "Table for two, first name King...last name Samson?"
             jump demmysStart
@@ -1033,20 +1119,24 @@ label start:
         scene dinerInside
         "you are led to a table in the back of the diner."
         "King Samson II immediately starts pasting napkins onto his slimy skin (since he can't tuck a napkin into his shirt like a regular person...cause he's a frog)"
-        #samson proclamation
+        show kingProc
         k "WAITER! BRING ME TWO GLASSES OF YOUR FINEST WINE."
+        hide kingProc
         #hostess default, other side
         h "Sir, I am so sorry, but we do not serve wine here. We are a family friendly resturant. Can I interest you in some orange juice?"
-        #samson default
+        show kingDefault
         k "...fine."
-        #samson proclmation
+        hide kingDefault
+        show kingProc
         k "BUT GIVE ME TWO PLATES OF YOUR FINEST CHIMICHANGAS ALONG WITH IT."
+        hide kingProc
         #hostess default
         h "Sir w don't serve chimichangas here. We are a classic American diner...can I interest you in some pancakes?"
         "King Samson II starts to throw a fit."
-        #samson mad
+        show kingAngry
         k "but I WANTED chimichangas..."
         k "I CAME HERE JUST FOR THE DARN CHIMICHANGAS!!!"
+        hide kingAngry
         #hostess default
         h "Sir I'm not sure what to tell you...the cooks most likely don't even know what those are."
         "The situation seems to be heating up. Do you want to defuse the situation???"
@@ -1060,13 +1150,15 @@ label start:
             p "Hey King Samson II...It's fine... we can eat something else right??"
             "The worker looks at you graciously..."
             "King Samson II does some breathing excercises to calm down, giving the hostess one last dirty look."
-            #samson proclamation
+            show kingProc
             k "You're lucky my beautiful partner is here to hold me back. Or else you would have been sorry!"
+            hide kingProc
             jump endKingDate2
         label dontInterject:
             "King Samson II continues to yell at the hostess."
-            #samson mad
+            show kingAngry
             k "GIVE ME SOME DAM CHIMICHANGAS WRITE NOW!!! (btw i put write instead of right for comedic purposes please do not complain about it not being the 'right right' )"
+            hide kingAngry
             "The hostess has no choice but to order the cooks to make some chimichangas."
             "..."
             #hostess default
@@ -1074,28 +1166,34 @@ label start:
             "The hostess walks away, muttering to herself."
             #hostess default
             h "*muttering* I knew I should've taken the later shift."
-            #samson mad
+            show kingAngry
             k "Ah, yes. Finally some good darn food."
             "..."
             "He starts to chow down all the chimichangas, including your portion."
-            #samson belch
+            hide kingAngry
+            show kingBelch
             k "*belches loudly*"
-            #samson default
+            hide kingBelch
+            show kingDefault
             k "That was really good, wouldn't you say so?"
+            hide kingDefault
             menu:
                 "bruh moment.":
                     jump postChimi
                 "Yeah. of course.":
                     jump postChimi
             label postChimi:
-                #samson default
+                show kingDefault
                 k "I'm glad you think so too, honey."
                 k "...."
-                #samson gassy
+                hide kingDefault
+                show kingBlush
                 k "Oh dear..."
+                hide kingBlush
                 "King Samson II suddenly gets up and rushes to the bathroom."
-                #samson proclamation
+                show kingProc
                 k "Leave without me! I have some complications I must address."
+                hide kingProc
                 jump endKingDate2
     label endKingDate2:
         scene blackTransition
@@ -1244,7 +1342,7 @@ label start:
                     p "{i}I can't believe what I'm seeing...{/i}"
                     "After xX_DarkRaven496283_Xx finishes breakdancing, you both start dancing."
                     "You lose xX_DarkRaven496283_Xx and start looking for him."
-                    #sprite for guy w mbr shirt
+                    #mbr shadow
                     "Someone's back is turned to you. He’s wearing an MBR shirt and a familiar studded belt from Boiling Topic. It looks like xX_DarkRaven496283_Xx but you’re not quite sure."
                     menu:
                         "Say ‘Heyyy xX_DarkRaven496283_Xx.'":
@@ -1259,7 +1357,7 @@ label start:
                     "They seem weirdly grateful..."
                     scene concert
                     "You realize that you can't find xX_DarkRaven496283_Xx so you start to look for him."
-                    #guy with mbr shirt
+                    #mbr shadow
                     "Someone's back is turned to you. He is wearing an MBR shirt and a familiar studded belt from Boiling Topic. It looks like xX_DarkRaven496283_Xx but you're not sure."
                     menu:
                         "Say Heyyyy xX_DarkRaven496283_Xx.":
@@ -1267,10 +1365,12 @@ label start:
                         "Politely ask if they've seen xX_DarkRaven496283_Xx.":
                             jump askDude
                     label heyDude:
+                        show mbrGuy
                         "The person turns around. Turns out it's not xX_DarkRaven496283_Xx."
                         "Turns out in his native language, the word 'xX_DarkRaven496283_Xx' is an insult. He looks pissed and storms towards you with his hands clenched."
                         scene concertCrowd
                         "You run away and he starts to chase you. You coincidently run into xX_DarkRaven496283_Xx."
+                        hide mbrGuy
                         #emo default
                         e "o-owo? what is wrong baybee??"
                         e "{i} * sees the dude storming towards you * {/i}"
@@ -1287,18 +1387,21 @@ label start:
                         "You and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                         jump endEmoDate2
                     label askDude:
-                        #guy with mbr shirt
+                        show mbrGuy
                         "You ask the dude if he has seen someone dressed like xX_DarkRaven496283_Xx."
                         "The dude instead winks at you and asks for your phone number."
+                        hide mbrGuy
                         menu:
                             "Give him the number 718-899-6161":
                                 jump astrology
                             "Give him the number 604-594-9190.":
                                 jump astrology
                         label astrology:
+                            show mbrGuy
                             "You give him the number. Turns out that specific set of numbers is an insult in his culture. He looks pissed and storms towards you with his hands clenched."
                             "He doesn't really intimidate you though..."
                             "You punch him and he falls down."
+                            hide mbrGuy
                             "xX_DarkRaven496283_Xx  comes leaping towards you."
                             #emo blushy
                             e "m-my senpai! that was so cool... :3"
@@ -1386,15 +1489,18 @@ label start:
                 label leaveConcert:
                     scene concertOutside
                     "You step out of the concert area to get rid of the scent."
-                    #king samson, default
+                    show kingShadow
                     "While outside, you see King Samson II checking out pumpkins in front of K-Fart."
                     "You go over to say hi."
-                    #samson, default
+                    hide kingShadow
+                    show kingDefault
                     k "My my what a pleasant surprise! I did not plan on encountering you on this fine night!"
                     k "And is that Balsam and Cedar?"
+                    hide kingDefault
                     k " *shivers* "
-                    #samson blushy
+                    show kingBlush
                     k "It's as if we were meant to be!"
+                    hide kingBlush
                     "Unfortunately xX_DarkRaven496283_Xx  arrives just then."
                     #emo default on side
                     e "O.O how dare you run after my sen pie!!! she is MINE XD"
@@ -1495,24 +1601,31 @@ label start:
         "After school you go to Marvin's house for your date."
         "You ring the doorbell."
         "Marvin opens the door...He looks upset."
-        #marvin sad
+        show mSad
         m "Hey there momma goose... Come on in."
-        #marvin flustered
         m "I am so sorry! I had a very romantic evening planned at the train station, but one of my tadpoles got sick. I have to tadpole-sit because Helen can't make it."
-        #marvin default
+        hide mSad
+        show mDefault
         m "Would you like to join me?"
         "You feel kind of bad..."
+        hide mDefault
         p "Yes, of course I will."
         scene livingRoom
         "You make your way into Marvin's living room. A sickly looking tadpole is lying on the couch."
-        #marvin default
+        show mDefault
         m "This is Little Suzie."
-        #suzie default
+        hide mDefault
+        show suzieDefault
+        l "..."
+        hide suzieDefault
+        show suzieHiss
         l "HIIIISSSSS."
+        hide suzieHiss
         p "{i}She takes after her father...{/i}"
-        #marvin default
+        show mDefault
         m "I think to cheer Little Suz up, we should play a board game."
         m "What board game should we play?"
+        hide mDefault
         menu:
             "Scrabble":
                 jump scrabble
@@ -1521,43 +1634,51 @@ label start:
             "Monopoly":
                 jump monopoly
         label scrabble:
-            #suzie default
+            show suzieHiss
             l "HISSSSS That one is my favourite!"
+            hide suzieHiss
             scene blackTransition
             "You play a couple rounds of Scrabble. After about an hour, Little SUzie is looking considerably happier."
             jump continue
         label gameOfLife:
-            #suzie default
+            show suzieHiss
             l "HISSSS That one is my favourite!"
+            hide suzieHiss
             scene blackTransition
             "You play a couple rounds of Game of Life. After about an hour, Little Suzie is looking considerably happier."
             jump continue
         label monopoly:
-            #suzie default
+            show suzieHiss
             l "HISSSSS That one is my favourite!"
+            hide suzieHiss
             scene blackTransition
             "You play a couple rounds of Monopoly. After about an hour, Little Suzie is looking considerably happier."
             jump continue
     label continue:
-        #suzie default
+        show suzieDefault
         l "I am feeling so much better! hiss hiss can I go outside and play?"
-        #marvin default
+        hide suzieDefault
+        show mDefault
         m "Sure, kiddo."
+        hide mDefault
         "Little Suzie crawls out of the house."
-        #marvin default only
+        show mDefault
         m "Alright, now that Suzie is gone, what would you like to do?"
         m "..."
         m "actually..."
-        #marvin wink
+        hide mDefault
+        show mWink
         m "You can help me clean the house. Helen always gets so annoyed when it is dirty."
+        hide mWink
         menu:
             "Yeah! I'd love to help you clean.":
                 jump clean
             "No thanks...let's do something else.":
                 jump noClean
         label clean:
-            #marvin default
+            show mDefault
             m "Woohoo! Thank God you said yes. This house is a complete dump."
+            hide mDefault
             "What do you want to do first?"
             menu:
                 "Clean the shelves.":
@@ -1589,19 +1710,22 @@ label start:
                 "You are pretty proud of yourself, but you want to do even more to help Marvin."
                 jump vacuum
         label noClean:
-            #marvin default
+            show mDefault
             m "Okay. How about we have dinner?"
+            hide mDefault
             p "That would be great."
-            #marvin hiss
+            show mHiss
             m "Okay! Here, let me call Helen and she whip something up real quick."
+            hide mHiss
             "Marvin has Helen on speed dial. He calls her. Five minutes later, she comees to Marvin house."
-            #helen default
+            show helen
             q "Greetings, Marvin."
             "..."
             "Helen turns to you."
             q "And you are...his date?"
             p "Yeah."
             q "Excellent. Now, I'll just mosey down to the kitchen and make some dinner."
+            hide helen
             scene blackTransition
             "..."
             "Half an hour later, Helen brings out two steaming plates of lemons. Not like sliced or anything. Just legit like whole lemons, steaming from their lemon pores."
@@ -1611,42 +1735,47 @@ label start:
                 "Lemon? Are you kidding me?!":
                     jump ick
             label yum:
-                #helen default
+                show helen
                 q "Many thanks!"
+                hide helen
                 p "This tastes amazing! I can't thank you enough."
-                #marvin grossed out
+                show mGross
                 "Marvin looks like he wants to throw up."
                 m "Yeah... *muttering* I hate lemon..."
+                hide mGross
                 "Helen leaves the room and you finish eating the tasty lemon."
                 "Marvin goes into the kitchen to get something else to eat because apparently steaming lemon is not deserving of three Michelle Lin stars."
                 "He comes out holding an onion and blue paint."
-                #marvin wink
+                show mWink
                 m "mMMmMmMmmm This is amaze-balls."
                 "you watch Marvin bite into the onion and drink some paint."
                 p "Is that healthy?"
-                #marvin wink
                 m "*chewing noisily* Beats me. Probably not."
+                hide mWink
                 p "okaay. This has been...fun... but I think I'm going to go now. Tell the tadpoles I said hello."
                 scene blackTransition
                 "You leave Marvin's house."
                 jump endMarvinDateTwo
             label ick:
                 p "I hate sour food."
-                #marvin default
+                show mDefault
                 m "Yeah! Let's get something else to eat."
+                hide mDefault
                 "Helen storms out of the house."
                 "You take the lemons and throw the in the trash. When you turn around, Marvin hands you a raw onion and a can of blue paint."
                 p "What is this??"
-                #marvin wink
+                show mBlush
                 m "Your dinner!"
+                hide mBlush
                 menu:
                     "Gross! I am not eating this.":
                         jump ickAgain
                     "Neat. Yummy.":
                         jump yummy
                 label ickAgain:
-                    #marvin hissing
+                    show mHiss
                     m "Fine!"
+                    hide mHiss
                     "Marvin pours paint onto the onion and starts to furiously chow it down."
                     "..."
                     scene blackTransition
@@ -1655,7 +1784,6 @@ label start:
                 label yummy:
                     "You eat the onion and the paint. It tastes funky... don't know why though."
                     p "Thanks."
-                    #marvin asleep
                     "You turn around, and discover that Marvin has fallen asleep {i} again {/i} at the kitchen table."
                     scene blackTransition
                     "You stand there awkwardly for five minutes, and then leave Marvin's house."
@@ -1665,7 +1793,6 @@ label start:
         "You start to vacuum. It makes a loud choking noise, but starts working."
         "..."
         "You continue to vacuum, while Marvin settles back on the couch with {i} The Old York Times {/i}"
-        #marvin asleep
         "Three hours later, the floor is shining and spotless. Marvin has fallen asleep on the couch."
         p "{i} What kind of date is this?? He fell asleep!{/i}"
         p "{i} I kind of feel like kicking him in the shin...or maybe yelling at his face to wake him up...{/i}"
@@ -1676,11 +1803,13 @@ label start:
                 jump marvinWakes
         label marvinWakes:
             "Marvin wakes up!"
-            #marvin hiss
+            show mHiss
             m "HISSSSSSS!??? What happened??"
+            hide mHiss
             p "You fell asleep! While I was cleaning too...!"
-            #marvin hiss
+            show mDefault
             m "Did I? Darn Double D's! Here, I'll make it up to you! We can have a nice outing with Helen and the kids. Tonight. What do you say?"
+            hide mDefault
             p "I don't want to have dinner with your ex-wife! I'm out of here. I'm bouncing."
             scene blackTransition
             "You bounce out of Marvin's house."
@@ -1767,8 +1896,9 @@ label start:
         "It seems you have recieved a text message."
         "..."
         "It's from King Samson the II."
-        #samson proclamation
+        show kingProc
         k " {i} GREETINGS MY LOVELY PETUNIA. I WOULD LIKE  YOU TO ACCOMPANY ME ON A DATE FOR VALENTINE'S DAY. IF THAT IS OK WITH YOU...."
+        hide kingProc
         "You look over at him across the room. King Samson II is pretending he does not see you."
         "What do you text back to him with?"
         menu:
@@ -1779,8 +1909,9 @@ label start:
         label sureKing:
             " {i} ping! {/i} "
             "King Samson II replies quickly with his speedy frog phalanges."
-            #king default
+            show kingDefault
             k "ALRIGHT. I LOOK FORWARD TO IT. NOT THAT I DOUBTED YOU WOULD SAY YES OR ANYTHING. -KING SAMSON II, PHD"
+            hide kingDefault
             "It seems you've got yourself a date with King Samson II."
             "..."
             "You focus your attention back on the lecture."
@@ -1789,8 +1920,9 @@ label start:
             "You look over at him and see that he looks offended."
             "He starts to furiously type."
             " {i} ping! {/i}"
-            #samson proclamation
+            show kingProc
             k "NONSENSE. I'LL MAKE SURE YOU'RE FREE IF SOMEONE ELSE IS BOTHERING YOU ABOUT A DATE. I LOOK FORWARD TO IT, MY LOVELY LOAF OF WHOLE WHEAT BREAD."
+            hide kingProc
             "..."
             "It seems he thinks you two are going on a date no matter what."
             "You focus your attention back on the lecture."
@@ -1798,12 +1930,14 @@ label start:
     label marvinAsks:
         "After your class, you start to walk home."
         "You hear Marvin's disgusting frog feet hopping over to you."
-        #marvin default
+        show mDefault
         m "hEY tHErE Momma Goose!"
+        hide mDefault
         "You walk faster to avoid him."
         "Marvin starts hopping towards you faster."
-        #marvin default
+        show mDefault
         m "So... *pants* I was wondering *pants* if  you would *pants* want to *pants* go on a dATE * pants* with me on Valentine's day..."
+        hide mDefault
         "Wow the third offer today...aren't you a special little player."
         menu:
             "Walk even faster.":
@@ -1813,8 +1947,9 @@ label start:
         label walkFaster:
             "You speed walk away and do your best to ignore Marvin like the jerk that you are."
             "Marvin calls after you in the distance..."
-            #marvin blushy
+            show mBlush
             m "I assume that's a yes then!"
+            hide mBlush
             "..."
             scene blackTransition
             "You head home for the day."
@@ -1848,20 +1983,25 @@ label start:
         scene uniCampus
         p "{i} uh-oh... {/i}"
         "All three frogs are waiting for you by the door."
-        #samson proclamation
+        show kingProc
         k "AHA THERE IS MY BEAUTIFUL EGGPLANT RESIDUE! ARE YOU READY FOR OUR ROMANTIC EVENING OUT THIS VALENTINE'S DAY? "
-        #marvin other side, default
+        hide kingProc
+        show mDefault
         m "..."
-        #marvin flustered
+        hide mDefault
+        show mGross
         m "...You have another date planned? What the damn hell?!"
+        hide mGross
         #emo default
         e "...w-what is the m-meaning of this :("
         "xX_DarkRaven496283_Xx starts to cry..."
-        #king shocked
+        show kingShocked
         k "Wait...I wasn't the only one...?"
+        hide kingShocked
         "All eyes are turned to you right now..."
-        #marvin grossed out
+        show mGross
         m "Have you been seeing other frogs the entire time we've been dating..?"
+        hide mGross
         menu:
             "Hanging out a couple of times does not mean dating.":
                 jump notDating
@@ -1869,10 +2009,12 @@ label start:
                 jump cheatingBastard
         label notDating:
             "..."
-            #samson default
+            show kingDefault
             k "Yeah, what my lovely royalty-to-be said. It is ME who is obviously in the relationship with them!"
-            #marvin grossed out
+            hide kingDefault
+            show mGross
             m "What do you MEAN?! *mutters* Just like Helen...Always like Helen..."
+            hide mGross
             #emo crying
             e "i-i i thought we had some ding special :((((("
             "xX_DarkRaven496283_Xx is crying furiously>.."
@@ -1880,22 +2022,26 @@ label start:
             jump vDayChoice
         label cheatingBastard:
             "..."
-            #marvin sad
+            show mSad
             m "I thought you were something special...I even took you to WallBlues..."
+            hide mSad
             #emo crying
             e " *sniff* >:( y-you can't just go on dates with us and t-then go with another f-frog..."
-            #samson mad
+            show kingAngry
             "King Samson II remains silent for the first time in his life. He appears to be really angry..."
+            hide kingAngry
             "..."
             jump vDayChoice
     label vDayChoice:
         "You're in big trouble now..."
-        #marvin default
+        show mDefault
         m "So which one of us do you REALLY love..."
+        hide mDefault
         #emo default
         e " :( y-yeah which one do u achilly like..."
-        #samson default
+        show kingDefault
         k "BE TRUTHFUL THIS TIME."
+        hide kingDefault
         "..."
         "You have to choose one of them"
         menu:
@@ -1906,12 +2052,14 @@ label start:
             "I love Marvin.":
                 jump loveMarvin
         label loveKing:
-            #samson slimy smile
+            show kingSlimy
             k "AHA! I KNEW YOU WOULD CHOOSE ME! *CHUCKLES HEARTILY* "
+            hide kingSlimy
             #emo sad
             e "i...i guess i just never meant any ding 2 u.... </3"
-            #marvin sad
+            show mSad
             m "theyre all the same i guess...."
+            hide mSad
             "..."
             "You choose King Samson II over everyone else."
             "..."
@@ -1920,12 +2068,14 @@ label start:
             "It is Valentine's day after all..."
             jump startKingVDate
         label loveMarvin:
-            #marvin hiss
+            show mHiss
             m "Thank the lord you picked me! Helen will be so pleased you are now part of the family..."
+            hide mHiss
             #emo sad
             e "i...i guess i wasnt gud e-nuff... </3"
-            #samson angry
+            show kingCry
             k "I Was going to make you royalty...."
+            hide kingCry
             "..."
             scene blackTransition
             "You choose Marvin over everyone else."
@@ -1936,10 +2086,12 @@ label start:
         label loveEmo:
             #emo blushy
             e "y-yay *nuzzles* :3 i new u love me ... you r my every ding... <3"
-            #samson angry
+            show kingAngry
             k "Wow...you really are shallow...they always take advantage of the rich royalty..."
-            #marvin sad
+            hide kingAngry
+            show mSad
             m "the tadpoles will be so disappointed...."
+            hide mSad
             "..."
             scene blackTransition
             "You choose xX_DarkRaven496283_Xx over everyone else."
@@ -1949,12 +2101,14 @@ label start:
             jump startEmoVDate
     label startKingVDate:
         "King Samson II shows up at your dorm room later..."
-        #samson proclamation
+        show kingProc
         k "MY BLOSSOMING PETUNIA! I HAVE A SURPRISE FOR YOU."
+        hide kingProc
         p "{i}This better be good...{/i}"
         "You open the door and he is standing outside. He pushes you into a stolen shopping cart."
-        #samson default
+        show kingDefault
         k "Since you have chosen be to be your beautiful frog husband, I will take you to my kingdom."
+        hide kingDefault
         p "A kingdom?"
         "..."
         scene blackTransition
@@ -1971,13 +2125,15 @@ label start:
             jump bite2Eat
         label yell:
             "You catfished me! This isn't a castle, it's an unfurnished apartment!"
-            #samson angry
+            show kingAngry
             k "HOW DARE YOU. I spent hours yelling at my servants to get my kingdom ready."
+            hide kingAngry
             "You refuse to go inside the musty apartment."
             "King Samson II looks really hurt."
             "You almost start to feel bad...almost."
-            #samson default
+            show kingDefault
             k "Where else would you want to go if not my beautiful kingdom???"
+            hide kingDefault
             "You glance at the time..."
             "It's already the evening...You spent so much time traveling to King Samson II's 'kingdom' in a shopping cart that the time flew by."
             menu:
@@ -1987,18 +2143,21 @@ label start:
                     jump bite2Eat
             label bite2Eat:
                 "King Samson II belches really loudly."
-                #samson belch
+                show kingBelch
                 k "Yeah I'm kind of hungry..."
-                #samson proclamation
+                hide kingBelch
+                show kingProc
                 k "Actually! MY SERVENTS HAVE PREPARED A NICE MEAL FOR YOU IN PREPERATION."
+                hide kingProc
                 "He gestures you inside the apartment."
                 p "{i} Ah what the hell... {/i}"
                 "You go inside his apartment."
                 scene apartmentInside
                 "He leads you past about 6 rows of different sinks."
                 "It looks extremely run down and musty."
-                #samson default
+                show kingDefault
                 k "Through this way, m'lady."
+                hide kingDefault
                 "He holds a door open for you."
                 scene transitionBlack
                 "You hesitantly go through; you think he's about to murder you."
@@ -2009,8 +2168,9 @@ label start:
                 "Inside his run down walk in closet looking door seems to be a whole other world...?"
                 "There are buildings made of gold, people roaming around and participting in their every day lives..."
                 "...??? There are rows of titanium sinks."
-                #samson slimy
+                show kingSlimy
                 k "HERE M'LADY."
+                hide kingSlimy
                 "He leads you into a palace, where you are greeted by various frog servants."
                 "It feels like a dream..."
                 "You could imagine a future here, especially if you're going to be royalty..."
@@ -2037,8 +2197,9 @@ label start:
                     return
                 label goldDigger:
                     p "So King Samson II...I've been thinking about...our future together a lot..."
-                    #samson shocked
+                    show kingShocked
                     "King Samson II seems really surprised. But like happy surprised not like omg wtf surprised."
+                    hide kingShocked
                     "Suddenly a servant comes up to him out of nowhere."
                     #servant default on other side
                     t "SIR! AN URGENT MESSAGE!!!"
@@ -2047,11 +2208,13 @@ label start:
                     k "? WHAT ABOUT MY LOVELY BEAUTIFUL BUTTERNUT SQUASH?"
                     t "This intruder over here is a level 5 threat. Security calls it a...Gold Digger."
                     "King Samson II looks at you, horrified."
-                    #samso shocked
+                    show kingShocked
                     k "T-THEYRE NOT RIGHT, ARE THEY HONEY??"
                     k "I THOUGHT YOU REALLY LOVED ME..."
-                    #samson angry
+                    hide kingShocked
+                    show kingAngry
                     k "BUT NOW THAT I THINK ABOUT IT...YOU'VE BEEN QUITE RUDE UP UNTIL NOW, HAVEN'T YOU?"
+                    hide kingAngry
                     "..."
                     "It seems that you are in trouble with King Samson II's kingdom."
                     "..."
@@ -2065,13 +2228,15 @@ label start:
                     "THE END."
                     return
             label tiredHungryPoop:
-                #samson default
+                show kingDefault
                 k "PLEASE DO NOT TELL ME ABOUT YOUR BOWEL MOVEMENTS. IT IS VERY UNLADY LIKE AND QUITE HONESTLY JUST DISGUSTING AND UNFITTING FOR ROYALTY."
+                hide kingDefault
                 "...King Samson II says, while picking his nose."
                 k "Anyways...  you want to go home I guess you can. I can't force you to stay if you don't want to, that would be disrespectful to you, and I respect you."
                 p "{i} What is he being so nice for?? {/i}"
-                #samson proclamation
+                show kingProc
                 k "I'LL TAKE YOU BACK IN MY CARRIAGE."
+                hide kingProc
                 "...he goes back to yelling."
                 menu:
                     "Take up his offer to go home in his 'carriage'.":
@@ -2082,16 +2247,20 @@ label start:
                     scene blackTransition
                     "You agree to King Samson II to at least taking you home."
                     "You get in the shopping cart and he starts pushing you."
-                    #samson proclamation
+                    show kingProc
                     k "EVEN THOUGH YOU INSULTED BY HARD WORK I WANTED YOU TO KNOW..."
                     k "..."
-                    #samson blushy
+                    hide kingProc
+                    show kingBlush
                     "King Samson II looks flustered for the first time in his life."
                     k "UH..."
-                    #samson belch
+                    hide kingBlush
+                    show kingBelch
                     "He belches loudly."
-                    #samson blushy
+                    hide kingBelch
+                    show kingBlush
                     k "I AM GLAD THAT I COULD SPEND THIS EVENING WITH YOU, EVEN IF ALL I AM DOING IS PUSHING YOU IN A SHOPPING CART."
+                    hide kingBlush
                     p "{i} is he being...romantic? {/i}"
                     menu:
                         "Tell him that you're glad you're with him too.":
@@ -2101,9 +2270,10 @@ label start:
                     label gladToo:
                         "..."
                         "Before you could even actually say anything, King Samson II belches loudly."
-                        #samson belch
+                        show kingBelch
                         k "EXCUSE ME MY WONDERFUL BEAUTIFUL LOVELY ADORABLE ROYALTY...CAN YOU GET OFF? I'M GETTING KIND OF TIRED."
                         k "YOU KNOW THE WAY HOME FROM HERE RIGHT?"
+                        hide kingBelch
                         "..."
                         scene blackTransition
                         "King Samson II makes you get off from the shopping cart and walk the rest of the way home by yourself."
@@ -2115,8 +2285,9 @@ label start:
                         return
                 label takeUber:
                     p "Actually I think I'm good with taking a LyBer home."
-                    #samson shocked
+                    show kingShocked
                     k "A LYFBER??? YOU KNOW THOSE THINGS CAN BE PRETTY DANGEROUS. I HEARD THE OTHER DAY FROM ONE OF MY SERVANTS THAT THEIR DRIVER TURNED OUT TO BE SUPER TALKATIVE!!! IMAGINE BEING STUCK WITH SUCH AN ANNOYINGLY TALKATIVE PERSON FOR THAT LONG?? HEY BY THE WAY DID YOU SEE THE NEWS THE OTHER DAY?"
+                    hide kingShocked
                     "..."
                     "It continues this way for a while..."
                     "..."
@@ -2351,11 +2522,13 @@ label start:
         "You leave with Marvin and go to his house."
         "Marvin opens the door."
         m "*opens door*"
-        #marvin hiss
+        show mHiss
         m "HIIIISSSSS! Hello momma goose! Are you ready for a romantic evening at..."
+        hide mHiss
         "Marvin pauses for dramatic effect. You hold your breath in anticipation."
-        #marvin wowzers
+        show mWow
         m "...the train station!"
+        hide mWow
         menu:
             "What the heck???":
                 jump loser
@@ -2364,28 +2537,32 @@ label start:
         label loser:
             p "That sounds dreadful! Why would anyone want to go to the train station for a Valentine's day date??"
             "Marvin seems offended."
-            #marvin sad
+            show mSad
             m "Well {i} I {/i} think it is a good idea. You have to come! It'll be great."
+            hide mSad
             scene blackTransition
             "Marvin grows really upset, and you feel pretty guilty. You agree to go to the train station with Marvin."
             jump trainsGalore
         label trainLover:
-            #marvin default
+            show mDefault
             m "Really?"
+            hide mDefault
             p "Yeah! Train stations are my jam."
             scene blackTransition
             "You walk towards the train station with Marvin."
     label trainsGalore:
         scene trainStation
         "You arrive at the train station."
-        #marvin default
+        show mDefault
         m "Let's sit down."
+        hide mDefault
         p "Okay."
         "You sit down on a metal bench."
         "Twenty minutes pass. You are growing pretty bored sitting here silently. You try to start a conversation about oranges."
         p "Do you like oranges?"
-        #marvin matter of fact
+        show mMOF
         m "I hate them, but my ex-wife Helen loves them."
+        hide mMOF
         p "{i} This feels familiar...{/i}"
         p "...Cool."
         "You sit in awkward silence."
@@ -2405,44 +2582,53 @@ label start:
                     jump stayWithMarvin
         label stayWithMarvin:
             "The train leaves the station."
-            #marvin matter of fact
+            show mMOF
             m "Whew! For a second there I thought you were gonna leave me. Oh look, a quarter! Marvin hops over and picks the quarter off the floor."
+            hide mMOF
             "You begin to regret your decision."
             "..."
             "Marvin is still staring at the quarter."
-            #marvin matter of fact
+            show mMOF
             m "Helen never lets me have money. *chuckles* That's why I always collect coins off the street."
-            #marvin wink
+            hide mMOF
+            show mWink
             m "Hey! That's an idea. Let's find loose change on the street!"
+            hide mWink
             "Without waiting for a response, Marvin jumps off the bench, and starts crawling on the ground looking for coins."
             p "{i} Great. {/i}"
             "You reluctantly join Marvin. On the ground, there's dust and hair and gum and trash (no commas were found on the ground)."
-            #marvin wowzers
+            show mWow
             m "Hey look! Another quarter!"
+            hide mWow
             "Turns out it's not a quarter, ut a chewed up piece of gum. Marvin looks at the gum for a bit and smacks his frog lips. He puts it in his mouth."
             "You watch, horrified."
-            #marvin default
+            show mDefault
             m "Oh, how rude of me."
             "Marvin spits out the gum."
             m "Want some?"
             p "No thanks..."
             m "*shrugs* Suit yourself."
+            hide mDefault
             "He puts the gum back in his mouth."
             "You continue looking for coins with Marvin. After an hour, you have a total of of two dollars and seventeen cents."
-            #marvin wowzers
+            show mWow
             m "What a find! I can buy some more gum with this!"
+            hide mWow
             "He pockets the change and you sit back down on the bench."
             "When you turn around, Marvin is gone. He comes back five minutes later carrying a big cardboard box."
-            #marvin matter of fact
+            show mMOF
             m "Look at what I just found!"
+            hide mMOF
             "He dumps the cardboard box onto the bench. Out falls a bunch of dirty newspapers, some old socks, more gum, PVC pipe, and a tube of used chapstick."
             "Marvin picks up the chapstick, and waves it in your face."
-            #marvin default
+            show mDefault
             m "Isn't this great?"
+            hide mDefault
             "He seems overly excited. It's a free tube of chapstick, after all."
             "Marvin stares at the chapstick for a minute, mesmerized."
-            #marvin default
+            show mDefault
             m "Should I eat this? I want to eat it."
+            hide mDefault
             menu:
                 "Yeah go for it dude.":
                     jump eat
@@ -2451,46 +2637,56 @@ label start:
                 "Do whatever you want. You're an adult frog.":
                     jump eat
             label eat:
-                #marvin default
+                show mWink
                 m "Okay!"
                 "Marvin shoves the entire tube of chapstick in his mouth and swallows it whole."
+                hide mWink
                 p "Uhhh..."
                 "One minute passes, and then Marvin falls to the ground, choking and hacking. You think about giving him the heimlick maneuver, but you decide against it after you realize you'd crush his small insignificant frog body."
                 "Marvin finishes his choke-fest, and stands up. His left eye is twitching."
                 p "You good?"
-                #marvin default
+                show mDefault
                 m "Yup.  That tasted just like paint! Who knew?"
+                hide mDefault
                 "You sit down on the bench next to Marvin."
                 "..."
                 "An awkward silence fills the air."
                 "In an attempt to fill the silence, Marvin forces out a loud belch."
+                show mBlush
                 m " *BELCH*"
+                hide mBlush
                 "..."
                 "..."
                 "You're not quite sure out to respond to that."
+                show mBlush
                 m " So..."
                 m "Uh..."
                 m "How's your toe infection?"
+                hide mBlush
                 menu:
                     "It's doing better.":
                         jump toeBetter
                     "What toe infection??":
                         jump whatToe
                 label toeBetter:
-                    #marvin wink
+                    show mWink
                     m "That's good that's good..."
+                    hide mWink
                     "..."
                     "This is getting kinda dry..."
                     jump endMarvinVDay
                 label whatToe:
-                    #marvin wink
+                    show mWink
                     m "Oh you know the one you told me about the other day?"
                     m "The one that's making your toe all green??"
+                    hide mWink
                     p "..."
-                    #marvin default
+                    show mDefault
                     m "..."
-                    #marvin sad
+                    hide mDefault
+                    show mSad
                     m "...I think I'm thinking about Helen."
+                    hide mSad
                     p "Haha."
                     "..."
                     "This is getting kinda dry.."
@@ -2498,12 +2694,14 @@ label start:
             label noEat2:
                 "Marvin ignores you and starts to eat the chapstick. You have to intervene somehow, so you grab the chapstick from him and throw it at an unsuspecting passenger."
                 p "You can't eat someone else's used chapstick! You could die."
-                #marvin sad
+                show mSad
                 m "Humph. *muttering* Just like my ex-wife..."
+                hide mSad
                 "It seems like you're expecting deja vu. You sit down on the bench next Marvin."
                 "Another train comes. When it leaves, Marvin has started blabbering about the many different types of citrus that he hates."
-                #marvin default
+                show mDefault
                 m "...and I also hate grapefruit, and limes, and..."
+                hide mDefault
                 "You feel your IQ drop a hundred points. You need to change the conversation topic, and fast."
                 "What do you want to talk about first?"
                 menu:
@@ -2516,46 +2714,51 @@ label start:
                 label tadpoles:
                     p "So, Marvin, how's the Missus? And your tadpoles?"
                     "Marvin perks up."
-                    #marvin matter of fact
+                    show mMOF
                     m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
                     "Marvin smiles fondly."
                     m "She was an architect."
                     m "Claude is biting everything in sight...I really gotta talk to him about that..."
                     m "And Maximus Detrimus just won a hissing competition. He's the smart one in the family."
+                    hide mMOF
                     p "...Yeah. That's good. And Helen?"
-                    #marvin default
+                    show mDefault
                     m "Oh? Helen? She's still kicking."
+                    hide mDefault
                     p "Oh..."
                     "..."
                     p "Eat any paint lately?"
-                    #marvin matter of fact
+                    show mMOF
                     m "Actually, I've only had two cans today! I'm trying to cut back. You know how it is."
                     p "Not really..."
                     "Marvin continues as if you hadn't spoken."
                     m "Yeah I ate a blue can and a purple can in one sitting."
                     "Marvin sighs happily."
                     m "Good times."
+                    hide mMOF
                     p "Ah...."
                     p "So how's Zoology 101 going?"
+                    show mGross
                     "Marvin almost chokes on his saliva."
-                    #marvin grossed out
+                    hide mGross
                     m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
                     "Marvin makes a noise that is half-laughing and half-weeping. He cries/laughs his guts out while you sit there awkwardly."
                     p " {i} This is feeling like an interview. {/i}"
                     jump endMarvinVDay
                 label druggy:
                     p "So Marvin, eat any paint lately?"
-                    #marvin matter of fact
+                    show mMOF
                     m "Actually, I've only had two cans today! I'm trying to cut back. You know how it is."
                     p "Not really..."
                     "Marvin continues as if you hadn't spoken."
                     m "Yeah I ate a blue can and a purple can in one sitting."
                     "Marvin sighs happily."
                     m "Good times."
+                    hide mMOF
                     p "Ah...."
                     p "Right. How are your tadpoles doing?"
                     "Marvin perks up."
-                    #marvin default
+                    show mDefault
                     m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
                     "Marvin smiles fondly."
                     m "She was an architect."
@@ -2563,25 +2766,29 @@ label start:
                     m "And Maximus Detrimus just won a hissing competition. He's the smart one in the family."
                     p "...Yeah. That's good. And Helen?"
                     m "Oh? Helen? She's still kicking."
+                    hide mDefault
                     p "Oh..."
                     p "So how's Zoology 101 going?"
-                    #marvin grossed out
+                    show mGross
                     "Marvin almost chokes on his saliva."
                     m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
                     "Marvin makes a noise that is half-laughing and half-weepin. He cries/laughs his guts out while you sit there awkwardly."
+                    hide mGross
                     p " {i} This is feeling like an interview. {/i}"
                     jump endMarvinVDay
                 label whoNeedsEducationAnyway:
                     p "So how's Zoology 101 going?"
-                    #marvin grossed out
+                    show mGross
                     "Marvin almost chokes on his saliva."
                     m "Zoology? School? I don't think I've been to XYZ University in weeks. I've failed all my classes by now."
                     "Marvin makes a noise that is half-laughing and half-weepin. He cries/laughs his guts out while you sit there awkwardly."
+                    hide mGross
                     "You think you should restart the conversation."
                     p "How are your tadpoles doing?"
-                    #marvin default
+                    show mDefault
                     "Marvin perks up."
-                    #marvin matter of fact
+                    hide mDefault
+                    show mMOF
                     m "Oh, just great! Little Suzie is felling all better, and Rebecca is just starting retirement."
                     "Marvin smiles fondly."
                     m "She was an architect."
@@ -2596,8 +2803,10 @@ label start:
                     "Marvin continues as if you hadn't spoken."
                     m "Yeah I ate a blue can and a purple can in one sitting."
                     "Marvin sighs happily."
-                    #marvin default
+                    hide mMOF
+                    show mDefault
                     m "Good times."
+                    hide mDefault
                     p "Ah...."
                     p " {i} This is feeling like an interview. {/i}"
                     jump endMarvinVDay
@@ -2722,12 +2931,14 @@ label start:
         "..."
         "It's getting late."
         p "Hey Marvin don't you think it's getting kinda late?"
-        #marvin hiss
+        show mHiss
         m "A little bit?! I mean... Are you not having the time of your life though?"
+        hide mHiss
         "You're starting to regret your decision..."
-        #marvin default
+        show mDefault
         m "..."
         m "I'm gonna go now actually... Helen's probably waiting for me."
+        hide mDefault
         "...??"
         "Marvin hops onto a train and leaves you alone at the station."
         "..."
