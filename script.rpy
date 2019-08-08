@@ -58,6 +58,12 @@ image wallbluesInterior = "wallbluesInterior.jpg"
 image wallbluesOutside = "wallbluesOutside.jpg"
 
 #DEFINING IMAGES: SPRITES
+image emoAngry = "emoAngry.png"
+image emoBlush = "emoBlush.png"
+image emoCry = "emoCry.png"
+image emoDefault = "emoDefault.png"
+image emoSad = "emoSad.png"
+image emoShadow = "emoShadow.png"
 image helen = "helen.png"
 image kingAngry = "kingAngry.png"
 image kingBelch = "kingBelch.png"
@@ -88,6 +94,7 @@ label start:
     #show cheesy hearts pic
 
     "Welcome to F Cubed."
+    "DEVELIP ERS NOTE: WE ARE AWARE OF TYPOS. PRETEND THEY ARE THERE ON PURPOSE."
 
     # bg change = "scene ____"
     #sprite show = "show ___"
@@ -151,36 +158,38 @@ label start:
         "You look around the rest of the class for any seats to take."
         "...!"
         "There’s one seat left in the back. You walk over and see a hooded figure lurking in the corner."
-        #Hooded Figure/Emo Shadow
+        show emoShadow
         p "You good?"
         u "r-rawr…. >.< ….oh..sorry...didn’t see you there ...hehe"
+        hide emoShadow
         "He coughs up a hairball…"
-        #show Xx_darkraven496283_xX
+        show emoDefault
         p "hey…"
         "You awkwardly take a seat"
         u "h-hey… >///< you’re kinda cute...what is your handle? I go by Xx_darkraven496283_xX"
         "He waves to you, flexing his fingerless skeleton themed gloves."
+        hide emoDefault
         menu:
             "Those are some pretty swaggy swagalicious swags!":
                 jump swag
             "Fingerless gloves? What is this, 2005?":
                 jump emoInsult
         label swag:
-            #Emo Blushy
+            show emoBlush
             e "xX haha...thanks i guess… *nuzzles* :3"
+            hide emoBlush
             "He seems to have taken a liking for you…"
             "This promises to be an interesting first day."
-            #no sprite
             scene blackTransition
             jump d2
         label emoInsult:
-            #emo angry
+            show emoAngry
             e "STOP FLAMING MY PAGE!!! You don't understand...no one does..."
-            #emo cry
+            hide emoAngry
+            show emoCry
             "He starts to cry into the desk…"
-            #Show EmoCry
+            hide emoCry
             "This promises to be an interesting first day."
-            #no sprite
             scene blackTransition
             jump d2
         label d2:
@@ -359,21 +368,24 @@ label start:
         label mandDateD2:
             scene classroom
             "After class…"
-            #show emo bashful
+            show emoBlush
             e "hey… you busy by any chance… o-owo"
+            hide emoBlush
             menu:
                 "Actually I was planning on studying...wanna come with?":
                     jump studyFreak
                 "No. Do you need something?":
                     jump noPlans
             label studyFreak:
-                #show emo default
+                show emoDefault
                 e "aww don't be such a prep...come shopping with me at boiled topic!"
+                hide emoDefault
                 "xX_DarkRaven49623_Xx drags you to the mall."
                 jump boiledTopic
             label noPlans:
-                #show emo blushy
+                show emoBlush
                 e "that's kinda funky of you my fellow follower of darkness. wanna go to the boiled topic with me? you are qq but your style is off..."
+                hide emoBlush
                 p "{i} I am holding back from kicking him in the shin...{/i}"
                 jump boiledTopic
         label boiledTopic:
@@ -387,18 +399,19 @@ label start:
                 "No thanks.":
                     jump noCult
             label noCult:
-                #emo blushy
+                show emoBlush
                 e "i'm glad you didn't leave me :)"
-                #emo sad
+                hide emoBlush
+                show emoSad
                 e "..."
                 e "...everyone else does..."
-                #no sprite
+                hide emoSad
                 scene boiledTopicInside
                 "You go inside the store. Inside, an employee mutters a greeting and continues to write his will on Google Docs."
-                #emo default
+                show emoDefault
                 e "i have a few clothes that i want to try, but i'm afraid that i won't buy any of them due to my constant self-deprecation and low self esteem lol XD. that's why i brought u."
                 e "i'll go change into my first fit."
-                #emo studded belt
+                hide emoDefault
                 "xX_DarkRaven496283_Xx comes out of the dressing room in a studded belt, fake tattoo sleeves, super-duper
                 schmooper black skinny jeans, and Doctor Martins."
                 e "rawr XD well..what do u think? "
@@ -408,88 +421,106 @@ label start:
                     "Laaaaame.":
                         jump lameEmo
                 label lameEmo:
-                    #emo sad
+                    show emoSad
                     e " *sad uwu* that's what they all say ..."
                     e "i really thought you'd be different. you know what they say..."
-                    #emo crying
+                    hide emoSad
+                    show emoCry
                     e "love can sometimes be magic...but magic..."
                     e "is just an illusion"
+                    hide emoCry
                     menu:
                         "I'm sorry, I didn't mean it! Please let me make it up to you...":
                             jump makeUp
                         "Stop being dramatic...geez.":
                             jump dramatic
                     label makeUp:
-                        #emo bashful
+                        show emoBlush
                         e "o-owo? a-are you sure?"
+                        hide emoBlush
                         menu:
                             "Yes":
                                 jump yesMakeUp
                             "...no":
                                 jump dramatic
                         label yesMakeUp:
-                            #emo bashful
+                            show emoBlush
                             e "but are you sure-sure?"
+                            hide emoBlush
                             menu:
                                 "YES.":
                                     jump yesyesMakeUp
                                 "...no?":
                                     jump dramatic
                             label yesyesMakeUp:
-                                #emo sad
+                                show emoSad
                                 e "...but how sure exactly are you?"
+                                hide emoSad
                                 menu:
                                     "Absolutely 100 Percent Sure.":
                                         jump yesyesyesSure
                                     "Well now I am 0 Percent sure you ungrateful twat.":
                                         jump dramatic
-                                        #emo bashful
                                 label yesyesyesSure:
+                                    show emoBlush
                                     e "oh em gee... ^_^ no one's ever been so faithful 2 me. i thought i would perish forever alone..."
+                                    hide emoBlush
                                     "xX_DarkRaven496283_Xx seems to have started to tear up??"
-                                    #emo crying
+                                    show emoCry
                                     "he runs out of the store crying."
+                                    hide emoCry
                                     jump endEmoDate1
                     label dramatic:
-                        #emo sad
+                        show emoSad
                         e "the fleeting feeling of love lasts only for a moment...but the pain of love lasts a lifetime..."
-                        #emo crying
+                        hide emoSad
+                        show emoCry
                         "it seems xX_DarkRaven496283_Xx has started to tear up."
+                        hide emoCry
                         scene blackTransition
                         "He runs out of the store crying."
                         jump endEmoDate1
                 label hotEmo:
-                    #emo bashful
+                    show emoBlush
                     e "owo w-weally? no one's ever said that bee four..."
-                    #emo default
+                    hide emoBlush
+                    show emoDefault
                     e "i'll go wear the second outfit. brb haha XD"
-                    #emo evanescence
+                    hide emoDefault
                     "xX_DarkRaven496283_Xx comes out wearing an oversized Evanescence shirt."
+                    show emoBlush
                     e "um do i look fat in dis shirt? not that i don't any other time... >w<"
+                    hide emoBlush
                     menu:
                         "Yuhhh":
                             jump yesFat
                         "Of course knot !":
                             jump noFat
                     label yesFat:
-                        #emo sad
+                        show emoSad
                         e "i knew it... i'll just...not get it i guess..."
-                        #emo crying
+                        hide emoSad
                         scene blackTransition
+                        show emoCry
                         "xX_DarkRaven496283_Xx starts to tear up. He runs out of the store crying."
+                        hide emoCry
                         jump endEmoDate1
                     label noFat:
-                        #emo bashful
+                        show emoBlush
                         e "you're too cute :3 let's go buy deez"
+                        hide emoBlush
                         "You go with xX_DarkRaven496283_Xx to the cash register."
                         "The employee stops writing his will and says that the total is $87.32"
-                        #emo default
+                        show emoDefault
                         e " WHAT XD?! i thought i had a discount from being a five year member of this store..."
-                        #emo sad
+                        hide emoDefault
+                        show emoSad
                         e "i spent all of my money on guy-liner refills already..."
                         "xX_DarkRaven496283_Xx smile shakily."
+                        hide emoSad
+                        show emoCry
                         e "you know what they say... no smile is more beautiful than the one that struggles through the tears...."
-                        #emo crying
+                        hide emoCry
                         scene blackTransition
                         "xX_DarkRaven496283_Xx runs out of the store crying."
                         jump endEmoDate1
@@ -513,36 +544,41 @@ label start:
                     c "I don't see any cult-related items in this store. I think I'll go check out some other stores. Good day to you fellow worshipper."
                     p "Farewell, enlightened one!"
                     "xX_DarkRaven496283_Xx exits the fitting room wearing the studded belt."
-                    #emo studded belt
+                    show emoDefault
                     e "so...how do i look?"
+                    hide emoDefault
                     menu:
                         "Awful. Just awful.":
                             jump awful
                         "You look fine, but I wish the belt was in a different colour.":
                             jump diffcolour
                     label awful:
-                        #emo sad
+                        show emoSad
                         e "...r-really?"
+                        hide emoSad
                         menu:
                             "No, I was just joking. But I do wish the belt was in an another colour.":
                                 jump diffcolour
                             "Yes! You look like someone ran you over with a cement mixer.":
                                 jump insultEmoAgain
                     label insultEmoAgain:
-                        #emo crying
+                        show emoCry
                         "xX_DarkRaven496283_Xx sobs his guts out."
                         e "...i won't buy the belt i guess... *sniffles*"
+                        hide emoCry
                         p "Wise decision."
                         scene blackTransition
                         "xX_DarkRaven496283_Xx runs out of the store, crying for the second time."
                         jump endEmoDate1
                     label diffcolour:
-                        #emo sad
+                        show emoSad
                         e "b-but i like the colour black..."
-                        #emo crying
+                        hide emoSad
+                        show emoCry
                         "xX_DarkRaven496283_Xx seems to have started crying..."
                         "You scramble to fix the situation."
                         p "Don't be ridiculous! Let's go see if the store sells a different colour belt."
+                        hide emoCry
                         "You ask the employees, but they say that black is the only colour belt they have."
                         "You're about to give up hope, but you notice a customer service number written on the belt's tag. It says to call if you have any questions."
                         "You call the number."
@@ -561,13 +597,14 @@ label start:
                             b "Alright, just tell me your home address, name, credit card number, social security number, and I will ship the belt over to your house."
                             "You force xX_DarkRaven496283_Xx to give up his private information."
                             b "Excellent. Would you like to pay extra for one day shipping?"
-                            #emo default
+                            show emoDefault
                             e "...no"
+                            hide emoDefault
                             b "Thank you for calling. Have a nice day. "
-                            #emo sad
+                            show emoSad
                             e "...but i wanted a black belt..."
+                            hide emoSad
                             p "Stop complaining!"
-                            #emo crying
                             scene blackTransition
                             "xX_DarkRaven496283_Xx starts sobbing and runs out of the mall."
                             jump endEmoDate1
@@ -977,9 +1014,9 @@ label start:
             "King Samson II":
                 jump kingApproach
         label emoApproach:
-            #emo default
+            show emoDefault
             e "r-rawr... hey cutie >///> i-if you're not doing anything later...m-ayBee u would wanna hang out with me today? XD"
-            #no sprite
+            hide emoDefault
             "xX_DarkRaven496283_Xx leaps away, hiding his frog face with his fringe along the way."
             "Maybe you should meet up with him after class..."
             scene blackTransition
@@ -1203,28 +1240,31 @@ label start:
     label emoDate2:
         scene blackTransition
         "You meet up with xX_DarkRaven496283_Xx later."
-        #emo blush
+        show emoBlush
         e " w-wow you actually said yeah 0///0 y-you're the only one that ever cares..."
+        hide emoBlush
         "xX_DarkRaven496283_Xx hides his blush behind his fringe."
-        #emo default
+        show emoDefault
         e "a-anyways lets get going... u-uwu... i bought us ticket$ 2 da MBR concert..."
         e "do you like them? "
+        hide emoDefault
         menu:
             "YES omg i LOVE MBR.":
                 jump noYouDont
             "No sorry... who are they?":
                 jump noMBR
         label noYouDont:
-            #emo default
+            show emoDefault
             "xX_DarkRaven496283_Xx seems unimpressed."
-            #emo eyeRoll
             e " -__- they're pwetty indie so i didn't think u would kno them...are u sure ur not lying 2 me? lol...no need 2 try and impres me..."
+            hide emoDefault
             "..."
             jump startEmoDate2
         label noMBR:
-            #emo angry
+            show emoAngry
             "xX_DarkRaven496283_Xx seems offended."
             e "omgzzz you dun kno who they arrrr??? youre out of the looop ... they r the hottest rawk band out their write nao... XD"
+            hide emoAngry
             "..."
             jump startEmoDate2
     label startEmoDate2:
@@ -1244,36 +1284,42 @@ label start:
             "The crowd goes wild. The people around you start to scream. People are clapping, and you see seme fans pull their hair out from excitement."
             "You feel this is all getting a little two hectic."
             p "I want to go outside and get some fresh air."
-            #emo default
+            show emoDefault
             e "...wha? but the concert just started..."
+            hide emoDefault
             "You ignore xX_DarkRaven496283_Xx and start heading outside. On your way own from the balcony, xX_DarkRaven496283_Xx trips!"
             "When you turn around, Froggy Frogerson over here is in tears. Again!"
             p "{i} This guy is such a wimp. but not because he is a guy and crying, because the developers do not condone toxic masculinity and traditional gender roles. it is because he has cried in every interaction with you.{/i}"
-            #emo crying
+            show emoCry
             e "...me thinks i broke me wrist..."
+            hide emoCry
             scene concertOutside
             "You drag xX_DarkRaven496283_Xx outside, by the wrist, because you're kind of an Basshole."
             p "Much better. It's so much quieter out here."
             "You turn around and see xX_DarkRaven496283_Xx holding his limp wrist. It doesn't even look like he hurt it. Actually you're not even sure that he tripped..."
-            #emo crying
+            show emoCry
             e "i think i need to go to the hospital."
+            hide emoCry
             menu:
                 "No, you're fine.":
                     jump noHospital
                 "Yeah, you're right.":
                     jump hospital
             label noHospital:
-                #emo sad
+                show emoSad
                 e "you s-sure?...it weally hurts..."
+                hide emoSad
                 p "Yeahhhh you're fine..."
                 "You give xX_DarkRaven496283_Xx's wrist a poke. It falls off. Yeah you read that right. Like as in his entire wrist just falls off."
                 "A rabid skunk crawls over, grabs the wrist, and then sprints away."
                 "At this point, xX_DarkRaven496283_Xx starts sobbing like there is no tomorrow."
-                #emo crying
+                show emoCry
                 e "my wrist...gone....we have to go after it."
+                hide emoCry
                 p "No. Heck no. I am NOT about to go chasing after your stupid wrist in the middle of the night."
-                #emo crying
+                show emoCry
                 e "...pls?"
+                hide emoCry
                 menu:
                     "Fine. Let's go.":
                         jump chaseSkunk
@@ -1289,8 +1335,9 @@ label start:
                     p "Over there!"
                     scene forestClearing
                     "You and xX_DarkRaven496283_Xx run over to the skunk."
-                    #emo default
+                    show emoDefault
                     e "..give my wrist back :(((((("
+                    hide emoDefault
                     n "*skunk noises*"
                     "developers note: we made an entire new character just for this skunk to say skunk noises. isn't that something?"
                     e "...plz give me my wrist *starts sobbing*"
@@ -1300,7 +1347,7 @@ label start:
                     "You go back through the three forests, and go inside your local hospital."
                     #doctor default
                     d "Well well well. You're very lucky to be alive right now."
-                    #emo default, other side
+                    show emoDefault
                     e "....i am?"
                     d "Bruh yes. Your wrist fell off. Another minute and you would have died. Now let's see if we can reattach that wrist."
                     d "...Where is the wrist?"
@@ -1312,8 +1359,9 @@ label start:
                     jump endEmoDate2
         label moshPit:
             p "Hey let's go to the mosh pit! It seems like everyone is having fun down there."
-            #emo default
+            show emoDefault
             e " w-weally? owo we are really meant 4 each other uwu"
+            hide emoDefault
             scene concertCrowd
             "You and xX_DarkRaven496283_Xx go to the mosh pit, unaware of what is to come."
             "Y'all start dancing and singing to House of Frogs."
@@ -1371,18 +1419,20 @@ label start:
                         scene concertCrowd
                         "You run away and he starts to chase you. You coincidently run into xX_DarkRaven496283_Xx."
                         hide mbrGuy
-                        #emo default
+                        show emoDefault
                         e "o-owo? what is wrong baybee??"
                         e "{i} * sees the dude storming towards you * {/i}"
-                        #emo xd
+                        hide emoDefault
+                        show emoAngry
                         e "O.O how daer u run after my senpai? she is MINE XD"
-                        #emo default
                         e " Watashi no kutsu no nioi o tomeru koto ga dekimasu ka? Watashi wa senjitsu mizutamari ni ashi o fumiireta"
-                        "Unfortunately, you had no idea that xX_DarkRaven496283_Xx  spoke Japanese, let alone understand what it meant."
+                        hide emoAngry
+                        "Unfortunately, you had no idea that xX_DarkRaven496283_Xx  was a weeaboo, let alone understand what it meant."
                         "Fortunately for you, it seems to intimidate the dude, who nervously slinks away."
-                        #emo blushy
+                        show emoBlush
                         e "*nuzzles* i wil alwayz protecc u."
                         e "i'll be there for you, even when no one will be there for me ^^."
+                        hide emoBlush
                         scene blackTransition
                         "You and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                         jump endEmoDate2
@@ -1403,8 +1453,9 @@ label start:
                             "You punch him and he falls down."
                             hide mbrGuy
                             "xX_DarkRaven496283_Xx  comes leaping towards you."
-                            #emo blushy
-                            e "m-my senpai! that was so cool... :3"
+                            show emoBlush
+                            e "m-my pwincess of darkness! that was so cool... :3"
+                            hide emoBlush
                             "You and xX_DarkRaven496283_Xx  safely leave the MBR concert You're kinda weirded out, but strangely happy..."
                             scene blackTransition
                         jump endEmoDate2
@@ -1441,17 +1492,19 @@ label start:
                     "You go to the Food Network official building and request permission to become a contestant on Season 15 Episode 4 of Chopped."
                     "Unfortunately, the offical Food Network people declined. You dejectedly walk back the MBR concert."
                     scene concert
-                    #emo eyes closed
+                    show emoDefault
                     "You find xX_DarkRaven496283_Xx  in the corner humming to 'The apparition of You' and snapping his disgusting webbed fingers."
                     "You are compelled to join."
+                    hide emoDefault
                     scene blackTransition
                     "An hour later, you and xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                     jump endEmoDate2
                 label throwShrooms:
                     "You throw the disgusting Port Ah Bell Ah mushrooms to the north-east."
-                    #emo eyes closed
+                    show emoDefault
                     "That's where xX_DarkRaven496283_Xx  is standing, who is now humming to 'The Apparition of You' and snapping those webbed fingers, covered in mushrooms."
                     "You're compelled to join."
+                    hide emoDefault
                     scene blackTransition
                     "An hour later, you and xX_DarkRaven496283_Xx safely leave the MBR concert. You're kind of weirded out, but also strangely happy..."
                     jump endEmoDate2
@@ -1460,10 +1513,12 @@ label start:
                 "Turns out it's just a Balsam and Cedar scented perfume. It actually smells really nice and not at all eggy fart."
                 "You take another whiff...and start to feel a bit woozy..."
                 p "I think this perfume is spiked...where's xX_DarkRaven496283_Xx when you need him???"
-                #emo default
+                show emoDefault
                 e "u-um im rite here :3 i cant help u senpie cuz im allergic to balsam and cedar ... >.<"
-                #emo sad
+                hide emoDefault
+                show emoSad
                 e "....as well as genuine hap-pee-ness and self-confidence and rainbows and self-appreciation etc."
+                hide emoSad
                 menu:
                     "Go to the nearest Bath and Booty Works and sample another perfume to get rid of the balsam and cedar scent emitting from your clothes.":
                         jump bathAndBody
@@ -1473,12 +1528,14 @@ label start:
                     scene bathAndBooty
                     "You go to the nearest Bath and Booty Works with xX_DarkRaven496283_Xx."
                     p "Which scent do you want me to wear?"
-                    #emo blushy
+                    show emoBlush
                     e "hmmm >.< me thinks u would smeel good in Onyx Blade Pitch-Black Metallic Dark Luster."
+                    hide emoBlush
                     "Unfortunately the store is out of stock in that scent. You spray a simple Cherry Blossom instead."
-                    #emo blushy
+                    show emoBlush
                     e "o-owo? what is dis feeling im feeling? O.O"
                     e "it seems 2 bee....luv..."
+                    hide emoBlush
                     scene concert
                     "You and the edgelord go back to the My Biological Romance concert."
                     "..."
@@ -1502,14 +1559,18 @@ label start:
                     k "It's as if we were meant to be!"
                     hide kingBlush
                     "Unfortunately xX_DarkRaven496283_Xx  arrives just then."
-                    #emo default on side
+                    show emoDefault
                     e "O.O how dare you run after my sen pie!!! she is MINE XD"
+                    hide emoDefault
+                    show emoAngry
                     e "Watashi no kutsu no nioi o tomeru koto ga dekimasu ka? Watashi wa senjitsu mizutamari ni ashi o fumiireta"
-                    "Unfortunately, you had no idea that xX_DarkRaven496283_Xx speaks Japanese, let alone undersood what that meant."
+                    hide emoAngry
+                    "Unfortunately, you had no idea that xX_DarkRaven496283_Xx was a weeaboo, let alone undersood what that meant."
                     "Fortunately it seems to intimidate King Samson II, who nervously hops away."
-                    #emo blushy
+                    show emoBlush
                     e " *nuzzles* i will always protecc you"
                     e "i will be there 4 u ... even when no one will be there for me ... ^_^"
+                    hide emoBlush
                     "..."
                     scene blackTransition
                     "You and xX_DarkRaven496283_Xx safely leave the MBR concert. You're kind of weirded out, but also strangely happy...."
@@ -1520,7 +1581,7 @@ label start:
             "..."
             "It seems he is beckoning you to join him."
             "You're compelled, so you go towards him."
-            #rando default
+            show mbrGuy
             a "Hey bby. Can I get you a drink?"
             menu:
                 "Heckity heck yeah, free drinks!":
@@ -1528,21 +1589,28 @@ label start:
                 "Uhhhhh no thanks.":
                     jump zodiac
             label alcohol:
-                #rando default
+                show mbrGuy
                 a " oh bar ten der! Can we get two alcohol pwetty pwease?"
+                hide mbrGuy
                 "The bartender comes back with mineral water on the rocks."
                 a "So what's a doll like you doin here all alone?"
                 p "Uh actually I’m on a date with xX_DarkRaven496283_Xx."
+                show mbrGuy
                 a "Sounds fake."
-                #emo default
+                hide mbrGuy
+                show emoDefault
                 e " LOL XD are you saying i'm non-existent?"
-                #emo sad
+                hide emoDefault
+                show emoSad
                 e "becuz i wish u were right..."
-                #rando default on side
+                hide emoSad
+                show mbrGuy
                 a "Wow, I didn't know you were actually on a date with someone. Thanks for leading me on."
+                hide mbrGuy
                 "The rando leaves haughtily with mineral water."
-                #emo default
+                show emoDefault
                 e "i-im sowwy for ruining ur convo. i always ruin everything..."
+                hide emoDefault
                 p "bruh you good?"
                 "..."
                 scene blackTransition
@@ -1550,24 +1618,30 @@ label start:
                 "An hour later, you and xX_DarkRaven496283_Xx  safely leave the MBR concert. You are kind of weirded out, but also strangely happy..."
                 jump endEmoDate2
             label zodiac:
-                #rando default
+                show mbrGuy
                 a "Alright baby dog, Can I at least know your star sign? BBY?"
+                hide mbrGuy
                 menu:
                     "Scorpio":
                         jump scorpio
                     "Sagittarius.":
                         jump sagittarius
                 label scorpio:
+                    show mbrGuy
                     a "OOOoOOo a fiesty scorpion. Me likely!"
-                    #emo angry
+                    hide mbrGuy
+                    show emoAngry
                     e " *storms over* "
-                    #emo eyes closed
+                    hide emoAngry
+                    show emoDefault
                     e "I ponder of something great My lungs will fill and then deflate They fill with fire, exhale desire I know it's dire my time today I have these thoughts, so often I ought To replace that slot with what I once bought 'Cause somebody stole my car radio And now I just sit in silence"
                     "Developers note: Just a disclaimer, do not sue us. more importantly, I am not a 21p fan. i am not in 8th grade anymore."
                     e "- Twenty One Pilots"
+                    hide emoDefault
                     "The rando seems intimidated by these wise words, and scrambles away."
-                    #emo default
+                    show emoSad
                     e "i-im sowwy for ruining your convo...i always ruin everything..."
+                    hide emoSad
                     p "Bruh you good??"
                     "..."
                     scene blackTransition
@@ -1575,14 +1649,17 @@ label start:
                     "An hour later you and  xX_DarkRaven496283_Xx  safely leave the MBR concert. You're kinda weirded out, but also strangely happy..."
                     jump endEmoDate2
                 label sagittarius:
-                    #rando, default
+                    show mbrGuy
                     a "Gosh darn I would love to hang out with a hot centaur such as yourself, but unfortunately we aren't compatible. I'm sorry darlin. "
+                    hide mbrGuy
                     " xX_DarkRaven496283_Xx storms over."
-                    #emo angry
+                    show emoAngry
                     e "h-ow dare you mr rando :("
+                    hide emoAngry
                     "The rando just grumbles in disgust and leaves."
-                    #emo default
+                    show emoDefault
                     e "i-im sowwy for ruining your convo...i always ruin everything..."
+                    hide emoDefault
                     p "Bruh you good??"
                     "..."
                     scene blackTransition
@@ -1830,61 +1907,70 @@ label start:
         "In zoology class."
         "You take your usual seat next to xX_DarkRaven496283_Xx."
         "He turns to you"
-        #emo default
+        show emoDefault
         e "u-uwu...hey"
+        hide emoDefault
         menu:
             "Hey xX_DarkRaven496283_Xx.":
                 jump heyDarkRaven
             "What is it this time.":
                 jump rudeBinch
         label rudeBinch:
-            #emo sad
+            show emoSad
             e "w-why are u so mean 2 me :("
+            hide emoSad
             p " {i} Is he going to start crying again...Here we go again..."
             "You scramble to make xX_DarkRaven496283_Xx feel better, but he cuts you off."
-            #emo default
+            show emoDefault
             e "haha XD i kno u dun weally mean it bee cuz u luv me <3 ^_^."
+            hide emoDefault
             p " {i} ...{/i} "
             "You hold back from kicking him in the shin."
             jump continueDarkRavenV
         label heyDarkRaven:
-            #emo default
+            show emoDefault
             e "w-what a bland answer... >:("
+            hide emoDefault
             "You hold back from kicking him in the shin."
             jump continueDarkRavenV
     label continueDarkRavenV:
-        #emo default
+        show emoDefault
         e "a-anyways...uwu...uh..."
-        #emo blushy
+        hide emoDefault
+        show emoBlush
         e " uh... >///<"
+        hide emoBlush
         menu:
             "Hurry it up bucko.":
                 jump hurryBucko
             "...yes?":
                 jump dotDotYes
         label hurryBucko:
-            #emo sad
+            show emoSad
             e "w-why are you so rood :((((("
+            hide emoSad
             "xX_DarkRaven496283_Xx looks flustered."
             "You feel like a jerk."
             jump continueContinueDarkRavenV
         label dotDotYes:
-            #emo  blushy
+            show emoBlush
             e "u-uh >///< "
+            hide emoBlush
             "You seem to have made him even more nervous."
             jump continueContinueDarkRavenV
     label continueContinueDarkRavenV:
-        #emo blushy
+        show emoBlush
         e "u-uh..."
         e "u-uwu"
         e " >///< wait don't look @ meee"
-        p " {i} bruh whoever wrote this part must have really bad dating experience huh...{/i}"
         " You turn away from xX_DarkRaven496283_Xx at his request."
         e "a-are yew doo-ing anyting o-on valentines day? O////O"
+        hide emoBlush
         "It seems that xX_DarkRaven496283_Xx wants to spend Valentine's Day with you."
         "Maybe you should spend the holiday with him..."
-        #emo default
+        show emoDefault
         e "a-anyways.... it's thiz coming fry day so i'll wait 4 u after class u-uwu..."
+        hide emoDefault
         "xX_DarkRaven496283_Xx runs away."
         "..."
         "Class didn't even properly start yet..."
@@ -1992,8 +2078,9 @@ label start:
         show mGross
         m "...You have another date planned? What the damn hell?!"
         hide mGross
-        #emo default
+        show emoDefault
         e "...w-what is the m-meaning of this :("
+        hide emoDefault
         "xX_DarkRaven496283_Xx starts to cry..."
         show kingShocked
         k "Wait...I wasn't the only one...?"
@@ -2015,8 +2102,9 @@ label start:
             show mGross
             m "What do you MEAN?! *mutters* Just like Helen...Always like Helen..."
             hide mGross
-            #emo crying
+            show emoCry
             e "i-i i thought we had some ding special :((((("
+            hide emoCry
             "xX_DarkRaven496283_Xx is crying furiously>.."
             "..."
             jump vDayChoice
@@ -2025,8 +2113,9 @@ label start:
             show mSad
             m "I thought you were something special...I even took you to WallBlues..."
             hide mSad
-            #emo crying
+            show emoCry
             e " *sniff* >:( y-you can't just go on dates with us and t-then go with another f-frog..."
+            hide emoCry
             show kingAngry
             "King Samson II remains silent for the first time in his life. He appears to be really angry..."
             hide kingAngry
@@ -2037,8 +2126,9 @@ label start:
         show mDefault
         m "So which one of us do you REALLY love..."
         hide mDefault
-        #emo default
+        show emoDefault
         e " :( y-yeah which one do u achilly like..."
+        hide emoDefault
         show kingDefault
         k "BE TRUTHFUL THIS TIME."
         hide kingDefault
@@ -2055,8 +2145,9 @@ label start:
             show kingSlimy
             k "AHA! I KNEW YOU WOULD CHOOSE ME! *CHUCKLES HEARTILY* "
             hide kingSlimy
-            #emo sad
+            show emoSad
             e "i...i guess i just never meant any ding 2 u.... </3"
+            hide emoSad
             show mSad
             m "theyre all the same i guess...."
             hide mSad
@@ -2071,8 +2162,9 @@ label start:
             show mHiss
             m "Thank the lord you picked me! Helen will be so pleased you are now part of the family..."
             hide mHiss
-            #emo sad
+            show emoSad
             e "i...i guess i wasnt gud e-nuff... </3"
+            hide emoSad
             show kingCry
             k "I Was going to make you royalty...."
             hide kingCry
@@ -2084,8 +2176,9 @@ label start:
             "It's Valentine's day after all..."
             jump startMarvinVDate
         label loveEmo:
-            #emo blushy
+            show emoBlush
             e "y-yay *nuzzles* :3 i new u love me ... you r my every ding... <3"
+            hide emoBlush
             show kingAngry
             k "Wow...you really are shallow...they always take advantage of the rich royalty..."
             hide kingAngry
@@ -2332,8 +2425,9 @@ label start:
         scene alleyway
         "You meet xX_DarkRaven496283_Xx in front of a dark suspicious alleyway."
         p "...So where are we going?"
-        #emo default
+        show emoDefault
         e "h-huh? oh...we're already here ^_^"
+        hide emoDefault
         p "Our date is in an alleyway??"
         p " {i} Is he going to kill me... {/i}"
         menu:
@@ -2343,8 +2437,9 @@ label start:
                 jump noAlley
         label enterAlley:
             "You hesitantly enter the alleyway with  xX_DarkRaven496283_Xx ."
-            #emo blushy
+            show emoBlush
             e "prepare to bee amazed >.< "
+            hide emoBlush
             menu:
                 "Take a right.":
                     jump alleyRight
@@ -2357,11 +2452,13 @@ label start:
                 scene london
                 "You and  xX_DarkRaven496283_Xx somehow end up in London..?"
                 p "Woah...I've never been to London! Let's go to the London Bridge!"
-                #emo eyes closed
+                show emoSad
                 e "the sky is dark and grey... just the way i like it.... "
+                hide emoSad
                 "You and  xX_DarkRaven496283_Xx go sightseeing, starting with the London Bridge."
-                #emo default
+                show emoDefault
                 e "we have one more place to visit... you'll love it u-uwu;"
+                hide emoDefault
                 scene blackTransition
                 "..."
                 "You arrive at your final destination."
@@ -2371,25 +2468,29 @@ label start:
                 " xX_DarkRaven496283_Xx leads you to a gravestone in the corner, far away from the others."
                 " xX_DarkRaven496283_Xx  replaces the flowers in front of the gravestone with a fresh bouquet of chrysanthemums."
                 p "If I may ask...who is this grave dedicated to?"
-                #emo eyes closed
+                show emoSad
                 e "..."
                 e "my serotonine and dopamine levels..."
+                hide emoSad
                 p "Are you being forreal??"
-                #emo sad
+                show emoSad
                 e " *hic* ya...sad uwu"
+                hide emoSad
                 menu:
                     "Did you take biology? That's not how it works.":
                         jump biology
                     "Rest in peace??":
                         jump rip
                 label biology:
-                    #emo angry
+                    show emoAngry
                     e " *sniffle* YOU DON'T UNDERSTAND DX"
                     e "THE BIOLOGISTS ARE CONSPIRACY"
+                    hide emoAngry
                     "You are taken aback."
                     "...He rarely ever speaks in capslock."
-                    #emo eyes closed
+                    show emoDefault
                     e "when i leave this realm i hope to be buried next to my happiness..."
+                    hide emoDefault
                     p "...alright that's enough sad boi hours for now."
                     scene blackTransition
                     "You wait for  xX_DarkRaven496283_Xx to finish and drag him out of the graveyard."
@@ -2399,8 +2500,9 @@ label start:
                 label rip:
                     p "Well wherever your serotonin and dopamine is gone, I'm sure they're having a nice time..."
                     " xX_DarkRaven496283_Xx  continues to cry."
-                    #emo crying
+                    show emoCry
                     e "thx dat meanz a lotta :,("
+                    hide emoCry
                     scene blackTransition
                     "..."
                     "You wait for  xX_DarkRaven496283_Xx  to finish and drag him out of the graveyard."
@@ -2412,8 +2514,9 @@ label start:
                 scene fitnessCenter
                 "You end up in front of a dark building. Others walk in with work-out clothes from Boiled Topic..."
                 p "Is this...a fitness center for emos?"
-                #emo default
+                show emoDefault
                 e "i thought it would be nice to work out away from our sadness and pain..."
+                hide emoDefault
                 "You both enter the building and open the fifth door on your right."
                 "It's a zumba class!"
                 "Which unfitting new wave emo song will you work out to?"
@@ -2428,10 +2531,12 @@ label start:
                     "Suddenly the audio plays a random G note at max volume. The whole class goes silent."
                     p "...what's happening??"
                     "The entire class, including  xX_DarkRaven496283_Xx  starts to tear up."
-                    #emo sad
+                    show emoSad
                     e "w-why? i skipped yezterdays zumba class specifically to avoid this note..."
-                    #emo eyes closed
+                    hide emoSad
+                    show emoCry
                     e "W-WHEN I WAS...A YOUNG BOY...M-MY FATHER....TOOK ME INTO THE CITY..."
+                    hide emoCry
                     "The entire class except for you joins in, crying and singing along..."
                     "It seems this is some sort of overused emo anthem..."
                     scene blackTransition
@@ -2439,17 +2544,18 @@ label start:
                     jump almostEnd
         label noAlley:
             p "I don't really feel comfortable walking inside a pitch black alleyway...Can we just grab a bite at La Fermue du Roi?"
-            #emo default
+            show emoDefault
             e "...you want to go to a 5 star french restaurant?? on valentines day?? w-what a weirdo omg... >.< XD"
             e "...sure why not."
+            hide emoDefault
             scene fancyRestaurant
             "You and  xX_DarkRaven496283_Xx travel to La Fermue du Roi. There's no seating available so you go to La Bouteille D'eau instead. It also has 5 Michelle Lin stars."
             "You get seated. Your server is kind of confused that there's a frog with a fringe sitting across from you  (in case you forgot you're literally dating frogs)."
             #food workerd default
             w "Erm madame, is this your pet?"
-            #emo eyes closed
+            show emoDefault
             e " we are all pets of the universe....trapped and forgotten once we perish..."
-            #food worker default
+            hide emoDefault
             w "..."
             w "Anyways *clears throat* what would you like to order?"
             menu:
@@ -2459,8 +2565,9 @@ label start:
                     jump burger
             label pasta:
                 w "Excellent choice!"
-                #emo sad
+                show emoSad
                 e "i cant eat pasta...its lent month."
+                hide emoSad
                 #food worker default
                 w "Benisse les dieux...YOU ARE A FROG! FROGS CANNOT PARTICIPATE IN LENT."
                 "You're kind of offended that your waiter is speaking so rudely to your frog companion."
@@ -2472,7 +2579,7 @@ label start:
                 label offensive:
                     #food worker mad
                     w "How dare you??"
-                    #transition, black
+                    scene blackTransition
                     "You grab  xX_DarkRaven496283_Xx and run out of the restaurant before the waiter whistles for his dogs to chase you."
                     jump almostEnd
             label burger:
@@ -2480,11 +2587,13 @@ label start:
                 w "I'm sorry madame, we do not serve burgers. This is French cuisine *kisses fingers and makes a MUAH sound.*"
                 w "In fact...we're out of steamed frogs, and the local frog market is closed..."
                 w "Say...you wouldn't happen to be terribly sad if I borrowed your pet frog for...purposes, would you?"
-                #emo eyes closed
+                show emoDefault
                 e " *sigh* it's about time i left this world."
+                hide emoDefault
                 " xX_DarkRaven496283_Xx sadly leaps to you."
-                #emo blushy
+                show emoBlush
                 e "you've stirred up an emotion in my chest. some call this emotion love. i wanted to thank you for sticking by my side when no one else."
+                hide emoBlush
                 "You're shocked that  xX_DarkRaven496283_Xx  would give his life to a French restaurant, only to have people eat his steamed remains."
                 "You suddenly get a flashback to middle school, when your teacher told your class to confront the bully, rather than be a bystander."
                 menu:
@@ -2498,14 +2607,16 @@ label start:
         " xX_DarkRaven496283_Xx looks a bit down...but when does he not?"
         p "Look...you shouldn't care about what others think. Like what the heck, I'm attracted to frogs?"
         p "As Teenager Post #10216 says: 'Whenever you feel sad just remember that there are billions of cells in your body and all there care about is you..'"
-        #emo default
+        show emoDefault
         e "..."
         e "n-no offwense...but ur kinda cringey >.< XD"
         e "...anyways..."
         e "i...i guess..."
-        #emo blushy
+        hide emoDefault
+        show emoBlush
         e "thanks for bweing mai princess of darkness ^_^"
         e "uwu owo ewe awa iwi XD XD :D :'D"
+        hide emoBlush
         jump endEmoVDate
     label endEmoVDate:
         "..."
